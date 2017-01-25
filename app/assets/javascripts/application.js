@@ -15,10 +15,7 @@
 //= require bootstrap.min
 //= require blur
 //= require jquery.fullPage.min
-//= require jquery.touchSwipe.min
-//= require jquery.mousewheel.min
 //= require jquery.mCustomScrollbar.concat.min
-//= require jquery.plugin.min
 //= require react
 //= require react_ujs
 //= require components
