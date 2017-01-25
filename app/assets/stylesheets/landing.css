@@ -1,0 +1,72 @@
+.masthead {
+  text-align: center;
+}
+
+.masthead h1 {
+  color: #fff;
+}
+
+.masthead p {
+  color: #fff;
+  font-size: 22px;
+  font-weight: 100;
+  margin: 0 auto;
+  text-align: center;
+  width: 70%;
+}
+
+.masthead .search-field {
+  width: 100%;
+  font-size: 18px;
+  border-radius: 5px;
+  padding: 0  30px;
+  border: none;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  height: 60px;
+}
+
+.masthead form {
+  position: relative;
+  margin-top: 10px;
+}
+
+.masthead form button {
+  position: absolute;
+  right: 25px;
+  top: 50px;
+  background: none;
+  border: none;
+  font-size: 30px;
+  color: #86939e;
+}
+
+.masthead .btn-hero {
+  border: 3px solid #fff;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin-top: 50px;
+}
+
+.masthead .btn-hero:hover {
+  background: rgba(255, 255, 255, 0.2);
+  -webkit-transition: background-color 500ms ease-out 0.2s;
+  -moz-transition: background-color 500ms ease-out 0.2s;
+  -o-transition: background-color 500ms ease-out 0.2s;
+  transition: background-color 500ms ease-out 0.2s;
+}
+
+.section-content-wrapper {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+p.lead {
+  margin-bottom: 0 !important;
+}
+
+.copyright p {
+  padding-bottom: 0 !important;
+  padding-top: 0 !important;
+}

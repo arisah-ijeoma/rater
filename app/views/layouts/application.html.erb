@@ -2,11 +2,30 @@
 <html>
 <head>
   <title>Rater</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag '//maps.googleapis.com/maps/api/js?v=3.exp' %>
+
+  <!--[if lte IE 9]>
+      <%= stylesheet_link_tag 'ie9', media: 'all', 'data-turbolinks-track' => true %>
+      <%= javascript_include_tag '//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js' %>
+      <%= javascript_include_tag '//oss.maxcdn.com/respond/1.4.2/respond.min.js' %>
+  <![endif]-->
+
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class="light">
+
+<div class="page-preloader">
+  <span class="spinner"></span>
+</div>
+
+<div class="bg-box">
+  <div class="bg-image blur-bg"></div>
+  <div class="layer"></div>
+</div>
 
 <%= yield %>
 

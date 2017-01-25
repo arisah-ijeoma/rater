@@ -1,0 +1,54 @@
+<header class='container'>
+  <figure class='brand animated fadeInLeft pull-left'>
+    <%= link_to root_path do %>
+        <%= image_tag 'rater', alt: 'logo', width: 160, height: 30 %>
+    <% end %>
+  </figure>
+  <div class="nav pull-right">
+    <nav>
+      <ul class="section-menu animated fadeInRight">
+        <li data-menuanchor="home" class="active">
+          <%= link_to root_path do %>
+              <span data-hover='Home'>Home</span>
+          <% end %>
+          </li>
+        <li data-menuanchor="portfolio"><a href="/"><span data-hover='Portfolio'>Portfolio</span></a></li>
+        <li data-menuanchor="contact"><a href="/"><span data-hover='Contact'>Contact</span></a></li>
+      </ul>
+    </nav>
+    <div class="bt-nav">
+      <div class="line line1"></div>
+      <div class="line line2"></div>
+      <div class="line line3"></div>
+    </div>
+  </div>
+</header>
+<main class='fullpage main'>
+  <section class='corner-red home' data-anchor='home'>
+    <div class="section-content-wrapper container">
+      <div class="section-content">
+        <div class="masthead text-center"> 
+          <div class="container"> 
+            <div class="row"> 
+              <div class="col-md-8 col-md-offset-2 move-up"> 
+                <h1>Rater</h1> 
+                <p class="lead text-muted">
+                  Sed eget orci eleifend enim mattis suscipit. Suspendisse potenti non ipsum.
+                </p> 
+                <form> 
+                  <input type="text" class="search-field" placeholder="Search Something ... "/> 
+                  <button type="submit"><i class="fa fa-search"></i></button> 
+                </form> 
+              </div> 
+            </div> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="copyright">
+    <p>© Rater, 2017</p>
+  </div>
+</footer>

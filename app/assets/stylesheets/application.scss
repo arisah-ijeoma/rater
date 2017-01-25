@@ -10,6 +10,14 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
+ *= require bootstrap.min
+ *= require jquery.fullPage
+ *= require animate
+ *= require jquery.mCustomScrollbar.min
+ *= require customize
+ *= require landing
  *= require_self
  */
+
+@import "font-awesome-sprockets";
+@import "font-awesome";
