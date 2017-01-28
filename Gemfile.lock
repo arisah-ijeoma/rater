@@ -42,14 +42,6 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     arel (6.0.4)
-<<<<<<< HEAD
-=======
-    babel-source (5.8.35)
-    babel-transpiler (0.7.0)
-      babel-source (>= 4.0, < 6)
-      execjs (~> 2.0)
-    bcrypt (3.1.10)
->>>>>>> f1a274c98e5d735046ee2000ff18dc0cdad4c59c
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     builder (3.2.3)
@@ -147,18 +139,6 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rake (12.0.0)
     rdoc (4.3.0)
-<<<<<<< HEAD
-=======
-    react-rails (1.10.0)
-      babel-transpiler (>= 0.7.0)
-      coffee-script-source (~> 1.8)
-      connection_pool
-      execjs
-      railties (>= 3.2)
-      tilt
-    responders (2.1.0)
-      railties (>= 4.2.0, < 5)
->>>>>>> f1a274c98e5d735046ee2000ff18dc0cdad4c59c
     sass (3.4.23)
     sass-rails (5.0.6)
       railties (>= 4.0.0, < 6)
@@ -212,11 +192,6 @@ DEPENDENCIES
   pry-nav
   pry-rails
   rails (= 4.2.5)
-<<<<<<< HEAD
-=======
-  rails-api
-  react-rails
->>>>>>> f1a274c98e5d735046ee2000ff18dc0cdad4c59c
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring
