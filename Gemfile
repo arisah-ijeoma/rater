@@ -16,9 +16,6 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
 
-# Use react in Ruby project
-gem 'react-rails'
-
 # For Icons
 gem 'font-awesome-sass', '~> 4.7.0'
 

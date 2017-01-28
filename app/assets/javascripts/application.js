@@ -16,7 +16,4 @@
 //= require blur
 //= require jquery.fullPage.min
 //= require jquery.mCustomScrollbar.concat.min
-//= require react
-//= require react_ujs
-//= require components
 //= require_tree .
