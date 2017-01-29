@@ -27,12 +27,16 @@
 </div>
 
 <%= render 'layouts/header' %>
-<div class="container show-devise">
+<div class="container">
   <div class="row">
-    <%= yield %>
+    <div class="log-box col-md-6 col-md-offset-3 col-xs-12">
+      <div id="devise">
+        <%= render 'devise/shared/errors' %>
+        <%= yield %>
+        <%= render 'layouts/footer' %>
+      </div>
+    </div>
   </div>
 </div>
-<%= render 'layouts/footer' %>
-
 </body>
 </html>

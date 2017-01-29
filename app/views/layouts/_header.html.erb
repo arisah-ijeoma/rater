@@ -1,0 +1,29 @@
+<header class='container'>
+  <figure class='brand animated fadeInLeft pull-left'>
+    <%= link_to root_path do %>
+        <%= image_tag 'rater', alt: 'logo', width: 160, height: 30 %>
+    <% end %>
+  </figure>
+  <div class="nav pull-right">
+    <nav>
+      <ul class="section-menu animated fadeInRight">
+        <li data-menuanchor="home" class="active">
+          <%= link_to root_path do %>
+              <span data-hover='Home'>Home</span>
+          <% end %>
+        </li>
+        <li data-menuanchor="Rate Someone"><a href="/"><span data-hover='Rate Someone'>Rate Someone</span></a></li>
+        <li data-menuanchor="Log In">
+          <%= link_to new_user_session_path do%>
+              <span data-hover='Log In'>Log In</span>
+          <% end %>
+        </li>
+      </ul>
+    </nav>
+    <div class="bt-nav">
+      <div class="line line1"></div>
+      <div class="line line2"></div>
+      <div class="line line3"></div>
+    </div>
+  </div>
+</header>

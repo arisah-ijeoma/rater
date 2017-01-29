@@ -2987,7 +2987,7 @@ body.light input[type="checkbox"] + label:before, body.light input[type="radio"]
 }
 /* line 80, ../../sass/_light.scss */
 body.light input[type="checkbox"]:checked + label:before {
-  background-image: url(../img/check-light.svg);
+  background-image: url('/assets/check-light.svg');
   background-repeat: no-repeat;
   background-position: center center;
 }

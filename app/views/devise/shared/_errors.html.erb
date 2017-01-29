@@ -1,0 +1,10 @@
+<% flash.each do |type, message| %>
+    <% if current_user %>
+        <% alert_class = alert_color(type) %>
+        <%= content_tag :div, message, id: "flash_#{type}", class: "alert alert-#{alert_class}" %>
+    <% else %>
+        <div class="alert alert-danger">
+          <%= message %>
+        </div>
+    <% end %>
+<% end %>
