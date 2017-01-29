@@ -22,3 +22,10 @@
 
 @import "font-awesome-sprockets";
 @import "font-awesome";
+
+.copyright {
+  position: absolute;
+  bottom: 0;
+  right: 50%;
+  transform: translateX(50%);
+}
