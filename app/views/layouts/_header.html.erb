@@ -18,12 +18,19 @@
           <% end %>
         </li>
         <% unless controller_name == 'sessions' || controller_name == 'registrations' %>
-            <li>
+            <li class="shift-cta">
               <%= link_to new_user_session_path do%>
                   <span>Log In</span>
               <% end %>
             </li>
-        <% end %>
+
+            <li class="landing-cta">
+              <%= link_to new_user_registration_path do%>
+                  <span>Sign Up</span>
+              <% end %>
+            </li>
+
+      <% end %>
       </ul>
     </nav>
     <div class="bt-nav">

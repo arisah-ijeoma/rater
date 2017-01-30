@@ -71,6 +71,20 @@ p.lead {
   padding-top: 0 !important;
 }
 
-.section-menu > li:hover {
-  color: #ccc;
+nav .section-menu > li > a:hover {
+  color: #ccc !important;
+  opacity: 1 !important;
+}
+
+nav .section-menu > li.landing-cta > a:hover {
+  color: #fff !important;
+}
+
+.landing-cta {
+  padding: 10px;
+  background-color: #a30001;
+}
+
+.shift-cta {
+  padding-right: 10px;
 }

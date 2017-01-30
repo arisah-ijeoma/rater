@@ -1111,7 +1111,10 @@ nav .section-menu {
 nav .section-menu > li {
   list-style-type: none;
   display: inline-block;
-  padding-left: 58px;
+  padding-left: 20px;
+}
+nav .section-menu > li.landing-cta {
+  padding-left: 10px;
 }
 /* line 102, ../../sass/_header.scss */
 nav .section-menu > li > a {
