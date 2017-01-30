@@ -1103,12 +1103,6 @@ nav.cl-effect-5 a span:before {
   -moz-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
 }
-/* line 87, ../../sass/_header.scss */
-nav.cl-effect-5 a:hover span, nav.cl-effect-5 a:focus span {
-  -webkit-transform: translateY(-100%);
-  -moz-transform: translateY(-100%);
-  transform: translateY(-100%);
-}
 /* line 95, ../../sass/_header.scss */
 nav .section-menu {
   line-height: 76px;

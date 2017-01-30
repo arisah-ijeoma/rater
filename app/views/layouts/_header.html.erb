@@ -7,17 +7,23 @@
   <div class="nav pull-right">
     <nav>
       <ul class="section-menu animated fadeInRight">
-        <li data-menuanchor="home" class="active">
+        <li class="remove-active">
           <%= link_to root_path do %>
-              <span data-hover='Home'>Home</span>
+              <span>Home</span>
           <% end %>
         </li>
-        <li data-menuanchor="Rate Someone"><a href="/"><span data-hover='Rate Someone'>Rate Someone</span></a></li>
-        <li data-menuanchor="Log In">
-          <%= link_to new_user_session_path do%>
-              <span data-hover='Log In'>Log In</span>
+        <li>
+          <%= link_to root_path do %>
+              <span>Rate Someone</span>
           <% end %>
         </li>
+        <% unless controller_name == 'sessions' || controller_name == 'registrations' %>
+            <li>
+              <%= link_to new_user_session_path do%>
+                  <span>Log In</span>
+              <% end %>
+            </li>
+        <% end %>
       </ul>
     </nav>
     <div class="bt-nav">

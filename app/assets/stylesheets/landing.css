@@ -70,3 +70,7 @@ p.lead {
   padding-bottom: 0 !important;
   padding-top: 0 !important;
 }
+
+.section-menu > li:hover {
+  color: #ccc;
+}
