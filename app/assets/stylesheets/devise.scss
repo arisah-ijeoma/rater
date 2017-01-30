@@ -39,10 +39,6 @@ input {
   color: #000;
 }
 
-.show-devise {
-  position: relative;
-}
-
 .mc {
   display: table;
   width: 100%;
@@ -118,4 +114,8 @@ input {
   bottom: 50%;
   position: absolute;
   transform: translate(50%, 50%);
+}
+
+.devise-links {
+  padding-top: 100px;
 }

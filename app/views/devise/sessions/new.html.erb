@@ -1,22 +1,24 @@
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class='field mc'>
+    <%= f.email_field :email, autofocus: true, placeholder: 'Email or Phone Number' %>
+  </div>
+
+  <div class='field mc'>
+    <%= f.password_field :password, autocomplete: 'off', placeholder: 'Password' %>
+  </div>
+
+  <% if devise_mapping.rememberable? %>
       <div class='field mc'>
-        <%= f.email_field :email, autofocus: true, placeholder: 'Email or Phone Number' %>
-      </div>
-
-      <div class='field mc'>
-        <%= f.password_field :password, autocomplete: 'off', placeholder: 'Password' %>
-      </div>
-
-      <% if devise_mapping.rememberable? -%>
-          <div class='field mc'>
-            <%= f.check_box :remember_me %>
-            <%= f.label :remember_me %>
-          </div>
-      <% end %>
-
-      <div class='actions'>
-        <%= f.submit 'Log in', class: 'mc-action' %>
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me %>
       </div>
   <% end %>
 
+  <div class='actions'>
+    <%= f.submit 'Log in', class: 'mc-action' %>
+  </div>
+<% end %>
+
+<div class="devise-links">
   <%= render 'devise/shared/links' %>
+</div>
