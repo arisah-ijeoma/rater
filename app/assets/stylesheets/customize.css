@@ -1216,6 +1216,10 @@ nav .section-menu > li.active > a, nav .section-menu > li.active > a:active, nav
     -o-transform: translateY(-50%);
     transform: translateY(-50%);
   }
+
+  nav .section-menu > li.landing-cta {
+    padding-top: 0;
+  }
 }
 
 /* line 177, ../../sass/_header.scss */
