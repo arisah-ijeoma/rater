@@ -16,4 +16,9 @@
 //= require blur
 //= require jquery.fullPage.min
 //= require jquery.mCustomScrollbar.concat.min
-//= require_tree .
+//= require main
+//= require_self
+
+$(function(){
+  $(".remove-active").removeClass('active');
+});
