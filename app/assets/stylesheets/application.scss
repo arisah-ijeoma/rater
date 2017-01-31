@@ -29,3 +29,19 @@
   right: 50%;
   transform: translateX(50%);
 }
+
+input::-webkit-input-placeholder {
+  color: #000 !important;
+}
+
+input:-moz-placeholder { /* Firefox 18- */
+  color: #000 !important;
+}
+
+input::-moz-placeholder {  /* Firefox 19+ */
+  color: #000 !important;
+}
+
+input:-ms-input-placeholder {
+  color: #000 !important;
+}
