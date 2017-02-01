@@ -4,6 +4,10 @@
       <%= f.email_field :email, autofocus: true, placeholder: 'Email' %>
     </div>
 
+    <div class='field mc'>
+      <%= f.text_field :phone_number, autofocus: true, placeholder: 'Phone Number' %>
+    </div>
+
     <div class="field mc">
       <% if @minimum_password_length %>
           <em>(<%= @minimum_password_length %> characters minimum)</em>
@@ -14,6 +18,19 @@
 
     <div class='field mc'>
       <%= f.password_field :password_confirmation, autocomplete: 'off', placeholder: 'Confirm Your Password' %>
+    </div>
+
+    <div class='field mc'>
+      <%= f.select :state_of_origin, User::NIGERIAN_STATES, include_blank: 'Select Your State of Origin' %>
+    </div>
+
+    <div class='field mc'>
+      <%= f.select :state_of_residence, User::NIGERIAN_STATES, include_blank: 'Select Your State of Residence' %>
+    </div>
+
+    <div class='field mc'>
+      <%= f.select :account_type, User::ACCOUNT_TYPES, include_blank: 'Select Your Account Type' %>
+      <em>By default, you will be anonymous</em>
     </div>
 
     <div class='actions'>
