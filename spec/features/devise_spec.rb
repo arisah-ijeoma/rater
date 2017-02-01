@@ -17,6 +17,7 @@ describe 'Devise', type: :feature do
         fill_in_invalid_user_details
         expect(page).to have_content('Email is invalid')
         expect(page).to have_content('Phone number is invalid')
+        expect(page).to have_content('State of origin can\'t be blank')
       end
     end
   end
@@ -35,7 +36,6 @@ describe 'Devise', type: :feature do
     fill_in 'user_phone_number', with: 'abcdefghijk'
     fill_in 'user_password', with: 'x.comske'
     fill_in 'user_password_confirmation', with: 'x.comske'
-    select 'Abia', from: 'user_state_of_origin'
     select 'Lagos', from: 'user_state_of_residence'
     click_on 'Sign up'
   end
