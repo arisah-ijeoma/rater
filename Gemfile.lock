@@ -104,6 +104,8 @@ GEM
       jsonapi-renderer (= 0.1.1.beta1)
     jsonapi-parser (0.1.1.beta3)
     jsonapi-renderer (0.1.1.beta1)
+    launchy (2.4.3)
+      addressable (~> 2.3)
     locations_ng (1.0.3)
       rails (= 4.2.6)
     loofah (2.0.3)
@@ -243,6 +245,7 @@ DEPENDENCIES
   formtastic (~> 3.0)
   jbuilder (~> 2.0)
   jquery-rails
+  launchy
   locations_ng
   pg
   pry

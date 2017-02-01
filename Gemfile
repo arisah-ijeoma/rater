@@ -34,6 +34,9 @@ gem 'formtastic', '~> 3.0'
 # For Nigerian States and Capital
 gem 'locations_ng'
 
+# Start and stop postgre/work with Capybara
+gem 'launchy'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
