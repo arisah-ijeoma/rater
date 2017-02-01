@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20170131164928) do
     t.string   "phone_number"
     t.string   "state_of_origin"
     t.string   "state_of_residence"
-    t.string   "account_type",           default: "Anonymous"
+    t.string   "account_type",           default: "Anonymous", null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
