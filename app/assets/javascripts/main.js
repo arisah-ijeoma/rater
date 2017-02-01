@@ -72,7 +72,6 @@ $(document).ready(function () {
   };
 
   blurBg();
-  customSelect();
   countDown();
   navMenu();
   notifyMe();
@@ -823,11 +822,6 @@ function blurBg() {
       radius: 10,
     });
   };
-}
-function customSelect() {
-  $('select').each(function() {
-    $(this).styler();
-  })
 }
 
 function borderWr() {

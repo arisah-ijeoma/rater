@@ -59,7 +59,7 @@ input {
 .mc {
   display: table;
   width: 100%;
-  margin-bottom: 42px;
+  margin-bottom: 25px;
   position: relative;
 }
 
@@ -126,7 +126,7 @@ input {
 }
 
 .log-box {
-  // centralizing
+  // centralizing signup and login forms
   right:50%;
   bottom: 50%;
   position: absolute;
@@ -134,5 +134,9 @@ input {
 }
 
 .devise-links {
-  padding-top: 100px;
+  padding-top: 20px;
+}
+
+select {
+  width: 100%;
 }
