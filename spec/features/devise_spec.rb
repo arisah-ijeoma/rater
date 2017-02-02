@@ -53,6 +53,26 @@ describe 'Devise', type: :feature do
     end
   end
 
+  context 'reset password' do
+    context 'valid reset' do
+      scenario 'user can sign in with email' do
+        visit new_user_password_path
+        fill_in 'user_login', with: user.phone_number
+        click_on 'Reset Password'
+        expect(page).to have_content('You will receive an email with instructions on how to reset your password in a few minutes.')
+      end
+    end
+
+    context 'invalid reset' do
+      scenario 'user gets error with invalid phone number or email' do
+        visit new_user_password_path
+        fill_in 'user_login', with: 'me.com'
+        click_on 'Reset Password'
+        expect(page).to have_content('phone number or email can\'t be blank')
+      end
+    end
+  end
+
   def fill_in_user_details
     fill_in 'user_email', with: 'me@her.com'
     fill_in 'user_phone_number', with: '+234123456789'
