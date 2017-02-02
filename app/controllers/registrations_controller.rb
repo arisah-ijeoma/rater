@@ -1,5 +1,4 @@
 class RegistrationsController < Devise::RegistrationsController
-
   private
 
   def sign_up_params
@@ -21,5 +20,11 @@ class RegistrationsController < Devise::RegistrationsController
                                  :password,
                                  :password_confirmation,
                                  :current_password)
+  end
+
+  protected
+
+  def after_sign_up_path_for(resource)
+    home_index_path
   end
 end

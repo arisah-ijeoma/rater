@@ -59,8 +59,8 @@ RSpec.configure do |config|
   config.include Devise::TestHelpers, type: :controller
   config.include Devise::TestHelpers, type: :view
 
-  Capybara.configure do |config|
-    config.match = :prefer_exact
-    config.always_include_port = true
+  Capybara.configure do |c|
+    c.match = :prefer_exact
+    c.always_include_port = true
   end
 end
