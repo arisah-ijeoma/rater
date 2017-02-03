@@ -3,4 +3,5 @@ Rails.application.routes.draw do
 
   root 'landing#index'
   resources :home, only: :index
+  resources :profile, except: [:index, :new, :create]
 end

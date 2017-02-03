@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   attr_accessor :login
-  # attr_accessible :phone_number, :login
+  after_create :add_profile
+
+  has_one :profile
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
@@ -28,11 +30,14 @@ class User < ActiveRecord::Base
     end
   end
 
+  private
+
+  def add_profile
+    self.create_profile!(brief: "I am a Nigerian. Hear me roar!")
+  end
+
   protected
 
-  # Attempt to find a user by it's email. If a record is found, send new
-  # password instructions to it. If not user is found, returns a new user
-  # with an email not found error.
   def self.send_reset_password_instructions(attributes = {})
     recoverable = find_recoverable_or_initialize_with_errors(reset_password_keys, attributes, :not_found)
     recoverable.send_reset_password_instructions if recoverable.persisted?
