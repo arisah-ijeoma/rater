@@ -13,14 +13,14 @@
       background-color: #ffeeee;
       border-color: #eed3d7;
       color: #b94a48;
-      font-size: 1em;
+      font-size: 0.7em;
     }
 
     &.alert-success {
       background-color: #dff0d8;
       border-color: #b2dba1;
       color: #3c763d;
-      font-size: 1em;
+      font-size: 0.7em;
       animation: hide-after-delay 0.5s forwards;
       animation-iteration-count: 1;
       animation-delay: 3.5s;
@@ -54,90 +54,90 @@
     color: #fff !important;
   }
 
-}
+  input {
+    color: #000;
+  }
 
-input {
-  color: #000;
-}
+  .mc {
+    display: table;
+    width: 100%;
+    margin-bottom: 25px;
+    position: relative;
+  }
 
-.mc {
-  display: table;
-  width: 100%;
-  margin-bottom: 25px;
-  position: relative;
-}
+  .mc input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #fff;
+    font-size: 13px;
+    color: #fff;
+    padding-bottom: 11px;
+    padding-left: 50px;
+    margin: 0;
+    position: relative;
+    top: 0;
+  }
 
-.mc input {
-  width: 100%;
-  background: transparent;
-  border: none;
-  border-bottom: 2px solid #fff;
-  font-size: 13px;
-  color: #fff;
-  padding-bottom: 11px;
-  padding-left: 50px;
-  margin: 0;
-  position: relative;
-  top: 0;
-}
+  .mc input:focus {
+    border-color: #fff;
+    color: #fff;
+    outline: none;
+  }
 
-.mc input:focus {
-  border-color: #fff;
-  color: #fff;
-  outline: none;
-}
+  .mc input:focus + span {
+    background: #fff;
+    color: #a30001;
+    border-color: #fff;
+  }
 
-.mc input:focus + span {
-  background: #fff;
-  color: #a30001;
-  border-color: #fff;
-}
+  .mc span {
+    width: 36px;
+    height: 38px;
+    display: table;
+    float: left;
+    transform: rotate(45deg);
+    border: 1px solid #fff;
+    background: #a30001;
+    color: #fff;
+    padding: 11px;
+    position: absolute;
+    top: 13px;
+    z-index: 88;
+  }
 
-.mc span {
-  width: 36px;
-  height: 38px;
-  display: table;
-  float: left;
-  transform: rotate(45deg);
-  border: 1px solid #fff;
-  background: #a30001;
-  color: #fff;
-  padding: 11px;
-  position: absolute;
-  top: 13px;
-  z-index: 88;
-}
+  .mc span i {
+    display: table;
+    transform: rotate(-45deg);
+  }
 
-.mc span i {
-  display: table;
-  transform: rotate(-45deg);
-}
+  .mc-action {
+    width: 70%;
+    border-radius: 50px;
+    border: none;
+    background-color: #f0f0f0;
+    font-size: 1.3em;
+  }
 
-.mc-action {
-  width: 70%;
-  border-radius: 50px;
-  border: none;
-  background-color: #f0f0f0;
-  font-size: 1.3em;
-}
+  .mc-action:hover {
+    background: #a30001;
+    color: #fff;
+  }
 
-.mc-action:hover {
-  background: #a30001;
-  color: #fff;
+  .devise-links {
+    padding-top: 20px;
+  }
+
+  select {
+    width: 100%;
+  }
+
 }
 
 .log-box {
   // centralizing signup and login forms
   right: 50%;
-  bottom: 50%;
+  bottom: 60%;
   position: absolute;
   transform: translate(50%, 50%);
-}
-
-.devise-links {
-  padding-top: 20px;
-}
-
-select {
-  width: 100%;
 }
