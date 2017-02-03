@@ -1,4 +1,6 @@
 class ProfilesController < ApplicationController
+  load_and_authorize_resource class: 'Profile'
+
   def show
     @profile = Profile.find_by(id: params[:id])
   end

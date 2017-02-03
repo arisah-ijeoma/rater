@@ -16,6 +16,9 @@ gem 'sass-rails', '~> 5.0'
 # Use for user authentication
 gem 'devise'
 
+# Use for user authorization
+gem 'cancancan'
+
 # Use to serialize data in json
 gem 'active_model_serializers', '~> 0.10.0'
 
@@ -33,6 +36,9 @@ gem 'formtastic', '~> 3.0'
 
 # For Nigerian States and Capital
 gem 'locations_ng'
+
+# Hide sensitive data
+gem 'figaro'
 
 # Start and stop postgre/work with Capybara
 gem 'launchy'

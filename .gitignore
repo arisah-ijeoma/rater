@@ -21,3 +21,6 @@ config/database.yml
 public/assets/**
 vendor/assets/.DS_Store
 
+
+# Ignore application configuration
+/config/application.yml
