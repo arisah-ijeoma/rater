@@ -29,8 +29,7 @@
     </div>
 
     <div class='field mc'>
-      <%= f.select :account_type, User::ACCOUNT_TYPES, include_blank: 'Select Your Account Type' %>
-      <em>By default, you will be anonymous</em>
+      <%= f.select :account_type, User::ACCOUNT_TYPES %>
     </div>
 
     <div class='actions'>
