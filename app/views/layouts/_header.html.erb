@@ -17,7 +17,7 @@
               <span>Rate Someone</span>
           <% end %>
         </li>
-        <% unless controller_name == 'sessions' || controller_name == 'registrations' %>
+        <% unless show_devise('sessions', 'registrations', 'passwords') %>
             <li class="shift-cta">
               <%= link_to new_user_session_path do%>
                   <span>Log In</span>
