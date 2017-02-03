@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
 
   ACCOUNT_TYPES = %w( Anonymous Student Lecturer Politician Pastor )
 
-  validates :phone_number, :state_of_origin, :state_of_residence, presence: true
+  validates :phone_number, presence: true
   validates :email, format: { with: Devise.email_regexp }
   validates :phone_number, format: { with: /[[:digit:]]{10}/ }, length: {minimum: 11, maximum: 14}
 

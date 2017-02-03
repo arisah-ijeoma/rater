@@ -17,15 +17,7 @@
     </div>
 
     <div class='field mc'>
-      <%= f.select :state_of_origin, User::NIGERIAN_STATES, include_blank: 'Select Your State of Origin' %>
-    </div>
-
-    <div class='field mc'>
-      <%= f.select :state_of_residence, User::NIGERIAN_STATES, include_blank: 'Select Your State of Residence' %>
-    </div>
-
-    <div class='field mc'>
-      <%= f.select :account_type, User::ACCOUNT_TYPES %>
+      <%= f.select :account_type, User::ACCOUNT_TYPES, {}, {class: 'styled-select slate'} %>
     </div>
 
     <div class='actions'>
