@@ -26,15 +26,15 @@ class ProfilesController < ApplicationController
                                     :profession,
                                     :course_of_study,
                                     :brief,
+                                    :state_of_origin,
+                                    :state_of_residence,
                                     user_attributes: [
                                       :id,
                                       :email,
                                       :password,
                                       :password_confirmation,
                                       :phone_number,
-                                      :account_type,
-                                      :state_of_origin,
-                                      :state_of_residence
+                                      :account_type
                                     ])
   end
 end

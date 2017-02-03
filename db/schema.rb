@@ -21,10 +21,12 @@ ActiveRecord::Schema.define(version: 20170203002106) do
     t.string   "profile_picture"
     t.string   "profession"
     t.string   "course_of_study"
+    t.string   "state_of_origin"
+    t.string   "state_of_residence"
     t.text     "brief"
     t.integer  "user_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
@@ -41,8 +43,6 @@ ActiveRecord::Schema.define(version: 20170203002106) do
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
     t.string   "phone_number"
-    t.string   "state_of_origin"
-    t.string   "state_of_residence"
     t.string   "account_type",           default: "Anonymous", null: false
     t.boolean  "admin",                  default: false,       null: false
   end
