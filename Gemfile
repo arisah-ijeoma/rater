@@ -4,9 +4,6 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 
-# Use for API only application
-gem 'rails-api'
-
 # Use pg as the database for Active Record
 gem 'pg'
 
@@ -19,9 +16,6 @@ gem 'devise'
 # Use for user authorization
 gem 'cancancan'
 
-# Use to serialize data in json
-gem 'active_model_serializers', '~> 0.10.0'
-
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
@@ -33,9 +27,6 @@ gem 'font-awesome-sass', '~> 4.7.0'
 
 # For form building
 gem 'formtastic', '~> 3.0'
-
-# For Nigerian States and Capital
-gem 'locations_ng'
 
 # Hide sensitive data
 gem 'figaro'
