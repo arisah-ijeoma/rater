@@ -1,0 +1,26 @@
+#home_form {
+  position: relative;
+  margin-top: 10px;
+}
+
+.search-bar {
+  width: 100%;
+  font-size: 18px;
+  padding: 0  30px;
+  border: none;
+  border-bottom: 2px solid #a30001;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  height: 60px;
+}
+
+
+#home_form button {
+  position: absolute;
+  right: 25px;
+  top: 50px;
+  background: none;
+  border: none;
+  font-size: 30px;
+  color: #86939e;
+}
