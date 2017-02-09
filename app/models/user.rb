@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
   private
 
   def add_profile
-    self.create_profile!(brief: "I am a Nigerian. Hear me roar!")
+    Profile.create(user_id: self.id, brief: "I am a Nigerian. Hear me roar!")
   end
 
   protected

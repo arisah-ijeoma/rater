@@ -1,0 +1,64 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="col-md-12" id="m-contact" data-animated="0">
+      <h3 class="text-center">Edit Your Profile</h3>
+      <%= semantic_form_for @profile, method: :put, html: {class: 'contact-form', 'data-animated' => '0'} do |f| %>
+          <div class="row">
+              <%= f.inputs do %>
+                  <div class="mc-brief">
+                    <%= f.input :brief, input_html: { maxlength: 150 } %>
+                  </div>
+                  <div class="mc">
+                    <%= f.input :full_name %>
+                  </div>
+                  <div class="mc">
+                    <%= f.input :profile_picture %>
+                  </div>
+                  <div class="mc">
+                    <%= f.input :course_of_study %>
+                  </div>
+                  <div class="mc">
+                    <%= f.input :profession %>
+                  </div>
+                  <div class="mc">
+                    <%= f.input :state_of_origin,
+                                as: :select,
+                                collection: Profile::NIGERIAN_STATES,
+                                include_blank: 'Select your state of origin',
+                                input_html: {class: 'styled-select slate profile'} %>
+                  </div>
+                  <div class="mc">
+                    <%= f.input :state_of_residence,
+                                as: :select,
+                                collection: Profile::NIGERIAN_STATES,
+                                include_blank: 'Select your state of residence',
+                                input_html: {class: 'styled-select slate profile'} %>
+                  </div>
+                  <%= f.fields_for :user do |u| %>
+                      <div class="mc">
+                        <%= u.input :password %>
+                      </div>
+                      <div class="mc">
+                        <%= u.input :password_confirmation %>
+                      </div>
+                      <div class="mc">
+                        <%= u.input :phone_number, input_html: { value: current_user.phone_number } %>
+                      </div>
+                      <div class="mc">
+                        <%= u.input :account_type,
+                                    as: :select,
+                                    collection: User::ACCOUNT_TYPES,
+                                    include_blank: false,
+                                    selected: current_user.account_type,
+                                    input_html: {class: 'styled-select slate profile'} %>
+                      </div>
+                  <% end %>
+                  <%= f.action :submit, label: 'Save Profile', button_html: {class: 'mc-main-action', data: {disable_with: 'Please wait...'}} %>
+              <% end %>
+
+          </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+

@@ -11,6 +11,15 @@ class ProfilesController < ApplicationController
 
   def update
     @profile = current_user.profile
+
+    if params[:profile][:user_attributes][:password].blank?
+      params[:profile][:user_attributes].delete(:password)
+    end
+
+    if params[:profile][:user_attributes][:password].blank?
+      params[:profile][:user_attributes].delete(:password_confirmation)
+    end
+
     if @profile.update_attributes(profile_params)
       redirect_to @profile, notice: 'Profile successfully updated'
     else
