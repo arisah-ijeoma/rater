@@ -1,54 +1,3 @@
-/*------------------------------------------------------------------
-Theme Name: MOMENTAL
-Version:1.0
--------------------------------------------------------------------*/
-
-/*------------------------------------------------------------------
-[TABLE OF CONTENTS]
-
-	1. Global Styles
-	2. Header Styles
-		- 2.1. Logo
-		- 2.2. Navmenu
-		- 2.3. Hidden Content 
-	3. Main Styles
-	4. Intro Slider
-	5. Welcome Styles
-	6. Services
-	7. Tab Styles
-	8. Portfolio
-	9. Blog Styles
-	10. Pricing Table 
-	11. Testimonial 
-	12. Icons Wrap
-	13. Vertical Tab
-	14. Timeline Styles
-	15. Shop Styles
-	16. Promo Content
-	17. Footer
-		- 17.1. Contact form 
-		- 17.2. Contact Info 
-		- 17.3. Flickrfeed
-		- 17.4. Copyright Info
-	18. Subpages
-		- 18.1. Page header
-			18.1.1 Breadcrumbs 
-		- 18.2 Extras 
-	19 Team Styles
-	20. Skills Styles
-	21. Clients
-	22. Blog - Single Page
-		- 22.1. Comments
-	23. Contact Page
-		- 23.1. Map Styles
-	24. Sidebar Styles
-
--------------------------------------------------------------------*/
-
-/*------------------------------------------------- 
-                1. Global Styles
--------------------------------------------------*/
-
 html {
 	overflow-y:scroll;
 }
@@ -58,13 +7,13 @@ body {
 	font-family: "Roboto","Helvetica Neue",Helvetica,Arial,sans-serif;
 	padding-top: 50px;
 	padding-bottom: 70px;
-	background: url(../img/bg-pattern.jpg) no-repeat center center fixed;
+	background: url('/assets/background.jpg') no-repeat center center fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
-	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.img/bg-pattern.jpg', sizingMethod='scale');
-	-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/bg-pattern.jpg', sizingMethod='scale')";
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='background.jpg', sizingMethod='scale');
+	-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='background.jpg', sizingMethod='scale')";
 }
 
 dl,dt,dd,ul,ol,li {

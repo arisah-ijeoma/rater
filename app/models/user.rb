@@ -8,9 +8,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          authentication_keys: [:login]
 
-  # @@states_and_capitals = LocationsNg::State.all
-  # NIGERIAN_STATES = @@states_and_capitals.map { |h| h.slice(:name).values }
-  #
   ACCOUNT_TYPES = %w( Anonymous Student Lecturer Politician Pastor )
 
   validates :phone_number, presence: true
@@ -71,7 +68,7 @@ class User < ActiveRecord::Base
     record
   end
 
-  def self.find_record login
+  def self.find_record(login)
     where(["phone_number = :value OR email = :value", {value: login}]).first
   end
 end

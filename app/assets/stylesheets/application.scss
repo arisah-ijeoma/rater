@@ -11,38 +11,53 @@
  * file per style scope.
  *
  *= require bootstrap.min
+ *= require owl.carousel
+ *= require owl.theme
+ *= require easy-responsive-tabs
+ *= require flexslider.css
  *= require jquery.fullPage
- *= require animate
  *= require jquery.mCustomScrollbar.min
  *= require formtastic
- *= require customize
- *= require landing
- *= require devise
+ *= require main
+ *= require main-responsive
  *= require_self
+ *= require profile
+ *= require prettyphoto-rails
  */
 
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
-.copyright {
-  position: absolute;
-  bottom: 0;
-  right: 50%;
-  transform: translateX(50%);
+.icon-style {
+  padding: 0 !important;
 }
 
-input::-webkit-input-placeholder {
-  color: #000 !important;
+.alert {
+  &.alert-danger {
+    background-color: #ffeeee;
+    border-color: #eed3d7;
+    color: #b94a48;
+    font-size: 1.2em;
+  }
+
+  &.alert-success {
+    background-color: #dff0d8;
+    border-color: #b2dba1;
+    color: #3c763d;
+    font-size: 1.2em;
+    animation: hide-after-delay 0.5s forwards;
+    animation-iteration-count: 1;
+    animation-delay: 3.5s;
+  }
 }
 
-input:-moz-placeholder { /* Firefox 18- */
-  color: #000 !important;
-}
-
-input::-moz-placeholder {  /* Firefox 19+ */
-  color: #000 !important;
-}
-
-input:-ms-input-placeholder {
-  color: #000 !important;
+@keyframes hide-after-delay {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    height:0;
+    margin: 0;
+  }
 }

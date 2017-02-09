@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  before_action :set_styling
 
   layout :layout_by_resource
 
@@ -25,8 +26,18 @@ class ApplicationController < ActionController::Base
   def layout_by_resource
     if devise_controller?
       'devise'
+    elsif controller_name == 'landing'
+      'landing'
     else
       'application'
+    end
+  end
+
+  def set_styling
+    if controller_name == 'landing' || devise_controller?
+      @css_root = 'landing/application'
+    else
+      @css_root = 'application'
     end
   end
 end

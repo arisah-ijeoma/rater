@@ -9,8 +9,7 @@ describe 'Devise', type: :feature do
         visit new_user_registration_path
         fill_in_user_details
         click_on 'Sign up'
-        expect(page).to have_content('Log Out')
-        # update with profile details when ready
+        expect(page).to have_content('Edit Your Profile')
       end
     end
 
@@ -27,14 +26,12 @@ describe 'Devise', type: :feature do
   context 'sign in' do
     context 'valid sign in' do
       scenario 'user can sign in with email' do
-        visit new_user_session_path
         email_login user
         expect(page).to have_content('Log Out')
         expect(page).to have_content("Hi, #{user.email}")
       end
 
       scenario 'user can sign in with phone number' do
-        visit new_user_session_path
         digits_login user
         expect(page).to have_content('Log Out')
         expect(page).to have_content("Hi, #{user.email}")

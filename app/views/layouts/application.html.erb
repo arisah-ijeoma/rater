@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Rater</title>
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag @css_root, media: 'all', 'data-turbolinks-track' => true %>
+
+  <%= stylesheet_link_tag '//fonts.googleapis.com/css?family=Montserrat:400,700', rel: 'stylesheet' %>
+  <%= stylesheet_link_tag '//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,700,900', rel: 'stylesheet' %>
+  <%= stylesheet_link_tag '//fonts.googleapis.com/css?family=Raleway:400,100,100italic,200,300,300italic,400italic,500,700,900', rel: 'stylesheet' %>
+  <%= stylesheet_link_tag '//fonts.googleapis.com/css?family=Open+Sans:400,100,100italic,200,300,300italic,400italic,500,700,900', rel: 'stylesheet' %>
+
+
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
   <!--[if lte IE 9]>
@@ -15,24 +24,26 @@
 
   <%= csrf_meta_tags %>
 </head>
-<body class="light">
+<body id="page-top">
 
-<div class="page-preloader">
-  <span class="spinner"></span>
-</div>
+<div class="outer-wrap">
+  <div class="container">
+    <div class="col-md-3 m-left">
+      <%= render 'layouts/header' %>
+    </div>
 
-<div class="bg-box">
-  <div class="bg-image blur-bg"></div>
-  <div class="layer"></div>
-</div>
+    <div class="col-md-9 m-right">
+      <div class="container">
+        <div class="row">
+          <%= render 'devise/shared/errors' %>
+          <%= yield %>
+        </div>
+      </div>
 
-<%= render 'layouts/header' %>
-<div class="container">
-  <div class="row">
-    <%= yield %>
+      <%= render 'layouts/footer' %>
+    </div>
   </div>
 </div>
-<%= render 'layouts/footer' %>
 
 </body>
 </html>

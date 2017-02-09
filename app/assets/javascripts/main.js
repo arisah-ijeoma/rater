@@ -63,21 +63,6 @@ $(document).ready(function () {
         fit: true
     });
 
-    // Flickrfeed
-    $('#flickr').jflickrfeed({
-        limit: 5,
-        qstrings: {
-            id: '52617155@N08'
-        },
-        itemTemplate: '<li><a href="{{image_b}}"><img src="{{image_s}}" alt="{{title}}" /></a></li>'
-    });
-
-    $(".m-hide").on( "click", function() {
-        $(".m-header").slideToggle();
-        return false;
-    });
-
-
     // NAvigation
     $('.dropdown').toggleClass('inactive-header');
     // The Dropdown
@@ -206,48 +191,6 @@ jQuery(document).ready(function ($) {
 
 
 /* Hidden content js */
-
-// Google Map
-$(function () {
-    var map = new GMaps({
-        el: "#map",
-        lat: 40.714353,
-        lng: -74.005973,
-        zoom: 16,
-        zoomControl: true,
-        zoomControlOpt: {
-            style: "BIG",
-            position: "TOP_LEFT"
-        },
-        panControl: true,
-        streetViewControl: false,
-        mapTypeControl: false,
-        overviewMapControl: false
-    });
-
-    var styles = [{
-        stylers: [{
-            hue: "#00ffe6"
-        }, {
-            saturation: -100
-        }]
-    }];
-
-    map.addStyle({
-        styledMapName: "Styled Map",
-        styles: styles,
-        mapTypeId: "map_style"
-    });
-
-    map.setStyle("map_style");
-
-    map.addMarker({
-        lat: 40.714353,
-        lng: -74.005973,
-        icon: "img/marker.png"
-    });
-});
-
 /* Animation */
 
 if ( $(window).width() > 739) {     

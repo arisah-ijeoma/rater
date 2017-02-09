@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rater</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+  <%= stylesheet_link_tag @css_root, media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+  <!--[if lte IE 9]>
+      <%= stylesheet_link_tag 'ie9', media: 'all', 'data-turbolinks-track' => true %>
+      <%= javascript_include_tag '//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js' %>
+      <%= javascript_include_tag '//oss.maxcdn.com/respond/1.4.2/respond.min.js' %>
+  <![endif]-->
+
+  <%= csrf_meta_tags %>
+</head>
+<body class="light">
+
+<div class="page-preloader">
+  <span class="spinner"></span>
+</div>
+
+<div class="bg-box">
+  <div class="bg-image blur-bg"></div>
+  <div class="layer"></div>
+</div>
+
+<%= render 'layouts/landing_header' %>
+<div class="container">
+  <div class="row">
+    <%= yield %>
+  </div>
+</div>
+<%= render 'layouts/landing_footer' %>
+
+</body>
+</html>

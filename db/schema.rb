@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20170203002106) do
   enable_extension "plpgsql"
 
   create_table "profiles", force: :cascade do |t|
-    t.string   "full_name"
+    t.string   "full_name",          default: "Anonymous", null: false
     t.string   "profile_picture"
     t.string   "profession"
     t.string   "course_of_study"
@@ -25,8 +25,8 @@ ActiveRecord::Schema.define(version: 20170203002106) do
     t.string   "state_of_residence"
     t.text     "brief"
     t.integer  "user_id"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
   end
 
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree

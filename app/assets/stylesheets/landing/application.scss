@@ -1,0 +1,37 @@
+/*
+  *= require bootstrap.min
+  *= require jquery.fullPage
+  *= require animate
+  *= require jquery.mCustomScrollbar.min
+  *= require formtastic
+  *= require customize
+  *= require landing
+  *= require devise
+  *= require_self
+*/
+
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+.copyright {
+  position: absolute;
+  bottom: 0;
+  right: 50%;
+  transform: translateX(50%);
+}
+
+input::-webkit-input-placeholder {
+  color: #000 !important;
+}
+
+input:-moz-placeholder { /* Firefox 18- */
+  color: #000 !important;
+}
+
+input::-moz-placeholder {  /* Firefox 19+ */
+  color: #000 !important;
+}
+
+input:-ms-input-placeholder {
+  color: #000 !important;
+}

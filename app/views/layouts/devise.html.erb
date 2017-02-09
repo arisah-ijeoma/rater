@@ -4,7 +4,7 @@
   <title>Rater</title>
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag @css_root, media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
   <!--[if lte IE 9]>
@@ -26,7 +26,7 @@
   <div class="layer"></div>
 </div>
 
-<%= render 'layouts/header' %>
+<%= render 'layouts/landing_header' %>
 <div class="container">
   <div class="row">
     <div class="log-box col-md-3 col-md-offset-5 col-sm-4 col-sm-offset-4 col-xs-12">
@@ -38,6 +38,6 @@
     </div>
   </div>
 </div>
-<%= render 'layouts/footer' %>
+<%= render 'layouts/landing_footer' %>
 </body>
 </html>
