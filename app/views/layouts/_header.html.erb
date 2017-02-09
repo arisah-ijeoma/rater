@@ -7,42 +7,21 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand icon-style" href="./index.html">
+      <%= link_to home_index_path, class: 'navbar-brand icon-style' do %>
         <%= image_tag 'rater', class: 'img-responsive', alt: 'logo', width: 80 %>
-      </a>
+      <% end %>
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right menu-effect">
-        <li class="current"><a href="./index.html" data-hover="Home">Home</a></li>
-        <li>
-          <a class="dropdown" data-hover="About&nbsp;Us&nbsp;&#9663;">About Us &#9662;</a>
-          <ul class="v-dropdown">
-            <li><a href="./about.html" data-hover="About&nbsp;Us&nbsp;1">About Us 1</a></li>
-            <li><a href="./about.html" data-hover="About&nbsp;Us&nbsp;2">About Us 2</a></li>
-            <li><a href="./about.html" data-hover="About&nbsp;Us&nbsp;3">About Us 3</a></li>
-            <li><a href="./about.html" data-hover="About&nbsp;Us&nbsp;4">About Us 4</a></li>
-          </ul>
+        <li class="current">
+          <%= link_to 'Home', home_index_path, 'data-hover' => 'Home' %>
         </li>
-        <li><a href="./portfolio.html" data-hover="Portfolio">Portfolio</a></li>
-        <li><a href="./blog.html" data-hover="Blog">Blog</a></li>
-        <li><a href="./single-post.html" data-hover="Blog&nbsp;-&nbsp;Single">Blog - Single</a></li>
-        <li><a href="./contact.html" data-hover="Contact">Contact</a></li>
+        <li>
+          <%= link_to 'Profile', profile_path(current_user.profile), 'data-hover' => 'Profile' %>
+        </li>
+        <li><a href="#" data-hover="Blog">Blog</a></li>
+        <li><%= link_to 'LogOut', destroy_user_session_path, 'data-hover' => 'LogOut', method: :delete %></li>
       </ul>
     </div>
   </nav>
-  <!-- Navmenu -->
-
-  <!-- Hidden Content -->
-  <div class="m-header">
-    <ul class="mh-social">
-      <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-      <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-      <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-      <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-    </ul>
-    <p class="mh-copy">&copy; 2017 Rater, All Rights Reserved</p>
-  </div>
-  <div class="m-hide"><i class="fa fa-plus-circle"></i></div>
-  <!-- Hidden Content -->
-
 </header>
