@@ -2,3 +2,46 @@
     Hi, <%= current_user.email %>
     <%= link_to 'Log Out', destroy_user_session_path, method: :delete %>
 <% end %>
+
+<div class="row" data-animated="0">
+  <div class="col-md-12">
+    <div id="m-info">
+      <div class="tab-content">
+        <div class="row">
+          <div class="col-md-4">
+            <%= profile_picture_tag(@profile, :headshot) %>
+          </div>
+          <div class="col-md-8 tab-right-content brief">
+            <%= link_to 'Edit Profile', edit_profile_path(@profile) %>
+            <h3><%= @profile.full_name %></h3>
+            <p><%= @profile.brief %></p>
+            From: <%= @profile.state_of_origin %>
+            <br>
+            Resides In: <%= @profile.state_of_residence %>
+            <br>
+            Account Type: <%= @profile.account_type %>
+            <br>
+            Phone Number: <%= @profile.phone_number %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <% if @profile.profession.present? || @profile.course_of_study.present? %>
+                <p>
+                    <div class="extra-details">
+                      <% if @profile.profession.present? %>
+                          Profession: <%= @profile.profession %>
+                      <% end %>
+                      <br>
+                      <% if @profile.course_of_study.present? %>
+                          Course of Study: <%= @profile.course_of_study %>
+                      <% end %>
+                    </div>
+                </p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
