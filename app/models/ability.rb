@@ -5,7 +5,9 @@ class Ability
     if user.admin
       can :manage, :all
     else
-      can :manage, Profile
+      can :manage, Profile do |profile|
+        user == profile.user
+      end
     end
   end
 end
