@@ -1,4 +1,6 @@
 class Profile < ActiveRecord::Base
+  mount_uploader :profile_picture, AvatarUploader
+
   belongs_to :user
 
   delegate :email,

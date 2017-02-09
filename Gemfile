@@ -52,6 +52,10 @@ gem 'owlcarousel-rails'
 # Use for sliding effects
 gem 'flexslider'
 
+# Use for image upload
+gem 'carrierwave', '~> 1.0'
+gem 'mini_magick'
+
 # Use to prettify photos
 gem 'prettyphoto-rails'
 

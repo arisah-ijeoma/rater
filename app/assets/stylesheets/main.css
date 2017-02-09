@@ -49,7 +49,7 @@ a.active {
 }
 
 a {
-	color: #fed136;
+	color: #a30001;
 	transition: 0.3s;
 }
 
@@ -57,7 +57,8 @@ a:hover,
 a:focus,
 a:active,
 a.active {
-	color: #fff;
+	text-decoration: underline;
+    color: #a30001;
 }
 
 h1,

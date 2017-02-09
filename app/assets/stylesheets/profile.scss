@@ -87,10 +87,80 @@
   color: #a30001;
 }
 
+.brief p {
+  word-break: break-all;
+  white-space: normal;
+}
+
+.extra-details {
+  padding: 5px;
+  background-color: #000;
+  opacity: 0.5;
+  color: #fff
+}
+
+/* uploader */
+
+.custom-file-upload-hidden {
+  display: none;
+  visibility: hidden;
+  position: absolute;
+  left: -9999px;
+}
+.custom-file-upload {
+  display: block;
+  width: auto;
+  margin-top: 30px;
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+}
+
+.file-upload-wrapper {
+  position: relative;
+  margin-bottom: 5px;
+}
+
+.file-upload-input {
+  width: 300px;
+  color: #a30001;
+  font-size: 16px;
+  padding: 11px 17px !important;
+  border: 1px solid #fff;
+  background-color: #fff;
+  float: left; /* IE 9 Fix */
+  &:hover, &:focus {
+    background-color: darken(#fff, 5);
+    outline: none;
+  }
+}
+
+.file-upload-button {
+  cursor: pointer;
+  display: inline-block;
+  color: #fff;
+  font-size: 16px;
+  text-transform: uppercase;
+  padding: 11px 20px !important;
+  border: 1px solid #fff;
+  margin-left: -1px !important;
+  background-color: inherit;
+  float: left; /* IE 9 Fix */
+  &:hover {
+    background-color: darken(#c0392b, 20);
+  }
+}
+
+.uploader {
+  padding-bottom: 20px;
+}
+
 /* formtastic override */
 
 .inline-errors {
   color: #fff !important;
+  display: inline-block !important;
 }
 
 label {

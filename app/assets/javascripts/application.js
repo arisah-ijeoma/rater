@@ -28,6 +28,7 @@
 //= require jquery.mCustomScrollbar.concat.min
 //= require landing
 //= require main
+//= require profile
 //= require_self
 
 $(function(){

@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          authentication_keys: [:login]
 
+  delegate :profile_picture, to: :profile, allow_nil: true
+
   ACCOUNT_TYPES = %w( Anonymous Student Lecturer Politician Pastor )
 
   validates :phone_number, presence: true

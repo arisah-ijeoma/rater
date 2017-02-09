@@ -4,3 +4,6 @@ en:
         attributes:
           user:
             login: "phone number or email"
+  errors:
+      messages:
+        extension_whitelist_error: "You are not allowed to upload %{extension} files, allowed types: %{allowed_types}"
