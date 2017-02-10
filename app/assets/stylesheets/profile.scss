@@ -166,4 +166,49 @@
 label {
   font-size: 1.2em !important;
   font-weight: 300 !important;
+  display: flex !important;
+}
+
+/* media queries */
+
+@media screen and (max-width: 1150px) {
+  .mc input {
+    width: 60% !important;
+    float: right;
+  }
+
+  .file-upload-button {
+    float: right;
+    font-size: 13px !important;
+    padding-bottom: 13px !important;
+  }
+
+  .file-upload-input {
+    width: 150px;
+    float: right;
+  }
+
+  .styled-select.slate {
+    float: right;
+  }
+
+  .mc-brief textarea {
+    float: right;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .mc input {
+    width: 100% !important;
+  }
+
+  .file-upload-input {
+    width: 100%;
+  }
+
+  .file-upload-button {
+    width: 100%;
+    font-size: 16px !important;
+    padding: 11px 20px !important
+  }
 }

@@ -29,6 +29,7 @@
 //= require landing
 //= require main
 //= require profile
+//= require home
 //= require_self
 
 $(function(){

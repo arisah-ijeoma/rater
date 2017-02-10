@@ -11,9 +11,9 @@
                   <div class="mc">
                     <%= f.input :full_name %>
                   </div>
-                <div class="custom-file-upload">
-                  <%= f.input :profile_picture, as: :file, input_html: { type: 'file' } %>
-                </div>
+                  <div class="custom-file-upload">
+                    <%= f.input :profile_picture, as: :file, input_html: { type: 'file' } %>
+                  </div>
                   <div class="mc">
                     <%= f.input :course_of_study %>
                   </div>
@@ -39,7 +39,7 @@
                         <%= u.input :password %>
                       </div>
                       <div class="mc">
-                        <%= u.input :password_confirmation %>
+                        <%= u.input :password_confirmation, label: 'Confirm password' %>
                       </div>
                       <div class="mc">
                         <%= u.input :phone_number, input_html: { value: current_user.phone_number } %>

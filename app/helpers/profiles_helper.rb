@@ -5,7 +5,7 @@ module ProfilesHelper
     elsif style == :mid_thumb
       size = '48x48'
     elsif style == :headshot
-      size = '200x200'
+      size = '150x150'
     else
       size = '64x64'
     end
