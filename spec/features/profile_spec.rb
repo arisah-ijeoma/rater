@@ -20,7 +20,7 @@ describe 'Profile', type: :feature do
   scenario 'updating user attributes in profile updates user' do
     sign_up(user)
     update_profile
-    click_on 'Log Out'
+    click_on 'LogOut'
     log_in_with_updated_details
     click_on 'Log in'
     expect(page).to have_content('Signed in successfully')
