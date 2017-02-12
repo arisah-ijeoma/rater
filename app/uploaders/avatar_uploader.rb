@@ -39,7 +39,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   end
 
   version :thumb do
-    process resize_and_limit: 64
+    process resize_to_limit: [64, 64]
   end
   #
   # version :mid_thumb do
