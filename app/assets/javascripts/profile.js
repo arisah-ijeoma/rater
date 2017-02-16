@@ -69,7 +69,7 @@
             // a clean clone with all the original events attached
             $file.replaceWith( $file = $file.clone( true ) );
             $file.trigger('change');
-            $input.val('\u2028');
+            $input.val('');
           } else if ( e.which === 9 ){ // TAB
             return;
           } else { // All other keys

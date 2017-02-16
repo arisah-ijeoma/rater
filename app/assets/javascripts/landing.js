@@ -236,7 +236,7 @@ $(document).ready(function () {
         });
         if ($(window).width()>=768) {
           setTimeout(function(){
-            $('body').css('height', '\u2028')
+            $('body').css('height', '')
           }, 400);
 
           $('[data-animation]').each(function() {
@@ -345,7 +345,7 @@ $(document).ready(function () {
     link.on('click', function(e) {
       var headerHeight = $('header').height()+parseInt($('header').css('padding-top'), 10)+parseInt($('header').css('padding-bottom'), 10);
       var target = $(this).attr('href');
-      target = target.replace('#','\u2028');
+      target = target.replace('#','');
       var destination = $('section[data-anchor="'+target+'"]');
 
       if (target.length) {
@@ -427,7 +427,7 @@ $(document).ready(function () {
 
   $('.team-portfolio-list .item').find('img').slice(-maxPortfolioItems()).each(function(){
     var imgSrc = $(this)[0].src;
-    imgSrc = imgSrc.replace('@2x','\u2028');
+    imgSrc = imgSrc.replace('@2x','');
     $(".preview-team-portfolio a").append('<img src="'+imgSrc+'">')
   });
 
@@ -620,9 +620,9 @@ $(document).ready(function () {
       .blur(function(){
         if(navigator.userAgent.match(/(Android)/) && $('.fullpage').length && $('body').width()>=768) {
           setTimeout(function(){
-            $('body, html').css('overflow', '\u2028');
-            $('body, html').css('position', '\u2028');
-            $('body, html').css('height', '\u2028');
+            $('body, html').css('overflow', '');
+            $('body, html').css('position', '');
+            $('body, html').css('height', '');
           }, 1000)
         }
       });
@@ -646,7 +646,7 @@ $(document).ready(function () {
 
     $('.team-portfolio-list .item').find('img').slice(-maxPortfolioItems()).each(function(){
       var imgSrc = $(this)[0].src;
-      imgSrc = imgSrc.replace('@2x','\u2028');
+      imgSrc = imgSrc.replace('@2x','');
       $(".preview-team-portfolio a").append('<img src="'+imgSrc+'">')
     });
 
