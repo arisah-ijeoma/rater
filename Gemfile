@@ -52,6 +52,9 @@ gem 'owlcarousel-rails'
 # Use for sliding effects
 gem 'flexslider'
 
+# auto-prefix vendor prefix
+gem 'autoprefixer-rails'
+
 # Use for image upload
 gem 'carrierwave', '~> 1.0'
 gem 'mini_magick'

@@ -35,3 +35,11 @@
 $(function(){
   $(".remove-active").removeClass('active');
 });
+
+var android = navigator.userAgent.toLowerCase().indexOf("android") > -1;
+var iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+if(android || iOS) {
+  document.write(
+      '<meta name="viewport" content="width=device-width,height='+window.innerHeight+', initial-scale=1.0">'
+  );
+}
