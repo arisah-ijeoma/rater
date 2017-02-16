@@ -1,4 +1,4 @@
-// Intro Slider
+  // Intro Slider
 $(document).ready(function () {
     "use strict";
     $("#intro-slider").owlCarousel({
