@@ -192,7 +192,7 @@ $(document).ready(function () {
               } else {
                 return 0;
               }
-            }
+            };
 
             $(this).find('.section-content-wrapper')
                 .css({
