@@ -1793,20 +1793,6 @@ form.notify .btn {
   margin: 0px 0 105px 0;
 }
 
-/* line 35, ../../sass/_elements.scss */
-.modal:before {
-  content: '';
-  display: inline-block;
-  height: 100%;
-  vertical-align: middle;
-  margin-right: -4px;
-}
-
-/* line 42, ../../sass/_elements.scss */
-.modal-open .modal {
-  padding: 0 !important;
-}
-
 /* line 45, ../../sass/_elements.scss */
 .modal-dialog {
   display: inline-block;

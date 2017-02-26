@@ -667,6 +667,26 @@ $(document).ready(function () {
           .eq(3).css(cssMedium);
     }
   });
+
+  var modal = document.getElementById('my_modal');
+
+  var span = document.getElementsByClassName('close')[0];
+
+  setTimeout(function() {
+    modal.style.display = 'block';
+  }, 5000);
+
+  if(span) {
+    span.onclick = function() {
+      modal.style.display = 'none';
+    };
+  }
+
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = 'none';
+    }
+  };
 });
 
 //Count Down
