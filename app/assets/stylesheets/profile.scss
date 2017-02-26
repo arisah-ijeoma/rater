@@ -14,8 +14,12 @@
   width: 268px;
 }
 
+.styled-select option[selected] {
+  background-color: green !important;
+}
+
 .styled-select.slate {
-  background: none;
+  background: #fff;
   height: 34px;
   width: 240px;
 }
@@ -25,19 +29,10 @@
   font-size: 16px;
   height: 34px;
   width: 268px;
-  color: #fff;
-}
-
-.slate {
-  background-color: #ddd;
-}
-
-.slate select {
-  color: #fff;
 }
 
 .profile select {
-  color: #fff;
+  color: #000;
 }
 
 .mc {
