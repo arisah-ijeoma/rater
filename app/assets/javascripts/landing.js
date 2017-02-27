@@ -264,8 +264,6 @@ $(document).ready(function () {
             $('.section-content').append('<div class="border-top"></div>');
             $('.section-content').append('<div class="border-bottom"></div>');
 
-            borderWr();
-
             var footer = $('footer')[0].innerHTML;
             $( "section" ).append(footer);
 

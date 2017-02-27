@@ -140,3 +140,10 @@ nav .section-menu > li.landing-cta > a:hover {
   text-decoration: none;
   cursor: pointer;
 }
+
+@media screen and (max-width: 700px) {
+  .modal-body {
+    width: 100%;
+    font-size: 1.2em;
+  }
+}

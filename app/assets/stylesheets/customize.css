@@ -1166,7 +1166,7 @@ nav .section-menu > li.active > a, nav .section-menu > li.active > a:active, nav
 @media only screen and (max-width: 767px) {
   /* line 97, ../../sass/_header.scss */
   nav .section-menu > li {
-    padding-left: 15px;
+    padding-left: 10px;
   }
 }
 @media only screen and (max-width: 767px) {
