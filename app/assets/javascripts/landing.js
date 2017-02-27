@@ -182,8 +182,6 @@ $(document).ready(function () {
           $('.section-content').append('<div class="border-top"></div>');
           $('.section-content').append('<div class="border-bottom"></div>');
 
-          borderWr();
-
           $('section').each(function(){
 
             var HSC = function(elem) {
@@ -337,8 +335,6 @@ $(document).ready(function () {
       }
     });
   } else {
-
-    borderWr();
 
     var link = $('nav .section-menu > li > a');
 
@@ -668,25 +664,48 @@ $(document).ready(function () {
     }
   });
 
-  var modal = document.getElementById('my_modal');
+  var landingBoxes = function() {
+    var $original = null;
 
-  var span = document.getElementsByClassName('close')[0];
-
-  setTimeout(function() {
-    modal.style.display = 'block';
-  }, 5000);
-
-  if(span) {
-    span.onclick = function() {
-      modal.style.display = 'none';
-    };
-  }
-
-  window.onclick = function(event) {
-    if (event.target == modal) {
-      modal.style.display = 'none';
-    }
+    $(".rate-cta").each(function(){
+      $(this).hover(
+          function() {
+            if($original === null)
+              $original = document.getElementById('initial_text').innerHTML;
+            $('.lead').html($(this).attr('title'));
+          },
+          function(){
+            $('.lead').html($original)
+          }
+      );
+    });
   };
+
+  landingBoxes();
+
+  var promptModal = function() {
+    var modal = document.getElementById('my_modal');
+
+    var span = document.getElementsByClassName('close')[0];
+
+    setTimeout(function() {
+      modal.style.display = 'block';
+    }, 5000);
+
+    if(span) {
+      span.onclick = function() {
+        modal.style.display = 'none';
+      };
+    }
+
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = 'none';
+      }
+    };
+  };
+
+  promptModal();
 });
 
 //Count Down
@@ -737,43 +756,6 @@ function blurBg() {
       radius: 10,
     });
   }
-}
-
-function borderWr() {
-  var borderTop = '<svg class="top-left-border" width="25" height="25" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">\
-                     <g>\
-                       <title>Layer 1</title>\
-                         <rect stroke-dasharray="null" stroke-width="0" stroke="#000000" id="svg_11" height="5" width="5" y="0" x="0"/>\
-                         <rect stroke-dasharray="null" stroke-width="0" stroke="#000000" id="svg_12" height="5" width="5" y="20" x="0"/>\
-                         <rect stroke-dasharray="null" stroke-width="0" stroke="#000000" id="svg_13" height="5" width="5" y="0" x="20"/>\
-                     </g>\
-                  </svg>';
-  borderTop += '<svg class="top-right-border" width="25" height="25" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">\
-                      <g>\
-                        <title>Layer 1</title>\
-                          <rect stroke-dasharray="null" stroke-width="0" stroke="#000000" id="svg_11" height="5" width="5" y="0" x="0"/>\
-                          <rect stroke-dasharray="null" stroke-width="0" stroke="#000000" id="svg_12" height="5" width="5" y="20" x="0"/>\
-                          <rect stroke-dasharray="null" stroke-width="0" stroke="#000000" id="svg_13" height="5" width="5" y="0" x="20"/>\
-                      </g>\
-                    </svg>';
-  var borderBottom = '<svg class="bottom-left-border" width="25" height="25" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">\
-                        <g>\
-                          <title>Layer 1</title>\
-                            <rect stroke-dasharray="null" stroke-width="0" stroke="#000000" id="svg_11" height="5" width="5" y="0" x="0"/>\
-                            <rect stroke-dasharray="null" stroke-width="0" stroke="#000000" id="svg_12" height="5" width="5" y="20" x="0"/>\
-                            <rect stroke-dasharray="null" stroke-width="0" stroke="#000000" id="svg_13" height="5" width="5" y="0" x="20"/>\
-                        </g>\
-                      </svg>';
-  borderBottom += '<svg class="bottom-right-border" width="25" height="25" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">\
-                        <g>\
-                          <title>Layer 1</title>\
-                            <rect stroke-dasharray="null" stroke-width="0" stroke="#000000" id="svg_11" height="5" width="5" y="0" x="0"/>\
-                            <rect stroke-dasharray="null" stroke-width="0" stroke="#000000" id="svg_12" height="5" width="5" y="20" x="0"/>\
-                            <rect stroke-dasharray="null" stroke-width="0" stroke="#000000" id="svg_13" height="5" width="5" y="0" x="20"/>\
-                        </g>\
-                      </svg>';
-  $('.border-top').append(borderTop);
-  $('.border-bottom').append(borderBottom);
 }
 function maxPortfolioItems() {
   if ($('body').width()>1170) {

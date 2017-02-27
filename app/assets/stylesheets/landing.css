@@ -89,6 +89,19 @@ nav .section-menu > li.landing-cta > a:hover {
   padding-right: 10px;
 }
 
+.quick-rate {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 10px;
+}
+
+.rate-cta {
+  padding: 30px;
+  font-weight: 700;
+  background-color: #a30001;
+  border: 1px solid #000;
+}
+
 /* modal */
 
 .modal {

@@ -1310,12 +1310,7 @@ body main.fullpage section .section-content-wrapper .section-content {
 }
 /* line 39, ../../sass/_main.scss */
 body main section {
-  padding-top: 120px;
-  /*@include opacity(0);
-
-  @include respond-to(mobile) {
-      @include opacity(1);
-  }*/
+  padding-top: 50px;
 }
 /* line 46, ../../sass/_main.scss */
 body main section .section-title {

@@ -6,9 +6,14 @@
           <div class="container"> 
             <div class="row"> 
               <div class="col-md-8 col-md-offset-2"> 
-                <h1>Rater</h1> 
-                <p class="lead text-muted">
-                  I love food. Beans, Bread, Dodo, Chicken, Turkey, Plantain. Oya rate
+                <h1>Rater</h1>
+                <div class="quick-rate">
+                  <%= link_to 'Find Stuff', '#', class: 'rate-cta', id: 'first_rate_btn', title: 'Rate first stuff' %>
+                  <%= link_to 'Find Stuff', '#', class: 'rate-cta', id: 'second_rate_btn', title: 'Rate second stuff' %>
+                  <%= link_to 'Find Stuff', '#', class: 'rate-cta', id: 'third_rate_btn', title: 'Rate third stuff' %>
+                </div>  
+                <p class="lead text-muted" id="initial_text">
+                  Our top 3 raters. Rate more stuff from below
                 </p> 
                 <form> 
                   <input type="text" class="search-field" placeholder="Search for someone to rate... "> 
