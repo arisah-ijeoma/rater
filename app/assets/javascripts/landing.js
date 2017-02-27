@@ -705,7 +705,9 @@ $(document).ready(function () {
     };
   };
 
-  promptModal();
+  if($('body').is('.landing')){
+    promptModal();
+  }
 });
 
 //Count Down
