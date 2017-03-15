@@ -8,6 +8,9 @@ class Ability
       can :manage, Profile do |profile|
         user == profile.user
       end
+      can :read, Church
+      can :read, Pastor
+      can :manage, Heart
     end
   end
 end

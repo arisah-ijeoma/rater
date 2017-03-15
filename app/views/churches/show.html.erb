@@ -1,0 +1,16 @@
+<div class="m-pricing">
+  <%= link_to '<<< All Churches', churches_path %>
+  <h1 class="text-center"><%= @church.name %></h1>
+  <div class="flexer">
+    <div class="show-avatar">
+      <%= avatar_tag(@church, :lil_big) %>
+    </div>
+    <div>
+      <%= link_to 'Rate This Church', '#', class: 'rate-action' %>
+      <div class="rate-summary">
+        <p class="rate-text">Overall Rating</p>
+        <p class="rate-figure">#.##</p>
+      </div>
+    </div>
+  </div>
+</div>

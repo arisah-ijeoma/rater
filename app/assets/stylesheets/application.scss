@@ -23,6 +23,7 @@
  *= require_self
  *= require profile
  *= require home
+ *= require church
  *= require prettyphoto-rails
  */
 
@@ -61,4 +62,32 @@
     height:0;
     margin: 0;
   }
+}
+
+// RATING
+.rate-action {
+  padding: 10px;
+  background-color: #a30001;
+  color: #fff;
+  font-weight: 300;
+  font-size: 2em;
+  border: 2px solid #a30001;
+}
+
+.rate-action:hover {
+  text-decoration: none;
+  color: #a30001;
+  background-color: #fff;
+}
+
+.rate-summary {
+  padding-top: 50px;
+}
+
+.rate-text {
+  font-size: 1.5em;
+}
+
+.rate-figure {
+  font-size: 3em;
 }

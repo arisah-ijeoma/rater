@@ -1022,13 +1022,13 @@ color: #fff;
                  10. Pricing Table
 -------------------------------------------------*/
 
-#m-pricing {
+.m-pricing {
 	padding: 30px;
 	background: #fff;
 	margin-bottom: 30px;
 }
 
-#m-pricing h3 {
+.m-pricing h3 {
 	font-size: 20px;
 	text-transform: uppercase;
 	color: #000;
@@ -1807,12 +1807,12 @@ color: #fff;
 
 /* 17.1. Contact form */
 
-#m-contact {
+.m-contact {
 	background: #a30001;
 	padding: 30px;
 }
 
-#m-contact h3 {
+.m-contact h3 {
 	font-size: 16px;
 	text-transform: uppercase;
 	color: #fff;
@@ -1892,15 +1892,15 @@ color: #fff;
 	outline: none;
 }
 
-#m-contact form input::-webkit-input-placeholder {color: #585858 !important;opacity: 1 !important;}
-#m-contact form input:-moz-placeholder {color: #585858 !important;opacity: 1 !important;}
-#m-contact form input::-moz-placeholder {color: #585858 !important;opacity: 1 !important;}
-#m-contact form input:-ms-input-placeholder {color: #585858 !important;opacity: 1 !important;}
+.m-contact form input::-webkit-input-placeholder {color: #585858 !important;opacity: 1 !important;}
+.m-contact form input:-moz-placeholder {color: #585858 !important;opacity: 1 !important;}
+.m-contact form input::-moz-placeholder {color: #585858 !important;opacity: 1 !important;}
+.m-contact form input:-ms-input-placeholder {color: #585858 !important;opacity: 1 !important;}
 
-#m-contact form textarea::-webkit-input-placeholder {color: #585858 !important;opacity: 1 !important;}
-#m-contact form textarea:-moz-placeholder {color: #585858 !important;opacity: 1 !important;}
-#m-contact form textarea::-moz-placeholder {color: #585858 !important;opacity: 1 !important;}
-#m-contact form textarea:-ms-input-placeholder {color: #585858 !important;opacity: 1 !important;}
+.m-contact form textarea::-webkit-input-placeholder {color: #585858 !important;opacity: 1 !important;}
+.m-contact form textarea:-moz-placeholder {color: #585858 !important;opacity: 1 !important;}
+.m-contact form textarea::-moz-placeholder {color: #585858 !important;opacity: 1 !important;}
+.m-contact form textarea:-ms-input-placeholder {color: #585858 !important;opacity: 1 !important;}
 
 .mc-message textarea:focus {
 	border: 2px solid #fff;
@@ -1999,7 +1999,7 @@ color: #fff;
 	width: 100%;
 }
 
-#m-contact h4 {
+.m-contact h4 {
 	font-size: 16px;
 	text-transform: uppercase;
 	color: #fff;

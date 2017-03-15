@@ -3,6 +3,9 @@ class User < ActiveRecord::Base
   after_create :add_profile
 
   has_one :profile
+  has_many :hearts, dependent: :destroy
+  has_many :churches, through: :hearts
+
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
@@ -15,6 +18,19 @@ class User < ActiveRecord::Base
   validates :phone_number, presence: true
   validates :email, format: { with: Devise.email_regexp }
   validates :phone_number, format: { with: /[[:digit:]]{10}/ }, length: {minimum: 11, maximum: 14}
+
+  def heart!(post)
+    self.hearts.create!(church_id: church.id)
+  end
+
+  def unheart!(church)
+    heart = self.hearts.find_by(church_id: church.id)
+    heart.destroy!
+  end
+
+  def heart?(church)
+    self.hearts.find_by(church_id: church.id)
+  end
 
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup

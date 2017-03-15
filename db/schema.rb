@@ -11,14 +11,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170203002106) do
+ActiveRecord::Schema.define(version: 20170307205601) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "churches", force: :cascade do |t|
+    t.string   "name"
+    t.string   "aka"
+    t.string   "date_founded"
+    t.string   "founder"
+    t.string   "website"
+    t.string   "avatar"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "hearts", force: :cascade do |t|
+    t.integer  "church_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "hearts", ["church_id"], name: "index_hearts_on_church_id", using: :btree
+  add_index "hearts", ["user_id"], name: "index_hearts_on_user_id", using: :btree
+
+  create_table "pastors", force: :cascade do |t|
+    t.string   "name"
+    t.string   "avatar"
+    t.integer  "church_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "profiles", force: :cascade do |t|
     t.string   "full_name",          default: "Anonymous", null: false
-    t.string   "profile_picture"
+    t.string   "avatar"
     t.string   "profession"
     t.string   "course_of_study"
     t.string   "state_of_origin"
@@ -50,5 +79,7 @@ ActiveRecord::Schema.define(version: 20170203002106) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "hearts", "churches"
+  add_foreign_key "hearts", "users"
   add_foreign_key "profiles", "users"
 end

@@ -28,12 +28,13 @@
 //= require jquery.mCustomScrollbar.concat.min
 //= require landing
 //= require main
-//= require profile
 //= require home
 //= require_self
 
 $(function(){
   $(".remove-active").removeClass('active');
+  $('input[type=file]').customFile();
+  switchIndicator();
 });
 
 var android = navigator.userAgent.toLowerCase().indexOf("android") > -1;

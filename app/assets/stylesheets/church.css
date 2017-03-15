@@ -1,0 +1,27 @@
+.creation-cta {
+  padding: 10px;
+  background-color: #a30001;
+  color: #fff;
+  font-size: 1.3em;
+}
+
+.creation-cta:hover {
+  color: #ddd;
+  text-decoration: none;
+}
+
+.churches {
+  padding-top: 50px;
+  width: 250px;
+}
+
+.details {
+  padding-top: 30px;
+  font-size: 1.2em;
+}
+
+.flexer {
+  padding-top: 30px;
+  display: flex;
+  justify-content: space-around;
+}

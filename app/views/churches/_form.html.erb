@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="col-md-12 m-contact" data-animated="0">
+      <h3 class="text-center">
+        <% if @church.new_record? %>
+            Add new Church
+        <% else %>
+            Edit Church
+        <% end %>
+      </h3>
+
+        <%= semantic_form_for @church do |c| %>
+           <%= c.inputs do %>
+              <div class="mc">
+                <%= c.input :name %>
+              </div>
+              <div class="mc">
+                <%= c.input :aka %>
+              </div>
+              <div class="mc">
+                <%= c.input :date_founded %>
+              </div>
+              <div class="mc">
+                <%= c.input :founder %>
+              </div>
+              <div class="mc">
+                <%= c.input :website %>
+              </div>
+              <div class="custom-file-upload">
+                <%= c.input :avatar, as: :file, input_html: { type: 'file' } %>
+              </div>
+
+              <%= c.action :submit, label: 'Save Church', button_html: {class: 'mc-main-action', data: {disable_with: 'Please wait...'}} %>
+          <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
