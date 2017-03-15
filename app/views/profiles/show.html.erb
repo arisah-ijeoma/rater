@@ -4,7 +4,7 @@
       <div class="tab-content">
         <div class="row">
           <div class="col-md-4">
-            <%= profile_picture_tag(@profile, :headshot) %>
+            <%= avatar_tag(@profile, :headshot) %>
           </div>
           <div class="col-md-8 tab-right-content brief">
             <%= link_to 'Edit Profile', edit_profile_path(@profile) %>

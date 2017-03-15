@@ -2,7 +2,7 @@ class CreateProfiles < ActiveRecord::Migration
   def change
     create_table :profiles do |t|
       t.string :full_name, null: false, default: 'Anonymous'
-      t.string :profile_picture
+      t.string :avatar
       t.string :profession
       t.string :course_of_study
       t.string :state_of_origin
