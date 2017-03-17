@@ -25,3 +25,18 @@
   display: flex;
   justify-content: space-around;
 }
+
+.hearted {
+  border: 0;
+  background: transparent;
+}
+
+.fa-heart, .fa-heart-o {
+  font-size: 5em;
+  color: #a30001;
+}
+
+.share {
+  display: flex;
+  justify-content: space-between;
+}
