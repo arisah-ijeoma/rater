@@ -35,5 +35,4 @@ module ApplicationHelper
       'default_avatar.png'
     end
   end
-
 end

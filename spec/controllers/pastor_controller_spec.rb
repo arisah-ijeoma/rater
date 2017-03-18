@@ -29,7 +29,7 @@ describe PastorsController do
         context 'valid attributes' do
           it 'located the requested pastor' do
             put :update, id: pastor, church_id: church, pastor: attributes_for(:pastor)
-            expect(assigns(:church)).to eq(church)
+            expect(assigns(:pastor)).to eq(pastor)
           end
 
           it 'changes pastor\'s attributes' do

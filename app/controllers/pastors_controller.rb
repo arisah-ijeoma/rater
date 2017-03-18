@@ -1,6 +1,5 @@
 class PastorsController < ApplicationController
   load_and_authorize_resource class: 'Pastor'
-  skip_before_action :authenticate_user!, only: :show
   before_action :find_church
 
   def new
@@ -15,9 +14,6 @@ class PastorsController < ApplicationController
     else
       render :new
     end
-  end
-
-  def show
   end
 
   def edit

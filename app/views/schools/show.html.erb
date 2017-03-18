@@ -31,42 +31,43 @@
     </div>
   </div>
 
-  <%#= link_to 'View Pastors', '#', class: 'view-pastors', remote: true %>
+  <%= link_to 'View Lecturers', '#', class: 'view-lecturers', remote: true %>
 
-  <!--<div class="pastors">-->
-    <!--<h2 class="text-center">PASTORS</h2>-->
-    <%# if can? :manage, Pastor %>
-        <!--<div class="pull-right">-->
-          <!--<%#= link_to new_church_pastor_path(@church) do %>-->
-              <!--<i class="fa fa-plus" aria-hidden="true"></i>-->
-              <!--Add New Pastor-->
-          <!--<%# end %>-->
-        <!--</div>-->
-    <!--<%# end %>-->
-<!---->
-    <!--<%# if @pastors.empty? %>-->
-        <!--<i>There are no available pastors</i>-->
-    <!--<%# else %>-->
-        <!--<table class="table table-striped">-->
-          <!--<thead>-->
-          <!--<tr>-->
-            <!--<th>Name</th>-->
-            <!--<th>Image</th>-->
-            <!--<th></th>-->
-            <!--<%# if can? :manage, Pastor %>-->
-                <!--<th></th>-->
-                <!--<th></th>-->
-            <!--<%# end %>-->
-          <!--</tr>-->
-          <!--</thead>-->
-          <!--<tbody>-->
-          <!--<%# @pastors.each do |pastor| %>-->
-              <!--<%#= render partial: 'pastors/pastor', locals: {pastor: pastor, church: @church} %>-->
-          <!--<%# end %>-->
-          <!--</tbody>-->
-        <!--</table>-->
-<!---->
-        <!--<%#= link_to 'Hide Pastors', '#', class: 'hide-pastors', remote: true %>-->
-    <!--<%# end %>-->
-  <!--</div>-->
+  <div class="lecturers">
+    <h2 class="text-center">LECTURERS</h2>
+    <% if can? :manage, Lecturer %>
+        <div class="pull-right">
+          <%= link_to new_school_lecturer_path(@school) do %>
+              <i class="fa fa-plus" aria-hidden="true"></i>
+              Add New Lecturer
+          <% end %>
+        </div>
+    <% end %>
+
+    <% if @lecturers.empty? %>
+        <i>There are no available lecturers</i>
+    <% else %>
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th>Name</th>
+            <th>Course</th>
+            <th>Image</th>
+            <th></th>
+            <% if can? :manage, Lecturer %>
+                <th></th>
+                <th></th>
+            <% end %>
+          </tr>
+          </thead>
+          <tbody>
+          <% @lecturers.each do |lecturer| %>
+              <%= render partial: 'lecturers/lecturer', locals: {lecturer: lecturer, school: @school} %>
+          <% end %>
+          </tbody>
+        </table>
+
+        <%= link_to 'Hide Lecturers', '#', class: 'hide-lecturers', remote: true %>
+    <% end %>
+  </div>
 </div>

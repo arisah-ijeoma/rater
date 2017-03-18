@@ -30,6 +30,7 @@
 //= require main
 //= require home
 //= require pastor
+//= require lecturer
 //= require_self
 
 $(function(){
