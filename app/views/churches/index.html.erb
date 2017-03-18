@@ -6,26 +6,25 @@
   <% end %>
 
   <h2 class="text-center">CHURCHES</h2>
-  <table class="table table-striped">
-    <thead>
-    <tr>
-      <th>Name</th>
-      <th>A.K.A</th>
-      <th>Founder</th>
-      <th></th>
-      <th></th>
-      <% if can? :manage, Church %>
-        <th></th>
-      <% end %>
-    </tr>
-    </thead>
-    <tbody>
-      <% if @churches.empty? %>
-          <br>
-          <i>There are no available churches</i>
-      <% else %>
+  <% if @churches.empty? %>
+    <i>There are no available churches</i>
+  <% else %>
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>Name</th>
+          <th>A.K.A</th>
+          <th>Founder</th>
+          <th></th>
+          <th></th>
+          <% if can? :manage, Church %>
+            <th></th>
+          <% end %>
+        </tr>
+        </thead>
+        <tbody>
           <%= render @churches %>
-      <% end %>
-    </tbody>
-  </table>
+        </tbody>
+      </table>
+  <% end %>
 </div>

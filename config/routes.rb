@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :home, only: :index
   resources :profiles, except: [:index, :new, :create]
   resources :churches do
-    # resources :pastors
+    resources :pastors, except: [:index, :show]
   end
 
   match 'heart', to: 'hearts#heart', via: :post

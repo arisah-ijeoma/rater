@@ -21,6 +21,7 @@ class ChurchesController < ApplicationController
   end
 
   def show
+    @pastors = @church.pastors
   end
 
   def edit

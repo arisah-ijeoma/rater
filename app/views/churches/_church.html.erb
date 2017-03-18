@@ -2,7 +2,9 @@
     <td><%= link_to "#{church.name}", church_path(church) %></td>
     <td><%= church.aka %></td>
     <td><%= church.founder %></td>
-    <td><%= link_to 'View Pastors', '#' %></td>
+    <% if can? :manage, Pastor %>
+      <td><%= link_to 'Add Pastors', new_church_pastor_path(church) %></td>
+    <% end %>
     <td><%= link_to 'Rate', '#' %></td>
     <% if can? :manage, Church %>
         <td><%= link_to 'Delete', church, method: :delete, data: { confirm: 'Are you sure?' } %></td>

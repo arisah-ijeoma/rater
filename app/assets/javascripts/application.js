@@ -29,6 +29,7 @@
 //= require landing
 //= require main
 //= require home
+//= require pastor
 //= require_self
 
 $(function(){
