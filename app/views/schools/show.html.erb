@@ -1,0 +1,72 @@
+<%# hearts = @church.hearts.count %>
+<div class="m-pricing">
+  <%= link_to '<<< All Schools', schools_path %>
+  <% if can? :manage, School %>
+      <%= link_to 'Edit School >>>', edit_school_path(@school), class: 'pull-right' %>
+  <% end %>
+  <h1 class="text-center"><%= @school.name %></h1>
+  <div class="flexer">
+    <div class="show-avatar">
+      <%= avatar_tag(@school, :lil_big) %>
+      <%# if current_user.heart?(@church) && hearts > 1 %>
+      <!--<p>You and <%#= hearts - 1 %> others like this church<</p>-->
+      <%# elsif current_user.heart?(@church) %>
+      <!--<p>You like this church</p>-->
+      <%# else %>
+      <!--<p></p>-->
+      <%# end %>
+
+    </div>
+    <div>
+      <%= link_to 'Rate This School', '#', class: 'rate-action' %>
+      <div class="rate-summary">
+        <p class="rate-text">Overall Rating</p>
+        <div class="share">
+          <p class="rate-figure">#.##</p>
+          <%#= div_for @school do %>
+              <%#= render partial: 'hearts/button', locals: { school: @school } %>
+          <%# end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%#= link_to 'View Pastors', '#', class: 'view-pastors', remote: true %>
+
+  <!--<div class="pastors">-->
+    <!--<h2 class="text-center">PASTORS</h2>-->
+    <%# if can? :manage, Pastor %>
+        <!--<div class="pull-right">-->
+          <!--<%#= link_to new_church_pastor_path(@church) do %>-->
+              <!--<i class="fa fa-plus" aria-hidden="true"></i>-->
+              <!--Add New Pastor-->
+          <!--<%# end %>-->
+        <!--</div>-->
+    <!--<%# end %>-->
+<!---->
+    <!--<%# if @pastors.empty? %>-->
+        <!--<i>There are no available pastors</i>-->
+    <!--<%# else %>-->
+        <!--<table class="table table-striped">-->
+          <!--<thead>-->
+          <!--<tr>-->
+            <!--<th>Name</th>-->
+            <!--<th>Image</th>-->
+            <!--<th></th>-->
+            <!--<%# if can? :manage, Pastor %>-->
+                <!--<th></th>-->
+                <!--<th></th>-->
+            <!--<%# end %>-->
+          <!--</tr>-->
+          <!--</thead>-->
+          <!--<tbody>-->
+          <!--<%# @pastors.each do |pastor| %>-->
+              <!--<%#= render partial: 'pastors/pastor', locals: {pastor: pastor, church: @church} %>-->
+          <!--<%# end %>-->
+          <!--</tbody>-->
+        <!--</table>-->
+<!---->
+        <!--<%#= link_to 'Hide Pastors', '#', class: 'hide-pastors', remote: true %>-->
+    <!--<%# end %>-->
+  <!--</div>-->
+</div>

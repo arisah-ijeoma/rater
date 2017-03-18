@@ -1,6 +1,9 @@
 <%# hearts = @church.hearts.count %>
 <div class="m-pricing">
   <%= link_to '<<< All Churches', churches_path %>
+  <% if can? :manage, Church %>
+      <%= link_to 'Edit Church >>>', edit_church_path(@church), class: 'pull-right' %>
+  <% end %>
   <h1 class="text-center"><%= @church.name %></h1>
   <div class="flexer">
     <div class="show-avatar">
@@ -20,9 +23,9 @@
         <p class="rate-text">Overall Rating</p>
         <div class="share">
           <p class="rate-figure">#.##</p>
-          <%= div_for @church do %>
-              <%= render partial: 'hearts/button', locals: { church: @church } %>
-          <% end %>
+          <%#= div_for @church do %>
+              <%#= render partial: 'hearts/button', locals: { church: @church } %>
+          <%# end %>
         </div>
       </div>
     </div>

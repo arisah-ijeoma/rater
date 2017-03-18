@@ -19,9 +19,11 @@
         <li class="profile">
           <%= link_to 'Profile', profile_path(current_user.profile), class: 'side-click', 'data-hover' => 'Profile' %>
         </li>
-
         <li class="church">
           <%= link_to 'Churches', churches_path, class: 'side-click', 'data-hover' => 'Churches' %>
+        </li>
+        <li class="school">
+          <%= link_to 'Schools', schools_path, class: 'side-click', 'data-hover' => 'Schools' %>
         </li>
         <li class="blog"><%= link_to 'Blog', '#', class: 'side-click', 'data-hover' => 'Blog' %></li>
         <li class="logout"><%= link_to 'LogOut', destroy_user_session_path, class: 'side-click', 'data-hover' => 'LogOut', method: :delete %></li>

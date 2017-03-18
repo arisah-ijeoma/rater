@@ -29,7 +29,7 @@ class ChurchesController < ApplicationController
 
   def update
     if @church.update_attributes(church_params)
-      redirect_to churches_path, notice: "You have successfully updated #{@church.name}"
+      redirect_to church_path(@church), notice: "You have successfully updated #{@church.name}"
     else
       render :edit
     end

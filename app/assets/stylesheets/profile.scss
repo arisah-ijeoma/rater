@@ -1,67 +1,3 @@
-.styled-select {
-  background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;
-  height: 29px;
-  overflow: hidden;
-  width: 240px;
-}
-
-.styled-select select {
-  background: transparent;
-  border: none;
-  font-size: 14px;
-  height: 29px;
-  padding: 5px; /* If you add too much padding here, the options won't show in IE */
-  width: 268px;
-}
-
-.styled-select option[selected] {
-  background-color: green !important;
-}
-
-.styled-select.slate {
-  background: #fff;
-  height: 34px;
-  width: 240px;
-}
-
-.styled-select.slate select {
-  border: 1px solid #ccc;
-  font-size: 16px;
-  height: 34px;
-  width: 268px;
-}
-
-.profile select {
-  color: #000;
-}
-
-.mc {
-  display: table;
-  width: 100%;
-  margin-bottom: 25px;
-  position: relative;
-}
-
-.mc input {
-  width: 100%;
-  background: transparent;
-  border: none;
-  border-bottom: 2px solid #fff;
-  font-size: 13px;
-  color: #fff;
-  padding-bottom: 11px;
-  padding-left: 50px;
-  margin: 0;
-  position: relative;
-  top: 0;
-}
-
-.mc input:focus {
-  border-color: #fff;
-  color: #fff;
-  outline: none;
-}
-
 .mc-brief textarea {
   padding: 12px 17px 17px 17px;
   width: 100%;
@@ -71,15 +7,6 @@
 .mc-brief textarea:focus {
   border: 2px solid #fff;
   outline: none;
-}
-
-.mc-main-action {
-  width: 100%;
-  border: none;
-  background-color: #f0f0f0;
-  padding: 10px 30px !important;
-  font-size: 1.3em !important;
-  color: #a30001;
 }
 
 .brief p {
@@ -94,116 +21,10 @@
   color: #fff
 }
 
-/* uploader */
-
-.custom-file-upload-hidden {
-  display: none;
-  visibility: hidden;
-  position: absolute;
-  left: -9999px;
-}
-.custom-file-upload {
-  display: block;
-  width: auto;
-  margin-top: 30px;
-  label {
-    display: block;
-    margin-bottom: 5px;
-  }
-}
-
-.file-upload-wrapper {
-  position: relative;
-  margin-bottom: 5px;
-}
-
-.file-upload-input {
-  width: 300px;
-  color: #a30001;
-  font-size: 16px;
-  padding: 11px 17px !important;
-  border: 1px solid #fff;
-  background-color: #fff;
-  float: left; /* IE 9 Fix */
-  &:hover, &:focus {
-    background-color: darken(#fff, 5);
-    outline: none;
-  }
-}
-
-.file-upload-button {
-  cursor: pointer;
-  display: inline-block;
-  color: #fff;
-  font-size: 16px;
-  text-transform: uppercase;
-  padding: 11px 20px !important;
-  border: 1px solid #fff;
-  margin-left: -1px !important;
-  background-color: inherit;
-  float: left; /* IE 9 Fix */
-  &:hover {
-    background-color: darken(#c0392b, 20);
-  }
-}
-
-.uploader {
-  padding-bottom: 20px;
-}
-
-/* formtastic override */
-
-.inline-errors {
-  color: #fff !important;
-  display: inline-block !important;
-}
-
-label {
-  font-size: 1.2em !important;
-  font-weight: 300 !important;
-  display: flex !important;
-}
-
 /* media queries */
 
 @media screen and (max-width: 1150px) {
-  .mc input {
-    width: 60% !important;
-    float: right;
-  }
-
-  .file-upload-button {
-    float: right;
-    font-size: 13px !important;
-    padding-bottom: 13px !important;
-  }
-
-  .file-upload-input {
-    width: 150px;
-    float: right;
-  }
-
-  .styled-select.slate {
-    float: right;
-  }
-
   .mc-brief textarea {
     float: right;
-  }
-}
-
-@media screen and (max-width: 960px) {
-  .mc input {
-    width: 100% !important;
-  }
-
-  .file-upload-input {
-    width: 100%;
-  }
-
-  .file-upload-button {
-    width: 100%;
-    font-size: 16px !important;
-    padding: 11px 20px !important
   }
 }

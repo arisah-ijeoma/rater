@@ -1,15 +1,3 @@
-.creation-cta {
-  padding: 10px;
-  background-color: #a30001;
-  color: #fff;
-  font-size: 1.3em;
-}
-
-.creation-cta:hover {
-  color: #ddd;
-  text-decoration: none;
-}
-
 .churches {
   padding-top: 50px;
   width: 250px;
@@ -18,25 +6,4 @@
 .details {
   padding-top: 30px;
   font-size: 1.2em;
-}
-
-.flexer {
-  padding-top: 30px;
-  display: flex;
-  justify-content: space-around;
-}
-
-.hearted {
-  border: 0;
-  background: transparent;
-}
-
-.fa-heart, .fa-heart-o {
-  font-size: 5em;
-  color: #a30001;
-}
-
-.share {
-  display: flex;
-  justify-content: space-between;
 }

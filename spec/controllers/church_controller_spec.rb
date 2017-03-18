@@ -54,7 +54,7 @@ describe ChurchesController do
 
           it 'redirects to the updated church' do
             put :update, id: church, church: attributes_for(:church)
-            expect(response).to redirect_to(churches_path)
+            expect(response).to redirect_to(church_path(church))
           end
         end
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170307205601) do
+ActiveRecord::Schema.define(version: 20170318100802) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,15 @@ ActiveRecord::Schema.define(version: 20170307205601) do
   add_index "hearts", ["church_id"], name: "index_hearts_on_church_id", using: :btree
   add_index "hearts", ["user_id"], name: "index_hearts_on_user_id", using: :btree
 
+  create_table "lecturers", force: :cascade do |t|
+    t.string   "name"
+    t.string   "course"
+    t.string   "avatar"
+    t.integer  "school_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "pastors", force: :cascade do |t|
     t.string   "name"
     t.string   "avatar"
@@ -59,6 +68,20 @@ ActiveRecord::Schema.define(version: 20170307205601) do
   end
 
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
+
+  create_table "schools", force: :cascade do |t|
+    t.string   "name"
+    t.string   "aka"
+    t.string   "date_founded"
+    t.string   "location"
+    t.string   "ownership"
+    t.string   "category"
+    t.string   "head"
+    t.string   "website"
+    t.string   "avatar"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",          null: false
