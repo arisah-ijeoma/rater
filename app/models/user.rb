@@ -3,8 +3,8 @@ class User < ActiveRecord::Base
   after_create :add_profile
 
   has_one :profile
-  has_many :hearts, dependent: :destroy
-  has_many :churches, through: :hearts
+  # has_many :hearts, dependent: :destroy
+  # has_many :churches, through: :hearts
 
 
   devise :database_authenticatable, :registerable,

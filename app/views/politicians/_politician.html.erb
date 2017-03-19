@@ -1,0 +1,9 @@
+<%= content_tag_for :tr, politician do %>
+    <td><%= link_to "#{politician.name}", politician_path(politician) %></td>
+    <td><%= politician.current_office %></td>
+    <td><%= politician.present_party %></td>
+    <td><%= link_to 'Rate', '#' %></td>
+    <% if can? :manage, Politician %>
+        <td><%= link_to 'Delete', politician, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
+<% end %>

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root 'landing#index'
   resources :home, only: :index
   resources :profiles, except: [:index, :new, :create]
+  resources :politicians
   resources :churches do
     resources :pastors, except: [:index, :show]
   end

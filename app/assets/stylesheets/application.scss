@@ -25,6 +25,7 @@
  *= require home
  *= require church
  *= require pastor
+ *= require politician
  *= require prettyphoto-rails
  */
 
@@ -267,6 +268,10 @@ label {
   font-size: 1.2em !important;
   font-weight: 300 !important;
   display: flex !important;
+}
+
+.date_select label {
+  color: #fff !important;
 }
 
 /* MEDIA QUERIES */

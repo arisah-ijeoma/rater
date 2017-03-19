@@ -1,0 +1,33 @@
+<%# hearts = @church.hearts.count %>
+<div class="m-pricing">
+  <%= link_to '<<< All Politicians', politicians_path %>
+  <% if can? :manage, Politician %>
+      <%= link_to 'Edit Politician >>>', edit_politician_path(@politician), class: 'pull-right' %>
+  <% end %>
+  <h1 class="text-center"><%= @politician.name %></h1>
+  <div class="flexer">
+    <div class="show-avatar">
+      <%= avatar_tag(@politician, :lil_big) %>
+      <%# if current_user.heart?(@church) && hearts > 1 %>
+      <!--<p>You and <%#= hearts - 1 %> others like this church<</p>-->
+      <%# elsif current_user.heart?(@church) %>
+      <!--<p>You like this church</p>-->
+      <%# else %>
+      <!--<p></p>-->
+      <%# end %>
+
+    </div>
+    <div>
+      <%= link_to 'Rate This Politician', '#', class: 'rate-action' %>
+      <div class="rate-summary">
+        <p class="rate-text">Overall Rating</p>
+        <div class="share">
+          <p class="rate-figure">#.##</p>
+          <%#= div_for @church do %>
+          <%#= render partial: 'hearts/button', locals: { church: @church } %>
+          <%# end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

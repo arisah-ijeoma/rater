@@ -1,0 +1,29 @@
+<div class="m-pricing">
+  <% if can? :manage, Politician %>
+      <div>
+        <%= link_to 'Create a politician', new_politician_path, class: 'creation-cta' %>
+      </div>
+  <% end %>
+
+  <h2 class="text-center">POLITICIANS</h2>
+  <% if @politicians.empty? %>
+      <i>There are no available politicians</i>
+  <% else %>
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>Name</th>
+          <th>Current Office</th>
+          <th>Present Party</th>
+          <th></th>
+          <% if can? :manage, Politician %>
+              <th></th>
+          <% end %>
+        </tr>
+        </thead>
+        <tbody>
+        <%= render @politicians %>
+        </tbody>
+      </table>
+  <% end %>
+</div>

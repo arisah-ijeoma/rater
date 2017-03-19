@@ -13,6 +13,7 @@ class Ability
       can :read, Pastor
       can :read, School
       can :read, Lecturer
+      can :read, Politician
     end
   end
 end

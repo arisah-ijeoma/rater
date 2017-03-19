@@ -25,6 +25,9 @@
         <li class="school">
           <%= link_to 'Schools', schools_path, class: 'side-click', 'data-hover' => 'Schools' %>
         </li>
+        <li class="politician">
+          <%= link_to 'Politicians', politicians_path, class: 'side-click', 'data-hover' => 'Politicians' %>
+        </li>
         <li class="blog"><%= link_to 'Blog', '#', class: 'side-click', 'data-hover' => 'Blog' %></li>
         <li class="logout"><%= link_to 'LogOut', destroy_user_session_path, class: 'side-click', 'data-hover' => 'LogOut', method: :delete %></li>
       </ul>
