@@ -14,6 +14,7 @@ class Ability
       can :read, School
       can :read, Lecturer
       can :read, Politician
+      can :read, Brand
     end
   end
 end

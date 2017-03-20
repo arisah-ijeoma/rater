@@ -1,0 +1,31 @@
+<div class="m-pricing">
+  <% if can? :manage, Brand %>
+      <div>
+        <%= link_to 'Create a Brand', new_brand_path, class: 'creation-cta' %>
+      </div>
+  <% end %>
+
+  <h2 class="text-center">BRANDS</h2>
+  <% if @brands.empty? %>
+      <i>There are no available brands</i>
+  <% else %>
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>Name</th>
+          <th>Managed By</th>
+          <th>Industry</th>
+          <th>Logo</th>
+          <th></th>
+          <th></th>
+          <% if can? :manage, Brand %>
+              <th></th>
+          <% end %>
+        </tr>
+        </thead>
+        <tbody>
+        <%= render @brands %>
+        </tbody>
+      </table>
+  <% end %>
+</div>

@@ -22,7 +22,7 @@
                                 collection: User::ACCOUNT_TYPES,
                                 include_blank: false,
                                 selected: current_user.account_type,
-                                input_html: {class: 'styled-select slate profile'} %>
+                                input_html: {class: 'styled-select slate'} %>
                   </div>
               <% end %>
               <%= f.action :submit, label: 'Save Profile', button_html: {class: 'mc-main-action', data: {disable_with: 'Please wait...'}} %>

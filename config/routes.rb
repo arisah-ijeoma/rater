@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :home, only: :index
   resources :profiles, except: [:index, :new, :create]
   resources :politicians
+  resources :brands
   resources :churches do
     resources :pastors, except: [:index, :show]
   end
@@ -12,6 +13,6 @@ Rails.application.routes.draw do
     resources :lecturers, except: [:index, :show]
   end
 
-  match 'heart', to: 'hearts#heart', via: :post
-  match 'unheart', to: 'hearts#unheart', via: :delete
+  # match 'heart', to: 'hearts#heart', via: :post
+  # match 'unheart', to: 'hearts#unheart', via: :delete
 end
