@@ -3,6 +3,7 @@
     <td class="show-avatar">
       <%= avatar_tag(pastor, :headshot) %>
     </td>
+    <td>#.##</td>
     <td><%= link_to 'Rate', '#' %></td>
     <% if can? :manage, Pastor %>
         <td><%= link_to 'Edit', edit_church_pastor_path(church, pastor) %></td>

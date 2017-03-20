@@ -4,6 +4,7 @@
     <td class="show-avatar">
       <%= avatar_tag(lecturer, :headshot) %>
     </td>
+    <td>#.##</td>
     <td><%= link_to 'Rate', '#' %></td>
     <% if can? :manage, Lecturer %>
         <td><%= link_to 'Edit', edit_school_lecturer_path(school, lecturer) %></td>
