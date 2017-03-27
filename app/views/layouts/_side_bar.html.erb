@@ -32,8 +32,6 @@
         <li class="<%= 'current' if controller_name == 'brands' %>">
           <%= link_to 'Brands', brands_path, 'data-hover' => 'Brands' %>
         </li>
-        <li class="<%= 'current' if controller_name == 'blogs' %>"><%= link_to 'Blog', '#', 'data-hover' => 'Blog' %></li>
-        <li class="logout"><%= link_to 'LogOut', destroy_user_session_path, class: 'side-click', 'data-hover' => 'LogOut', method: :delete %></li>
       </ul>
     </div>
   </nav>

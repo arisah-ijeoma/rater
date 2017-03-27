@@ -4,7 +4,8 @@
         <%= image_tag 'rater-white', class: 'nav-image' %>
     <% end %>
 
-    <%= link_to 'LOG OUT', destroy_user_session_path, class: 'pull-right nav-logout', method: :delete %>
+    <%= link_to 'LOG OUT', destroy_user_session_path, class: 'pull-right nav-item', method: :delete %>
+    <%= link_to 'BLOG', '#', class: 'pull-right nav-item' %>
 
     <form class="text-center col-md-8 col-sm-8 col-xs-7 pull-right" id="header_form"> 
       <input type="text" id="header_search_bar"> 
