@@ -1,6 +1,9 @@
 <%# hearts = @church.hearts.count %>
 <div class="m-pricing">
-  <%= link_to '<<< All Churches', churches_path %>
+  <%= select_tag :name,
+                 options_for_select(Church.all.collect {|p| [ p.name, p.id ] }),
+                 include_blank: 'All Churches',
+                 onchange: "window.location.replace('/churches/'+this.value);" %>
   <% if can? :manage, Church %>
       <%= link_to 'Edit Church >>>', edit_church_path(@church), class: 'pull-right' %>
   <% end %>
