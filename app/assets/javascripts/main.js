@@ -89,8 +89,6 @@ $(document).ready(function () {
         theme: 'pp_default'
     });
 
-    $("html").niceScroll();
-
     $('.m-hide i').on( "click", function() {
         if($('.m-hide i').hasClass('fa-plus-circle')) {       
             $(this).removeClass('fa-plus-circle').addClass('fa-minus-circle');
