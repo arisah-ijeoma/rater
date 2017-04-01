@@ -64,8 +64,6 @@ gem 'prettyphoto-rails'
 
 gem 'jquery-easing-rails'
 
-gem 'nicescroll-rails'
-
 group :development, :test do
   gem 'pry'
   gem 'pry-nav'

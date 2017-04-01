@@ -197,13 +197,16 @@
   outline: none;
 }
 
-.mc-main-action {
-  width: 100%;
+.mc-main-action, .mc-main-back {
   border: none;
   background-color: #f0f0f0;
   padding: 10px 30px !important;
   font-size: 1.3em !important;
   color: #a30001;
+}
+
+.mc-main-action {
+  width: 100%;
 }
 
 /* uploader */
@@ -317,5 +320,23 @@ label {
     width: 100%;
     font-size: 16px !important;
     padding: 11px 20px !important
+  }
+}
+
+@media screen and (max-width: 950px) {
+  select#name {
+    width: 50%;
+  }
+
+  .flexer {
+    display: block;
+  }
+
+  .rate-stuff {
+    padding-top: 25px;
+  }
+
+  .rate-action {
+    font-size: 1.7em;
   }
 }

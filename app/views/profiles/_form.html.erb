@@ -26,6 +26,7 @@
                   </div>
               <% end %>
               <%= f.action :submit, label: 'Save Profile', button_html: {class: 'mc-main-action', data: {disable_with: 'Please wait...'}} %>
+                <%= link_to 'Back', profile_path(@profile), class: 'mc-main-back pull-right' %>
           <% end %>
           </div>
       <% end %>

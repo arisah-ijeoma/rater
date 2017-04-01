@@ -19,6 +19,7 @@
               </div>
 
               <%= c.action :submit, label: 'Save Pastor', button_html: {class: 'mc-main-action', data: {disable_with: 'Please wait...'}} %>
+              <%= link_to 'Back', church_path(@church), class: 'mc-main-back pull-right' %>
           <% end %>
       <% end %>
     </div>

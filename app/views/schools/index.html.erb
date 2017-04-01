@@ -9,22 +9,29 @@
   <% if @schools.empty? %>
       <i>There are no available schools</i>
   <% else %>
-      <table class="table table-striped">
-        <thead>
-        <tr>
-          <th>Name</th>
-          <th>Ownership</th>
-          <th>Category</th>
-          <th></th>
-          <th></th>
-          <% if can? :manage, School %>
-              <th></th>
-          <% end %>
-        </tr>
-        </thead>
-        <tbody>
-        <%= render @schools %>
-        </tbody>
-      </table>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+              <tr>
+                <th>Name</th>
+                <th>Ownership</th>
+                <th>Category</th>
+                <th></th>
+                <th></th>
+                <% if can? :manage, School %>
+                    <th></th>
+                <% end %>
+              </tr>
+              </thead>
+              <tbody>
+              <%= render @schools %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
   <% end %>
 </div>

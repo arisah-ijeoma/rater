@@ -22,7 +22,6 @@
 //= require jquery.inview
 //= require prettyphoto-rails
 //= require prettyphoto-rails-dev
-//= require jquery.nicescroll
 //= require blur
 //= require jquery.fullPage.min
 //= require jquery.mCustomScrollbar.concat.min

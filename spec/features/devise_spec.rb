@@ -27,12 +27,12 @@ describe 'Devise', type: :feature do
     context 'valid sign in' do
       scenario 'user can sign in with email' do
         email_login user
-        expect(page).to have_content('LogOut')
+        expect(page).to have_content('LOG OUT')
       end
 
       scenario 'user can sign in with phone number' do
         digits_login user
-        expect(page).to have_content('LogOut')
+        expect(page).to have_content('LOG OUT')
       end
     end
 

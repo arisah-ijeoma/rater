@@ -9,22 +9,28 @@
   <% if @churches.empty? %>
     <i>There are no available churches</i>
   <% else %>
-      <table class="table table-striped">
-        <thead>
-        <tr>
-          <th>Name</th>
-          <th>A.K.A</th>
-          <th>Founder</th>
-          <th></th>
-          <th></th>
-          <% if can? :manage, Church %>
-            <th></th>
-          <% end %>
-        </tr>
-        </thead>
-        <tbody>
-          <%= render @churches %>
-        </tbody>
-      </table>
+    <div class="row">
+      <div class="col-xs-12">
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+              <tr>
+                <th>Name</th>
+                <th>A.K.A</th>
+                <th>Founder</th>
+                <th></th>
+                <th></th>
+                <% if can? :manage, Church %>
+                    <th></th>
+                <% end %>
+              </tr>
+              </thead>
+              <tbody>
+              <%= render @churches %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
   <% end %>
 </div>

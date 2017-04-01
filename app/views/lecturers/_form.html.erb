@@ -22,6 +22,7 @@
               </div>
 
               <%= c.action :submit, label: 'Save Lecturer', button_html: {class: 'mc-main-action', data: {disable_with: 'Please wait...'}} %>
+              <%= link_to 'Back', school_path(@school), class: 'mc-main-back pull-right' %>
           <% end %>
       <% end %>
     </div>
