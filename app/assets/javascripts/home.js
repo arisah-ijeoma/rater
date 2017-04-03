@@ -3,7 +3,7 @@ $(function () {
     $(window).on("resize", function (e) {
       var w = e.target.innerWidth;
       var input = $(className);
-      return input.attr("placeholder", (w > 1 && w < 770) ? "anything..." : "search for schools, churches, politics, brands...")
+      return input.attr("placeholder", (w > 1 && w < 770) ? "anything..." : "schools, churches, politics, brands...")
     }).resize();
   };
 

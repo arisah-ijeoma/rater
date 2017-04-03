@@ -4,9 +4,9 @@
 }
 
 #search_bar {
-  width: 315%;
+  width: 200%;
   font-size: 18px;
-  padding: 0  30px;
+  padding: 0 100px;
   border: none;
   border-bottom: 2px solid #a30001;
   margin-top: 20px;
@@ -17,7 +17,7 @@
 
 #home_form button {
   position: absolute;
-  right: 25px;
+  left: 25px;
   top: 30px;
   background: none;
   border: none;
@@ -82,9 +82,27 @@
   z-index:10;
 }
 
+@media screen and (max-width: 1230px) {
+  #search_bar {
+    width: 150%;
+    padding: 0 70px;
+  }
+}
+
 @media screen and (max-width: 1000px) {
   #header_form button {
     right: 200px;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  #search_bar {
+    width: 135%;
+    padding: 0 50px;
+  }
+
+  #home_form button {
+    left: 10px;
   }
 }
 
@@ -95,6 +113,13 @@
 
   #header_form button {
     right: 100px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  #search_bar {
+    width: 100%;
+    padding: 0 70px;
   }
 }
 
