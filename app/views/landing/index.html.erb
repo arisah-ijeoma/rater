@@ -8,7 +8,13 @@
               <div class="col-md-8 col-md-offset-2 come-down"> 
 
                 <%= form_tag home_index_path, method: :get do %>
-                    <%= text_field_tag :q, params[:q], class: 'search-field awesomplete', 'data-list' => suggestion_list, 'data-minchars' => 1, 'data-maxitems' => 5, placeholder: 'Search for someone to rate...' %>
+                    <%= text_field_tag :q,
+                                       params[:q],
+                                       class: 'search-field awesomplete',
+                                       'data-list' => suggestion_list,
+                                       'data-minchars' => 1,
+                                       'data-maxitems' => 5,
+                                       placeholder: 'Search for anything...' %>
                     <button type="submit"><i class="fa fa-search"></i></button> 
                 <% end %>
 

@@ -20,7 +20,7 @@
   width: 555px;
   font-size: 18px;
   border-radius: 5px;
-  padding: 0  30px;
+  padding: 0 70px;
   border: none;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -34,7 +34,7 @@
 
 .masthead form button {
   position: absolute;
-  right: 115px;
+  left: 110px;
   top: 27px;
   background: none;
   border: none;
@@ -148,9 +148,83 @@ nav .section-menu > li.landing-cta > a:hover {
   cursor: pointer;
 }
 
+/* logo */
+
+.landing-logo {
+  width: 130px;
+}
+
+/* media query */
+
+@media screen and (max-width: 1200px) {
+  .masthead form button {
+    left: 50px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .masthead form button {
+    left: 100px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .landing-logo {
+    width: 100px;
+  }
+
+  .come-down {
+    margin-top: -50px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .masthead form button {
+    left: 70px;
+  }
+}
+
 @media screen and (max-width: 700px) {
   .modal-body {
     width: 100%;
     font-size: 1.2em;
+  }
+
+  .masthead form button {
+    left: 40px;
+  }
+}
+
+@media screen and (max-width: 637px) {
+  .masthead .search-field {
+    width: 335px;
+  }
+
+  .masthead form button {
+    left: 140px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .masthead form button {
+    left: 90px;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .masthead form button {
+    left: 60px;
+  }
+}
+
+@media screen and (max-width: 485px) {
+  .quick-rate {
+    padding-top: 0;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .masthead form button {
+    left: 30px;
   }
 }
