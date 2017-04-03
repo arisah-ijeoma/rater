@@ -5,8 +5,13 @@
         <div class="masthead text-center"> 
           <div class="container"> 
             <div class="row"> 
-              <div class="col-md-8 col-md-offset-2"> 
-                <h1>Rater</h1>
+              <div class="col-md-8 col-md-offset-2 come-down"> 
+
+                <%= form_tag home_index_path, method: :get do %>
+                    <%= text_field_tag :q, params[:q], class: 'search-field awesomplete', 'data-list' => suggestion_list, 'data-minchars' => 1, 'data-maxitems' => 5, placeholder: 'Search for someone to rate...' %>
+                    <button type="submit"><i class="fa fa-search"></i></button> 
+                <% end %>
+
                 <div class="quick-rate">
                   <%= link_to 'Find Stuff', '#', class: 'rate-cta', id: 'first_rate_btn', title: 'Rate first stuff' %>
                   <%= link_to 'Find Stuff', '#', class: 'rate-cta', id: 'second_rate_btn', title: 'Rate second stuff' %>
@@ -15,10 +20,6 @@
                 <p class="lead text-muted" id="initial_text">
                   Our top 3 raters. Rate more stuff from below
                 </p> 
-                <form> 
-                  <input type="text" class="search-field" placeholder="Search for someone to rate... "> 
-                  <button type="submit"><i class="fa fa-search"></i></button> 
-                </form> 
               </div> 
             </div> 
           </div>

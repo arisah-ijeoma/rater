@@ -8,8 +8,10 @@
     <%= link_to 'BLOG', '#', class: 'pull-right nav-item' %>
 
     <form class="text-center col-md-8 col-sm-8 col-xs-7 pull-right" id="header_form"> 
-      <input type="text" id="header_search_bar"> 
-      <button type="submit"><i class="fa fa-search"></i></button> 
+      <%= form_tag home_index_path, method: :get do %>
+          <%= text_field_tag :q, params[:q], id: 'header_search_bar', class: 'awesomplete', 'data-list' => suggestion_list, 'data-minchars' => 1 %>
+          <button type="submit"><i class="fa fa-search"></i></button> 
+      <% end %>
     </form> 
   </nav>
 </div>

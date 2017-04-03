@@ -1,11 +1,46 @@
 <div class="row">
   <div class="col-md-12">
     <div class="col-md-12 m-pricing" data-animated="0">
-      <h1 class="text-center">I want to rate things relating to</h1>
-      <form class="text-center" id="home_form">
-        <input type="text" id="search_bar">
-        <button type="submit"><i class="fa fa-search"></i></button>
-      </form>
+      <div class="search">
+        <h1 class="text-center">I want to rate things relating to</h1>
+        <%= form_tag home_index_path, method: :get, class: 'text_center', id: 'home_form' do %>
+            <%= text_field_tag :q, params[:q], id: 'search_bar', class: 'awesomplete', 'data-list' => suggestion_list, 'data-minchars' => 1 %>
+            <button type="submit" class="search-button"><i class="fa fa-search"></i></button> 
+        <% end %>
+      </div>
+
+      <div class="search-results">
+        <%= link_to 'Back Home', home_index_path, class: 'pull-right'%>
+        <% if @filtered_info.blank? %>
+            <em>No result matches your search</em>
+        <% else %>
+            Showing <%= @filtered_info.count %> result(s) out of <%= @filtered_info.total_entries %>
+            <table class="table table-striped">
+              <thead>
+              <tr>
+                <th>Category</th>
+                <th>Name</th>
+              </tr>
+              </thead>
+              <tbody>
+              <% @filtered_info.each do |info| %>
+                  <tr>
+                    <td><%= info.class.name %></td>
+                        <td>
+                          <!--rating page-->
+                          <%= link_to '#' do %>
+                              <%= info.name %>
+                              <br>
+                              <em style="font-size: 12px"><%= search_extra_info(info) %></em>
+                          <% end %>
+                        </td>
+                  </tr>
+              <% end %>
+              </tbody>
+            </table>
+            <%= will_paginate @filtered_info %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

@@ -35,3 +35,12 @@ input::-moz-placeholder {  /* Firefox 19+ */
 input:-ms-input-placeholder {
   color: #000 !important;
 }
+
+div.awesomplete {
+  color: #000 !important;
+  font-size: 0.8em;
+}
+
+div.awesomplete > ul {
+  opacity: 1;
+}

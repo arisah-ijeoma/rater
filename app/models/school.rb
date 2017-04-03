@@ -9,4 +9,8 @@ class School < ActiveRecord::Base
 
   OWNERSHIP = %w( Federal State Private Missionary )
   CATEGORY = %w( University Polytechnic College Others )
+
+  scope :aka_search, -> q {
+    where('LOWER(aka) like ?', "%#{q.downcase}%")
+  }
 end

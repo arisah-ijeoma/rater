@@ -46,18 +46,6 @@ if(android || iOS) {
   );
 }
 
-var switchIndicator = function() {
-  $('.side-click').click(function() {
-    if(window.location.href.indexOf('profile') > -1) {
-      console.log('profile');
-      $('.profile').addClass('current');
-    }
-    console.log('all');
-    //$('.nav li').removeClass('current');
-    $(this).closest('li').addClass('current');
-  })
-};
-
 // IMAGE UPLOADER
 (function($) {
 

@@ -13,6 +13,16 @@ module ApplicationHelper
     controller_name == psw
   end
 
+  def suggestion_list
+    suggestion_list = Church.uniq.pluck(:name, :aka) +
+                      School.uniq.pluck(:name, :aka) +
+                      Pastor.uniq.pluck(:name) +
+                      Lecturer.uniq.pluck(:name) +
+                      Politician.uniq.pluck(:name) +
+                      Brand.uniq.pluck(:name)
+    suggestion_list.flatten.join(', ')
+  end
+
   def avatar_tag(class_name, style=:full)
     if style == :tiny_thumb
       size = '32x32'

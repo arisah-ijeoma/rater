@@ -62,6 +62,9 @@ gem 'mini_magick'
 # Use to prettify photos
 gem 'prettyphoto-rails'
 
+# For pagination
+gem 'will_paginate'
+
 gem 'jquery-easing-rails'
 
 group :development, :test do

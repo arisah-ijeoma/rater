@@ -6,7 +6,11 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
   <%= stylesheet_link_tag @css_root, media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag '//cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.1/awesomplete.css', rel: 'stylesheet' %>
+
+
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.1/awesomplete.js', async: '' %>
 
   <!--[if lte IE 9]>
       <%= stylesheet_link_tag 'ie9', media: 'all', 'data-turbolinks-track' => true %>
