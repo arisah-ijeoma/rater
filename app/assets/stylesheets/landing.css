@@ -174,7 +174,7 @@ nav .section-menu > li.landing-cta > a:hover {
   }
 
   .come-down {
-    margin-top: -50px;
+    margin-top: 50px;
   }
 }
 
@@ -197,7 +197,7 @@ nav .section-menu > li.landing-cta > a:hover {
 
 @media screen and (max-width: 637px) {
   .masthead .search-field {
-    width: 335px;
+    width: 300px;
   }
 
   .masthead form button {
@@ -225,6 +225,6 @@ nav .section-menu > li.landing-cta > a:hover {
 
 @media screen and (max-width: 420px) {
   .masthead form button {
-    left: 30px;
+    left: 15px;
   }
 }

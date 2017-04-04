@@ -2,20 +2,22 @@
   <section class='corner-red home' data-anchor='home'>
     <div class="section-content-wrapper container">
       <div class="section-content">
-        <div class="masthead text-center"> 
-          <div class="container"> 
-            <div class="row"> 
-              <div class="col-md-8 col-md-offset-2 come-down"> 
+        <div class="masthead text-center">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-8 col-md-offset-2 come-down">
 
                 <%= form_tag home_index_path, method: :get do %>
                     <%= text_field_tag :q,
                                        params[:q],
                                        class: 'search-field awesomplete',
-                                       'data-list' => suggestion_list.blank? ? 'No matches' : suggestion_list,
+                                       'data-list' => suggestion_list,
                                        'data-minchars' => 1,
                                        'data-maxitems' => 5,
                                        placeholder: 'Search for anything...' %>
-                    <button type="submit" class="landing-search"><i class="fa fa-search"></i></button> 
+                    <button type="submit" class="landing-search">
+                      <i class="fa fa-search"></i>
+                    </button>
                 <% end %>
 
                 <div class="quick-rate">
@@ -25,9 +27,9 @@
                 </div>
                 <p class="lead text-muted" id="initial_text">
                   Our top 3 raters. Rate more stuff from below
-                </p> 
-              </div> 
-            </div> 
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
