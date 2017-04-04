@@ -31,10 +31,10 @@
 
 #header_search_bar {
   color: #000;
-  width: 200%;
+  width: 135%;
   border: 2px solid #000;
   border-radius: 25px;
-  padding: 10px 20px;
+  padding: 10px 50px;
   position: relative;
   top: 5px;
   right: 70px;
@@ -42,8 +42,8 @@
 
 #header_form button {
   position: absolute;
-  right: 220px;
-  top: 10px;
+  left: 223px;
+  top: 12px;
   background: none;
   border: none;
   font-size: 20px;
@@ -82,16 +82,40 @@
   z-index:10;
 }
 
+/* media queries */
+
 @media screen and (max-width: 1230px) {
   #search_bar {
     width: 150%;
     padding: 0 70px;
   }
+
+  #header_search_bar {
+    padding: 10px 30px 10px 70px;
+  }
+
+  #header_form button {
+    right: 210px;
+  }
+}
+
+@media screen and (max-width: 1180px) {
+  #header_search_bar {
+    padding: 10px 10px 10px 80px;
+  }
+
+  #header_form button {
+    left: 190px;
+  }
 }
 
 @media screen and (max-width: 1000px) {
+  #header_search_bar {
+    padding: 10px 20px 10px 60px;
+  }
+
   #header_form button {
-    right: 200px;
+    left: 140px;
   }
 }
 
@@ -104,6 +128,19 @@
   #home_form button {
     left: 10px;
   }
+
+  #header_search_bar {
+    width: 150%;
+  }
+
+  #header_search_bar {
+    padding: 10px 1px 10px 70px;
+  }
+
+  #header_form button {
+    left: 120px;
+    top: 11px;
+  }
 }
 
 @media screen and (max-width: 800px) {
@@ -112,7 +149,7 @@
   }
 
   #header_form button {
-    right: 100px;
+    left: 150px;
   }
 }
 
@@ -120,6 +157,14 @@
   #search_bar {
     width: 100%;
     padding: 0 70px;
+  }
+
+  #header_search_bar {
+    padding: 10px 1px 10px 85px;
+  }
+
+  #header_form button {
+    left: 115px;
   }
 }
 
@@ -131,14 +176,35 @@
 
   #header_search_bar {
     width: 100%;
+    padding: 10px 1px 10px 75px;
   }
 
   #header_form button {
-    top: 40px;
-    right: 30px;
+    top: 21px;
+    left: 200px;
   }
 
   .outer-wrap {
     padding-top: 150px;
+  }
+}
+
+@media screen and (max-width: 570px) {
+  #header_search_bar {
+    padding: 10px 1px 10px 105px;
+  }
+
+  #header_form button {
+    left: 150px;
+  }
+}
+
+@media screen and (max-width: 465px) {
+  #header_search_bar {
+    padding: 10px 1px 10px 100px;
+  }
+
+  #header_form button {
+    left: 100px;
   }
 }

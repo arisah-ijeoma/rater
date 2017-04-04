@@ -35,7 +35,6 @@
 $(function(){
   $(".remove-active").removeClass('active');
   $('input[type=file]').customFile();
-  switchIndicator();
 });
 
 var android = navigator.userAgent.toLowerCase().indexOf("android") > -1;
