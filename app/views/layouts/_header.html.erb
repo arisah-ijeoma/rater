@@ -4,12 +4,22 @@
         <%= image_tag 'rater-white', class: 'nav-image' %>
     <% end %>
 
-    <%= link_to 'LOG OUT', destroy_user_session_path, class: 'pull-right nav-item', method: :delete %>
+    <% if current_user %>
+        <%= link_to 'LOG OUT', destroy_user_session_path, class: 'pull-right nav-item', method: :delete %>
+    <% else %>
+        <%= link_to 'SIGN IN', new_user_registration_path, class: 'pull-right nav-item' %>
+    <% end %>
     <%= link_to 'BLOG', '#', class: 'pull-right nav-item' %>
 
-    <form class="text-center col-md-8 col-sm-8 col-xs-7 pull-right" id="header_form"> 
+    <form class="text-center col-md-8 col-sm-8 col-xs-7 pull-right" id="header_form">
+      <%# binding.pry %>
       <%= form_tag home_index_path, method: :get do %>
-          <%= text_field_tag :q, params[:q], id: 'header_search_bar', class: 'awesomplete', 'data-list' => suggestion_list, 'data-minchars' => 1 %>
+          <%= text_field_tag :q,
+                             params[:q],
+                             id: 'header_search_bar',
+                             class: 'awesomplete',
+                             'data-list' => suggestion_list,
+                             'data-minchars' => 1 %>
           <button type="submit"><i class="fa fa-search"></i></button> 
       <% end %>
     </form> 

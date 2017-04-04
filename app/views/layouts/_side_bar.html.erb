@@ -14,12 +14,13 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right menu-effect">
         <li class="<%= 'current' if controller_name == 'home' %>">
-          <%# binding.pry %>
           <%= link_to 'Home', home_index_path, 'data-hover' => 'Home' %>
         </li>
-        <li class="<%= 'current' if controller_name == 'profiles' %>">
-          <%= link_to 'Profile', profile_path(current_user.profile), 'data-hover' => 'Profile' %>
-        </li>
+        <% if current_user %>
+            <li class="<%= 'current' if controller_name == 'profiles' %>">
+              <%= link_to 'Profile', profile_path(current_user.profile), 'data-hover' => 'Profile' %>
+            </li>
+        <% end %>
         <li class="<%= 'current' if controller_name == 'churches' %>">
           <%= link_to 'Churches', churches_path, 'data-hover' => 'Churches' %>
         </li>

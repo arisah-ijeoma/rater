@@ -1,7 +1,7 @@
 class SearchDecorator
 
   def search_info(q)
-    search_churches(q) + search_pastors(q) +search_school(q) + search_lecturers(q) + search_politicians(q) + search_brands(q)
+    search_churches(q) + search_pastors(q) + search_school(q) + search_lecturers(q) + search_politicians(q) + search_brands(q)
   end
 
   private

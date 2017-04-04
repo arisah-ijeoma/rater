@@ -11,11 +11,11 @@
                     <%= text_field_tag :q,
                                        params[:q],
                                        class: 'search-field awesomplete',
-                                       'data-list' => suggestion_list,
+                                       'data-list' => suggestion_list.blank? ? 'No matches' : suggestion_list,
                                        'data-minchars' => 1,
                                        'data-maxitems' => 5,
                                        placeholder: 'Search for anything...' %>
-                    <button type="submit"><i class="fa fa-search"></i></button> 
+                    <button type="submit" class="landing-search"><i class="fa fa-search"></i></button> 
                 <% end %>
 
                 <div class="quick-rate">

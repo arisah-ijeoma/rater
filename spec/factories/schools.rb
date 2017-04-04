@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :school do
+  factory :school, class: School do
     name 'Federal University of Agriculture, Umudike'
     aka 'FUTO'
     date_founded '1989'

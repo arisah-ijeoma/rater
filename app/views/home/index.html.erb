@@ -4,7 +4,12 @@
       <div class="search">
         <h1 class="text-center">I want to rate things relating to</h1>
         <%= form_tag home_index_path, method: :get, class: 'text_center', id: 'home_form' do %>
-            <%= text_field_tag :q, params[:q], id: 'search_bar', class: 'awesomplete', 'data-list' => suggestion_list, 'data-minchars' => 1 %>
+            <%= text_field_tag :q,
+                               params[:q],
+                               id: 'search_bar',
+                               class: 'awesomplete',
+                               'data-list' => suggestion_list,
+                               'data-minchars' => 1 %>
             <button type="submit" class="search-button"><i class="fa fa-search"></i></button> 
         <% end %>
       </div>
