@@ -65,6 +65,9 @@ gem 'prettyphoto-rails'
 # For pagination
 gem 'will_paginate'
 
+# For the blog
+gem 'blogo'
+
 gem 'jquery-easing-rails'
 
 group :development, :test do
@@ -90,4 +93,3 @@ group :test do
   gem 'capybara'
   gem 'database_cleaner'
 end
-

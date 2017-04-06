@@ -9,10 +9,9 @@
     <% else %>
         <%= link_to 'SIGN IN', new_user_registration_path, class: 'pull-right nav-item' %>
     <% end %>
-    <%= link_to 'BLOG', '#', class: 'pull-right nav-item' %>
+    <%= link_to 'BLOG', blogo_root_path, class: 'pull-right nav-item' %>
 
     <form class="text-center col-md-8 col-sm-8 col-xs-7 pull-right" id="header_form">
-      <%# binding.pry %>
       <%= form_tag home_index_path, method: :get do %>
           <%= text_field_tag :q,
                              params[:q],

@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :lecturers, except: [:index, :show]
   end
 
+  Blogo::Routes.mount_to(self, at: '/blog')
   # match 'heart', to: 'hearts#heart', via: :post
   # match 'unheart', to: 'hearts#unheart', via: :delete
 end
