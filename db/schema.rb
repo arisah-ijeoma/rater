@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170404222510) do
+ActiveRecord::Schema.define(version: 20170411175106) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,6 +71,15 @@ ActiveRecord::Schema.define(version: 20170404222510) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "church_users", force: :cascade do |t|
+    t.integer "church_id"
+    t.integer "user_id"
+    t.decimal "rating",    precision: 15, scale: 2, default: 0.0, null: false
+  end
+
+  add_index "church_users", ["church_id"], name: "index_church_users_on_church_id", using: :btree
+  add_index "church_users", ["user_id"], name: "index_church_users_on_user_id", using: :btree
+
   create_table "churches", force: :cascade do |t|
     t.string   "name"
     t.string   "aka"
@@ -78,8 +87,20 @@ ActiveRecord::Schema.define(version: 20170404222510) do
     t.string   "founder"
     t.string   "website"
     t.string   "avatar"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",                                          null: false
+    t.datetime "updated_at",                                          null: false
+    t.decimal  "rating",       precision: 15, scale: 2, default: 0.0, null: false
+    t.integer  "raters",                                default: 0,   null: false
+    t.integer  "answer_1",                              default: 0,   null: false
+    t.integer  "answer_2",                              default: 0,   null: false
+    t.integer  "answer_3",                              default: 0,   null: false
+    t.integer  "answer_4",                              default: 0,   null: false
+    t.integer  "answer_5",                              default: 0,   null: false
+    t.integer  "answer_6",                              default: 0,   null: false
+    t.integer  "answer_7",                              default: 0,   null: false
+    t.integer  "answer_8",                              default: 0,   null: false
+    t.integer  "answer_9",                              default: 0,   null: false
+    t.integer  "answer_10",                             default: 0,   null: false
   end
 
   create_table "hearts", force: :cascade do |t|
@@ -168,6 +189,8 @@ ActiveRecord::Schema.define(version: 20170404222510) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "church_users", "churches"
+  add_foreign_key "church_users", "users"
   add_foreign_key "hearts", "churches"
   add_foreign_key "hearts", "users"
   add_foreign_key "profiles", "users"

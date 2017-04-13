@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   resources :brands
   resources :churches do
     resources :pastors, except: [:index, :show]
+    get :rating
+    post :ratings
   end
   resources :schools do
     resources :lecturers, except: [:index, :show]

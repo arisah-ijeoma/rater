@@ -1,4 +1,6 @@
 <%# hearts = @church.hearts.count %>
+<% rating = @church.rating.to_f %>
+
 <div class="m-pricing">
   <%= select_tag :name,
                  options_for_select(Church.all.collect {|p| [ p.name, p.id ] }),
@@ -21,11 +23,13 @@
 
     </div>
     <div class="rate-stuff">
-      <%= link_to 'Rate This Church', '#', class: 'rate-action' %>
+      <%= link_to 'Rate This Church', church_rating_path(@church), class: 'rate-action' %>
       <div class="rate-summary">
         <p class="rate-text">Overall Rating</p>
         <div class="share">
-          <p class="rate-figure">#.##</p>
+          <p class="rate-figure">
+            <%= rating %> <span class='rate-comment'><%= rating_comment(rating) %></span>
+          </p>
           <%#= div_for @church do %>
               <%#= render partial: 'hearts/button', locals: { church: @church } %>
           <%# end %>

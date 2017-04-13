@@ -9,7 +9,7 @@ class Ability
         user == profile.user
       end
       can :manage, Heart
-      can :read, Church
+      can [:read, :rating, :ratings], Church
       can :read, Pastor
       can :read, School
       can :read, Lecturer

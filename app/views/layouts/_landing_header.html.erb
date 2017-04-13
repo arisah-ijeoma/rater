@@ -12,11 +12,6 @@
               <span>Home</span>
           <% end %>
         </li>
-        <li>
-          <%= link_to root_path do %>
-              <span>Rate</span>
-          <% end %>
-        </li>
         <% unless show_devise('sessions', 'registrations', 'passwords') %>
             <li class="shift-cta">
               <%= link_to new_user_session_path do%>

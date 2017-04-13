@@ -13,6 +13,20 @@ module ApplicationHelper
     controller_name == psw
   end
 
+  def rating_comment(rating)
+    if rating >= 4.50
+      'Awesome'
+    elsif rating >= 4.00
+      'Good'
+    elsif rating >= 3.00
+      'Average'
+    elsif rating >= 2.00
+      'Poor'
+    else
+      'Awful'
+    end
+  end
+
   def suggestion_list
     suggestion_list = Church.uniq.pluck(:name, :aka) +
                       School.uniq.pluck(:name, :aka) +
