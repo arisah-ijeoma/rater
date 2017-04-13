@@ -15,6 +15,8 @@ Rails.application.routes.draw do
     end
   end
   resources :schools do
+    get :rating
+    post :ratings
     resources :lecturers, except: [:index, :show]
   end
 

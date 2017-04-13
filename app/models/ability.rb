@@ -11,7 +11,7 @@ class Ability
       can :manage, Heart
       can [:read, :rating, :ratings], Church
       can [:read, :rating, :ratings], Pastor
-      can :read, School
+      can [:read, :rating, :ratings], School
       can :read, Lecturer
       can :read, Politician
       can :read, Brand
