@@ -1,6 +1,7 @@
 class LecturersController < ApplicationController
   load_and_authorize_resource class: 'Lecturer'
   before_action :find_school
+  before_action :rate_lecturer, only: [:rating, :ratings]
 
   def new
     @lecturer = @school.lecturers.new
@@ -27,6 +28,30 @@ class LecturersController < ApplicationController
     end
   end
 
+  def rating
+  end
+
+  def ratings
+    answer_1 = params[:lecturer][:answer_1].to_i
+    answer_2 = params[:lecturer][:answer_2].to_i
+    answer_3 = params[:lecturer][:answer_3].to_i
+
+    answer = answer_1 + answer_2 + answer_3
+    rating = (answer.to_f/9) * 5
+
+    @lecturer.raters += 1
+
+    LecturerUser.create(lecturer: @lecturer, user: current_user, rating: rating)
+    total_ratings = LecturerUser.sum(:rating).to_f
+    @lecturer.rating = (total_ratings / @lecturer.raters)
+
+    if @lecturer.save
+      redirect_to school_path(@school)
+    else
+      render :rating
+    end
+  end
+
   def destroy
     @lecturer.destroy
     redirect_to school_path(@school), notice: "You have deleted #{@lecturer.name}"
@@ -40,5 +65,9 @@ class LecturersController < ApplicationController
 
   def find_school
     @school = School.find_by(id: params[:school_id])
+  end
+
+  def rate_lecturer
+    @lecturer = Lecturer.find_by(id: params[:lecturer_id])
   end
 end

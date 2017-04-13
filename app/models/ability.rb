@@ -12,7 +12,7 @@ class Ability
       can [:read, :rating, :ratings], Church
       can [:read, :rating, :ratings], Pastor
       can [:read, :rating, :ratings], School
-      can :read, Lecturer
+      can [:read, :rating, :ratings], Lecturer
       can :read, Politician
       can :read, Brand
     end

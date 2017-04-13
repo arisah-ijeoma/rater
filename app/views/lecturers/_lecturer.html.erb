@@ -1,11 +1,16 @@
 <%= content_tag_for :tr, lecturer do %>
+    <% rating = lecturer.rating %>
     <td><%= lecturer.name %></td>
     <td><%= lecturer.course %></td>
     <td class="show-avatar">
       <%= avatar_tag(lecturer, :headshot) %>
     </td>
-    <td>#.##</td>
-    <td><%= link_to 'Rate', '#' %></td>
+    <td>
+      <%= rating %>
+      <br>
+      <em><%= rating_comment(rating) %></em>
+    </td>
+    <td><%= link_to 'Rate', school_lecturer_rating_path(school, lecturer) %></td>
     <% if can? :manage, Lecturer %>
         <td><%= link_to 'Edit', edit_school_lecturer_path(school, lecturer) %></td>
         <td><%= link_to 'Delete', [school, lecturer], method: :delete, data: { confirm: 'Are you sure?' } %></td>

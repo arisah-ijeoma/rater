@@ -17,7 +17,10 @@ Rails.application.routes.draw do
   resources :schools do
     get :rating
     post :ratings
-    resources :lecturers, except: [:index, :show]
+    resources :lecturers, except: [:index, :show] do
+      get :rating
+      post :ratings
+    end
   end
 
   Blogo::Routes.mount_to(self, at: '/blog')
