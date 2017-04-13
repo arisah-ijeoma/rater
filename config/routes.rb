@@ -4,7 +4,10 @@ Rails.application.routes.draw do
   root 'landing#index'
   resources :home, only: :index
   resources :profiles, except: [:index, :new, :create]
-  resources :politicians
+  resources :politicians do
+    get :rating
+    post :ratings
+  end
   resources :brands do
     get :rating
     post :ratings
