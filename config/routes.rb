@@ -7,9 +7,12 @@ Rails.application.routes.draw do
   resources :politicians
   resources :brands
   resources :churches do
-    resources :pastors, except: [:index, :show]
     get :rating
     post :ratings
+    resources :pastors, except: [:index, :show] do
+      get :rating
+      post :ratings
+    end
   end
   resources :schools do
     resources :lecturers, except: [:index, :show]

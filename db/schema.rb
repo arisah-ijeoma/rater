@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170411175106) do
+ActiveRecord::Schema.define(version: 20170413112736) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -122,12 +122,33 @@ ActiveRecord::Schema.define(version: 20170411175106) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "pastor_users", force: :cascade do |t|
+    t.integer "pastor_id"
+    t.integer "user_id"
+    t.decimal "rating",    precision: 15, scale: 2, default: 0.0, null: false
+  end
+
+  add_index "pastor_users", ["pastor_id"], name: "index_pastor_users_on_pastor_id", using: :btree
+  add_index "pastor_users", ["user_id"], name: "index_pastor_users_on_user_id", using: :btree
+
   create_table "pastors", force: :cascade do |t|
     t.string   "name"
     t.string   "avatar"
     t.integer  "church_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
+    t.decimal  "rating",     precision: 15, scale: 2, default: 0.0, null: false
+    t.integer  "raters",                              default: 0,   null: false
+    t.integer  "answer_1",                            default: 0,   null: false
+    t.integer  "answer_2",                            default: 0,   null: false
+    t.integer  "answer_3",                            default: 0,   null: false
+    t.integer  "answer_4",                            default: 0,   null: false
+    t.integer  "answer_5",                            default: 0,   null: false
+    t.integer  "answer_6",                            default: 0,   null: false
+    t.integer  "answer_7",                            default: 0,   null: false
+    t.integer  "answer_8",                            default: 0,   null: false
+    t.integer  "answer_9",                            default: 0,   null: false
+    t.integer  "answer_10",                           default: 0,   null: false
   end
 
   create_table "politicians", force: :cascade do |t|
@@ -193,5 +214,7 @@ ActiveRecord::Schema.define(version: 20170411175106) do
   add_foreign_key "church_users", "users"
   add_foreign_key "hearts", "churches"
   add_foreign_key "hearts", "users"
+  add_foreign_key "pastor_users", "pastors"
+  add_foreign_key "pastor_users", "users"
   add_foreign_key "profiles", "users"
 end

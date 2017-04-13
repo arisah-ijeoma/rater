@@ -10,7 +10,7 @@ class Ability
       end
       can :manage, Heart
       can [:read, :rating, :ratings], Church
-      can :read, Pastor
+      can [:read, :rating, :ratings], Pastor
       can :read, School
       can :read, Lecturer
       can :read, Politician

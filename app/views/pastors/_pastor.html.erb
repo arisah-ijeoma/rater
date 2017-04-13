@@ -1,10 +1,15 @@
 <%= content_tag_for :tr, pastor do %>
+    <% rating = pastor.rating %>
     <td><%= pastor.name %></td>
     <td class="show-avatar">
       <%= avatar_tag(pastor, :headshot) %>
     </td>
-    <td>#.##</td>
-    <td><%= link_to 'Rate', '#' %></td>
+    <td>
+      <%= rating %>
+      <br>
+      <em><%= rating_comment(rating) %></em>
+    </td>
+    <td><%= link_to 'Rate', church_pastor_rating_path(church, pastor) %></td>
     <% if can? :manage, Pastor %>
         <td><%= link_to 'Edit', edit_church_pastor_path(church, pastor) %></td>
         <td><%= link_to 'Delete', [church, pastor], method: :delete, data: { confirm: 'Are you sure?' } %></td>
