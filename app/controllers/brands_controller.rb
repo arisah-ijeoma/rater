@@ -1,6 +1,7 @@
 class BrandsController < ApplicationController
   load_and_authorize_resource class: 'Brand'
   skip_before_action :authenticate_user!, only: [:index, :show]
+  before_action :rate_brand, only: [:rating, :ratings]
 
   def index
     @brands = Brand.all
@@ -34,6 +35,30 @@ class BrandsController < ApplicationController
     end
   end
 
+  def rating
+  end
+
+  def ratings
+    answer_1 = params[:brand][:answer_1].to_i
+    answer_2 = params[:brand][:answer_2].to_i
+    answer_3 = params[:brand][:answer_3].to_i
+
+    answer = answer_1 + answer_2 + answer_3
+    rating = (answer.to_f/9) * 5
+
+    @brand.raters += 1
+
+    BrandUser.create(brand: @brand, user: current_user, rating: rating)
+    total_ratings = BrandUser.sum(:rating).to_f
+    @brand.rating = (total_ratings / @brand.raters)
+
+    if @brand.save
+      redirect_to brand_path(@brand)
+    else
+      render :rating
+    end
+  end
+
   def destroy
     @brand.destroy
     redirect_to brands_path, notice: "You have deleted #{@brand.name}"
@@ -43,5 +68,9 @@ class BrandsController < ApplicationController
 
   def brand_params
     params.require(:brand).permit(:name, :managed_by, :industry, :avatar)
+  end
+
+  def rate_brand
+    @brand = Brand.find_by(id: params[:brand_id])
   end
 end

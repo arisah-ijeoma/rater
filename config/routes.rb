@@ -5,7 +5,10 @@ Rails.application.routes.draw do
   resources :home, only: :index
   resources :profiles, except: [:index, :new, :create]
   resources :politicians
-  resources :brands
+  resources :brands do
+    get :rating
+    post :ratings
+  end
   resources :churches do
     get :rating
     post :ratings

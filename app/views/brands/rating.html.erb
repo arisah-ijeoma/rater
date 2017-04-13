@@ -1,0 +1,67 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="col-md-12 m-contact" data-animated="0">
+      <h3 class="text-center">
+        Rate <%= @brand.name %>
+      </h3>
+
+      <%= form_for :brand, url: brand_ratings_path do |f| %>
+          <p class="radio-text">
+            1. Will you recommend this brand?
+          </p>
+          <div class="radio-options">
+            <%= f.radio_button :answer_1, 2, checked: true %>
+            <label class="radio-labels">Yes</label>
+          </div>
+          <div class="radio-options">
+            <%= f.radio_button :answer_1, 1 %>
+            <label class="radio-labels">No</label>
+          </div>
+
+          <br>
+
+          <p class="radio-text">
+            2. Will you use this brand?
+          </p>
+          <div class="radio-options">
+            <%= f.radio_button :answer_2, 2, checked: true %>
+            <label class="radio-labels">Yes</label>
+          </div>
+          <div class="radio-options">
+            <%= f.radio_button :answer_2, 1 %>
+            <label class="radio-labels">No</label>
+          </div>
+
+          <br>
+
+          <p class="radio-text">
+            3. How is the service?
+          </p>
+          <div class="radio-options">
+            <%= f.radio_button :answer_3, 5, checked: true %>
+            <label class="radio-labels">Great</label>
+          </div>
+          <div class="radio-options">
+            <%= f.radio_button :answer_3, 4 %>
+            <label class="radio-labels">Okay</label>
+          </div>
+          <div class="radio-options">
+            <%= f.radio_button :answer_3, 3 %>
+            <label class="radio-labels">Just there</label>
+          </div>
+          <div class="radio-options">
+            <%= f.radio_button :answer_3, 2 %>
+            <label class="radio-labels">Bad</label>
+          </div>
+          <div class="radio-options">
+            <%= f.radio_button :answer_3, 1 %>
+            <label class="radio-labels">Awful</label>
+          </div>
+
+          <br>
+          <%= f.submit 'Rate School', class: 'mc-main-action mc-rate-action' %>
+          <%= link_to 'Back', brand_path(@brand), class: 'mc-main-back pull-right' %>
+      <% end %>
+    </div>
+  </div>
+</div>

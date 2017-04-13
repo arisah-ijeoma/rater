@@ -1,9 +1,14 @@
 <%= content_tag_for :tr, brand do %>
+    <% rating = brand.rating %>
     <td><%= link_to "#{brand.name}", brand_path(brand) %></td>
     <td><%= brand.managed_by %></td>
     <td><%= brand.industry %></td>
     <td><%= avatar_tag(brand, :headshot) %></td>
-    <td><%= link_to 'Rate', '#' %></td>
+    <td>
+      <%= rating %>
+      <br>
+      <em><%= rating_comment(rating) %></em>
+    </td>
     <% if can? :manage, Brand %>
         <td><%= link_to 'Delete', brand, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     <% end %>
