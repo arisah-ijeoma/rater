@@ -36,12 +36,14 @@ class LecturersController < ApplicationController
     answer_2 = params[:lecturer][:answer_2].to_i
     answer_3 = params[:lecturer][:answer_3].to_i
 
+    extra_comment = params[:lecturer][:extra_comment]
+
     answer = answer_1 + answer_2 + answer_3
     rating = (answer.to_f/9) * 5
 
     @lecturer.raters += 1
 
-    LecturerUser.create(lecturer: @lecturer, user: current_user, rating: rating)
+    LecturerUser.create(lecturer: @lecturer, user: current_user, rating: rating, extra_comment: extra_comment)
     total_ratings = LecturerUser.sum(:rating).to_f
     @lecturer.rating = (total_ratings / @lecturer.raters)
 
