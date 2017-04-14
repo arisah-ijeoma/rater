@@ -39,43 +39,9 @@
   </div>
 
   <%= link_to 'View Lecturers', '#', class: 'view-lecturers', remote: true %>
+  <%= link_to 'View School Comments', '#', class: 'view-school-comments pull-right', remote: true %>
 
-  <div class="lecturers">
-    <h2 class="text-center">LECTURERS</h2>
-    <% if can? :manage, Lecturer %>
-        <div class="pull-right">
-          <%= link_to new_school_lecturer_path(@school) do %>
-              <i class="fa fa-plus" aria-hidden="true"></i>
-              Add New Lecturer
-          <% end %>
-        </div>
-    <% end %>
-
-    <% if @lecturers.empty? %>
-        <i>There are no available lecturers</i>
-    <% else %>
-        <table class="table table-striped">
-          <thead>
-          <tr>
-            <th>Name</th>
-            <th>Course</th>
-            <th>Image</th>
-            <th>Rating</th>
-            <th></th>
-            <% if can? :manage, Lecturer %>
-                <th></th>
-                <th></th>
-            <% end %>
-          </tr>
-          </thead>
-          <tbody>
-          <% @lecturers.each do |lecturer| %>
-              <%= render partial: 'lecturers/lecturer', locals: {lecturer: lecturer, school: @school} %>
-          <% end %>
-          </tbody>
-        </table>
-
-        <%= link_to 'Hide Lecturers', '#', class: 'hide-lecturers', remote: true %>
-    <% end %>
-  </div>
+  <%= render 'lecturers' %>
+  <%= render partial: 'comments', locals: { ratings: @ratings } %>
+  <%= render partial: 'lecturers/comments' %>
 </div>

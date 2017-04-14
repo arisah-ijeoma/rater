@@ -30,6 +30,7 @@
 //= require home
 //= require church
 //= require pastor
+//= require school
 //= require lecturer
 //= require_self
 

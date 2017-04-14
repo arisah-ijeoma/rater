@@ -23,6 +23,7 @@ class SchoolsController < ApplicationController
 
   def show
     @lecturers = @school.lecturers
+    @ratings = SchoolUser.all
   end
 
   def edit
@@ -44,12 +45,14 @@ class SchoolsController < ApplicationController
     answer_2 = params[:school][:answer_2].to_i
     answer_3 = params[:school][:answer_3].to_i
 
+    extra_comment = params[:church][:extra_comment]
+
     answer = answer_1 + answer_2 + answer_3
     rating = (answer.to_f/9) * 5
 
     @school.raters += 1
 
-    SchoolUser.create(school: @school, user: current_user, rating: rating)
+    SchoolUser.create(school: @school, user: current_user, rating: rating, extra_comment: extra_comment)
         total_ratings = SchoolUser.sum(:rating).to_f
         @school.rating = (total_ratings / @school.raters)
 
