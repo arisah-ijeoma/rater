@@ -22,6 +22,7 @@ class PoliticiansController < ApplicationController
   end
 
   def show
+    @ratings = PoliticianUser.all
   end
 
   def edit
@@ -43,12 +44,14 @@ class PoliticiansController < ApplicationController
     answer_2 = params[:politician][:answer_2].to_i
     answer_3 = params[:politician][:answer_3].to_i
 
+    extra_comment = params[:politician][:extra_comment]
+
     answer = answer_1 + answer_2 + answer_3
     rating = (answer.to_f/9) * 5
 
     @politician.raters += 1
 
-    PoliticianUser.create(politician: @politician, user: current_user, rating: rating)
+    PoliticianUser.create(politician: @politician, user: current_user, rating: rating, extra_comment: extra_comment)
     total_ratings = PoliticianUser.sum(:rating).to_f
     @politician.rating = (total_ratings / @politician.raters)
 

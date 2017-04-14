@@ -32,6 +32,7 @@
 //= require pastor
 //= require school
 //= require lecturer
+//= require politician
 //= require brand
 //= require_self
 
