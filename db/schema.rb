@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170413133255) do
+ActiveRecord::Schema.define(version: 20170413153819) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,7 +65,8 @@ ActiveRecord::Schema.define(version: 20170413133255) do
   create_table "brand_users", force: :cascade do |t|
     t.integer "brand_id"
     t.integer "user_id"
-    t.decimal "rating",   precision: 15, scale: 2, default: 0.0, null: false
+    t.decimal "rating",        precision: 15, scale: 2, default: 0.0, null: false
+    t.text    "extra_comment"
   end
 
   add_index "brand_users", ["brand_id"], name: "index_brand_users_on_brand_id", using: :btree
@@ -76,26 +77,28 @@ ActiveRecord::Schema.define(version: 20170413133255) do
     t.string   "managed_by"
     t.string   "industry"
     t.string   "avatar"
-    t.datetime "created_at",                                        null: false
-    t.datetime "updated_at",                                        null: false
-    t.decimal  "rating",     precision: 15, scale: 2, default: 0.0, null: false
-    t.integer  "raters",                              default: 0,   null: false
-    t.integer  "answer_1",                            default: 0,   null: false
-    t.integer  "answer_2",                            default: 0,   null: false
-    t.integer  "answer_3",                            default: 0,   null: false
-    t.integer  "answer_4",                            default: 0,   null: false
-    t.integer  "answer_5",                            default: 0,   null: false
-    t.integer  "answer_6",                            default: 0,   null: false
-    t.integer  "answer_7",                            default: 0,   null: false
-    t.integer  "answer_8",                            default: 0,   null: false
-    t.integer  "answer_9",                            default: 0,   null: false
-    t.integer  "answer_10",                           default: 0,   null: false
+    t.datetime "created_at",                                           null: false
+    t.datetime "updated_at",                                           null: false
+    t.decimal  "rating",        precision: 15, scale: 2, default: 0.0, null: false
+    t.integer  "raters",                                 default: 0,   null: false
+    t.integer  "answer_1",                               default: 0,   null: false
+    t.integer  "answer_2",                               default: 0,   null: false
+    t.integer  "answer_3",                               default: 0,   null: false
+    t.integer  "answer_4",                               default: 0,   null: false
+    t.integer  "answer_5",                               default: 0,   null: false
+    t.integer  "answer_6",                               default: 0,   null: false
+    t.integer  "answer_7",                               default: 0,   null: false
+    t.integer  "answer_8",                               default: 0,   null: false
+    t.integer  "answer_9",                               default: 0,   null: false
+    t.integer  "answer_10",                              default: 0,   null: false
+    t.text     "extra_comment"
   end
 
   create_table "church_users", force: :cascade do |t|
     t.integer "church_id"
     t.integer "user_id"
-    t.decimal "rating",    precision: 15, scale: 2, default: 0.0, null: false
+    t.decimal "rating",        precision: 15, scale: 2, default: 0.0, null: false
+    t.text    "extra_comment"
   end
 
   add_index "church_users", ["church_id"], name: "index_church_users_on_church_id", using: :btree
@@ -108,20 +111,21 @@ ActiveRecord::Schema.define(version: 20170413133255) do
     t.string   "founder"
     t.string   "website"
     t.string   "avatar"
-    t.datetime "created_at",                                          null: false
-    t.datetime "updated_at",                                          null: false
-    t.decimal  "rating",       precision: 15, scale: 2, default: 0.0, null: false
-    t.integer  "raters",                                default: 0,   null: false
-    t.integer  "answer_1",                              default: 0,   null: false
-    t.integer  "answer_2",                              default: 0,   null: false
-    t.integer  "answer_3",                              default: 0,   null: false
-    t.integer  "answer_4",                              default: 0,   null: false
-    t.integer  "answer_5",                              default: 0,   null: false
-    t.integer  "answer_6",                              default: 0,   null: false
-    t.integer  "answer_7",                              default: 0,   null: false
-    t.integer  "answer_8",                              default: 0,   null: false
-    t.integer  "answer_9",                              default: 0,   null: false
-    t.integer  "answer_10",                             default: 0,   null: false
+    t.datetime "created_at",                                           null: false
+    t.datetime "updated_at",                                           null: false
+    t.decimal  "rating",        precision: 15, scale: 2, default: 0.0, null: false
+    t.integer  "raters",                                 default: 0,   null: false
+    t.integer  "answer_1",                               default: 0,   null: false
+    t.integer  "answer_2",                               default: 0,   null: false
+    t.integer  "answer_3",                               default: 0,   null: false
+    t.integer  "answer_4",                               default: 0,   null: false
+    t.integer  "answer_5",                               default: 0,   null: false
+    t.integer  "answer_6",                               default: 0,   null: false
+    t.integer  "answer_7",                               default: 0,   null: false
+    t.integer  "answer_8",                               default: 0,   null: false
+    t.integer  "answer_9",                               default: 0,   null: false
+    t.integer  "answer_10",                              default: 0,   null: false
+    t.text     "extra_comment"
   end
 
   create_table "hearts", force: :cascade do |t|
@@ -137,7 +141,8 @@ ActiveRecord::Schema.define(version: 20170413133255) do
   create_table "lecturer_users", force: :cascade do |t|
     t.integer "lecturer_id"
     t.integer "user_id"
-    t.decimal "rating",      precision: 15, scale: 2, default: 0.0, null: false
+    t.decimal "rating",        precision: 15, scale: 2, default: 0.0, null: false
+    t.text    "extra_comment"
   end
 
   add_index "lecturer_users", ["lecturer_id"], name: "index_lecturer_users_on_lecturer_id", using: :btree
@@ -148,26 +153,28 @@ ActiveRecord::Schema.define(version: 20170413133255) do
     t.string   "course"
     t.string   "avatar"
     t.integer  "school_id"
-    t.datetime "created_at",                                        null: false
-    t.datetime "updated_at",                                        null: false
-    t.decimal  "rating",     precision: 15, scale: 2, default: 0.0, null: false
-    t.integer  "raters",                              default: 0,   null: false
-    t.integer  "answer_1",                            default: 0,   null: false
-    t.integer  "answer_2",                            default: 0,   null: false
-    t.integer  "answer_3",                            default: 0,   null: false
-    t.integer  "answer_4",                            default: 0,   null: false
-    t.integer  "answer_5",                            default: 0,   null: false
-    t.integer  "answer_6",                            default: 0,   null: false
-    t.integer  "answer_7",                            default: 0,   null: false
-    t.integer  "answer_8",                            default: 0,   null: false
-    t.integer  "answer_9",                            default: 0,   null: false
-    t.integer  "answer_10",                           default: 0,   null: false
+    t.datetime "created_at",                                           null: false
+    t.datetime "updated_at",                                           null: false
+    t.decimal  "rating",        precision: 15, scale: 2, default: 0.0, null: false
+    t.integer  "raters",                                 default: 0,   null: false
+    t.integer  "answer_1",                               default: 0,   null: false
+    t.integer  "answer_2",                               default: 0,   null: false
+    t.integer  "answer_3",                               default: 0,   null: false
+    t.integer  "answer_4",                               default: 0,   null: false
+    t.integer  "answer_5",                               default: 0,   null: false
+    t.integer  "answer_6",                               default: 0,   null: false
+    t.integer  "answer_7",                               default: 0,   null: false
+    t.integer  "answer_8",                               default: 0,   null: false
+    t.integer  "answer_9",                               default: 0,   null: false
+    t.integer  "answer_10",                              default: 0,   null: false
+    t.text     "extra_comment"
   end
 
   create_table "pastor_users", force: :cascade do |t|
     t.integer "pastor_id"
     t.integer "user_id"
-    t.decimal "rating",    precision: 15, scale: 2, default: 0.0, null: false
+    t.decimal "rating",        precision: 15, scale: 2, default: 0.0, null: false
+    t.text    "extra_comment"
   end
 
   add_index "pastor_users", ["pastor_id"], name: "index_pastor_users_on_pastor_id", using: :btree
@@ -177,26 +184,28 @@ ActiveRecord::Schema.define(version: 20170413133255) do
     t.string   "name"
     t.string   "avatar"
     t.integer  "church_id"
-    t.datetime "created_at",                                        null: false
-    t.datetime "updated_at",                                        null: false
-    t.decimal  "rating",     precision: 15, scale: 2, default: 0.0, null: false
-    t.integer  "raters",                              default: 0,   null: false
-    t.integer  "answer_1",                            default: 0,   null: false
-    t.integer  "answer_2",                            default: 0,   null: false
-    t.integer  "answer_3",                            default: 0,   null: false
-    t.integer  "answer_4",                            default: 0,   null: false
-    t.integer  "answer_5",                            default: 0,   null: false
-    t.integer  "answer_6",                            default: 0,   null: false
-    t.integer  "answer_7",                            default: 0,   null: false
-    t.integer  "answer_8",                            default: 0,   null: false
-    t.integer  "answer_9",                            default: 0,   null: false
-    t.integer  "answer_10",                           default: 0,   null: false
+    t.datetime "created_at",                                           null: false
+    t.datetime "updated_at",                                           null: false
+    t.decimal  "rating",        precision: 15, scale: 2, default: 0.0, null: false
+    t.integer  "raters",                                 default: 0,   null: false
+    t.integer  "answer_1",                               default: 0,   null: false
+    t.integer  "answer_2",                               default: 0,   null: false
+    t.integer  "answer_3",                               default: 0,   null: false
+    t.integer  "answer_4",                               default: 0,   null: false
+    t.integer  "answer_5",                               default: 0,   null: false
+    t.integer  "answer_6",                               default: 0,   null: false
+    t.integer  "answer_7",                               default: 0,   null: false
+    t.integer  "answer_8",                               default: 0,   null: false
+    t.integer  "answer_9",                               default: 0,   null: false
+    t.integer  "answer_10",                              default: 0,   null: false
+    t.text     "extra_comment"
   end
 
   create_table "politician_users", force: :cascade do |t|
     t.integer "politician_id"
     t.integer "user_id"
     t.decimal "rating",        precision: 15, scale: 2, default: 0.0, null: false
+    t.text    "extra_comment"
   end
 
   add_index "politician_users", ["politician_id"], name: "index_politician_users_on_politician_id", using: :btree
@@ -223,6 +232,7 @@ ActiveRecord::Schema.define(version: 20170413133255) do
     t.integer  "answer_8",                                 default: 0,   null: false
     t.integer  "answer_9",                                 default: 0,   null: false
     t.integer  "answer_10",                                default: 0,   null: false
+    t.text     "extra_comment"
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -243,7 +253,8 @@ ActiveRecord::Schema.define(version: 20170413133255) do
   create_table "school_users", force: :cascade do |t|
     t.integer "school_id"
     t.integer "user_id"
-    t.decimal "rating",    precision: 15, scale: 2, default: 0.0, null: false
+    t.decimal "rating",        precision: 15, scale: 2, default: 0.0, null: false
+    t.text    "extra_comment"
   end
 
   add_index "school_users", ["school_id"], name: "index_school_users_on_school_id", using: :btree
@@ -259,20 +270,21 @@ ActiveRecord::Schema.define(version: 20170413133255) do
     t.string   "head"
     t.string   "website"
     t.string   "avatar"
-    t.datetime "created_at",                                          null: false
-    t.datetime "updated_at",                                          null: false
-    t.decimal  "rating",       precision: 15, scale: 2, default: 0.0, null: false
-    t.integer  "raters",                                default: 0,   null: false
-    t.integer  "answer_1",                              default: 0,   null: false
-    t.integer  "answer_2",                              default: 0,   null: false
-    t.integer  "answer_3",                              default: 0,   null: false
-    t.integer  "answer_4",                              default: 0,   null: false
-    t.integer  "answer_5",                              default: 0,   null: false
-    t.integer  "answer_6",                              default: 0,   null: false
-    t.integer  "answer_7",                              default: 0,   null: false
-    t.integer  "answer_8",                              default: 0,   null: false
-    t.integer  "answer_9",                              default: 0,   null: false
-    t.integer  "answer_10",                             default: 0,   null: false
+    t.datetime "created_at",                                           null: false
+    t.datetime "updated_at",                                           null: false
+    t.decimal  "rating",        precision: 15, scale: 2, default: 0.0, null: false
+    t.integer  "raters",                                 default: 0,   null: false
+    t.integer  "answer_1",                               default: 0,   null: false
+    t.integer  "answer_2",                               default: 0,   null: false
+    t.integer  "answer_3",                               default: 0,   null: false
+    t.integer  "answer_4",                               default: 0,   null: false
+    t.integer  "answer_5",                               default: 0,   null: false
+    t.integer  "answer_6",                               default: 0,   null: false
+    t.integer  "answer_7",                               default: 0,   null: false
+    t.integer  "answer_8",                               default: 0,   null: false
+    t.integer  "answer_9",                               default: 0,   null: false
+    t.integer  "answer_10",                              default: 0,   null: false
+    t.text     "extra_comment"
   end
 
   create_table "users", force: :cascade do |t|

@@ -28,6 +28,7 @@
 //= require landing
 //= require main
 //= require home
+//= require church
 //= require pastor
 //= require lecturer
 //= require_self

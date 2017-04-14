@@ -23,6 +23,7 @@ class ChurchesController < ApplicationController
 
   def show
     @pastors = @church.pastors
+    @ratings = ChurchUser.all
   end
 
   def rating
@@ -33,12 +34,14 @@ class ChurchesController < ApplicationController
     answer_2 = params[:church][:answer_2].to_i
     answer_3 = params[:church][:answer_3].to_i
 
+    extra_comment = params[:church][:extra_comment]
+
     answer = answer_1 + answer_2 + answer_3
     rating = (answer.to_f/9) * 5
 
     @church.raters += 1
 
-    ChurchUser.create(church: @church, user: current_user, rating: rating)
+    ChurchUser.create(church: @church, user: current_user, rating: rating, extra_comment: extra_comment)
     total_ratings = ChurchUser.sum(:rating).to_f
     @church.rating = (total_ratings / @church.raters)
 

@@ -21,7 +21,7 @@
             <br>
 
             <p class="radio-text">
-              2. Is the church too crowdy?
+              2. Is the church too rowdy?
             </p>
             <div class="radio-options">
               <%= f.radio_button :answer_2, 2, checked: true %>
@@ -57,6 +57,11 @@
               <%= f.radio_button :answer_3, 1 %>
               <label class="radio-labels">Awful</label>
             </div>
+
+            <p class="radio-text">
+              4. Extra Comment?
+            </p>
+            <%= f.text_area :extra_comment, cols: 30, rows: 10 %>
 
             <br>
             <%= f.submit 'Rate Church', class: 'mc-main-action mc-rate-action' %>
