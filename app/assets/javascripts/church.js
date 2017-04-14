@@ -1,15 +1,15 @@
 $(document).ready(function() {
   $('.church-comments').hide();
 
-  $('.view-rater-comments').on('click', function() {
+  $('.view-church-comments').on('click', function() {
     $('.church-comments').show();
     $('.pastors').hide();
-    $('.view-rater-comments').hide();
+    $('.view-church-comments').hide();
   });
 
   $('.hide-church-comments').on('click', function() {
     $('.church-comments').hide();
     $('.view-pastors').show();
-    $('.view-rater-comments').show();
+    $('.view-church-comments').show();
   });
 });
