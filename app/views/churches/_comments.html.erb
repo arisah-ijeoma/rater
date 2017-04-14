@@ -1,10 +1,9 @@
 <%# ratings = ChurchUser.all.paginate(page: params[:page], per_page: 5) %>
 
-<div class="row comments">
+<div class="row church-comments">
   <div class="col-xs-12">
     <div class="table-responsive">
       <table class="table table-striped">
-        <%#= js_will_paginate ratings %>
         <thead>
         <tr>
           <th>Rating</th>
@@ -36,5 +35,5 @@
       </table>
     </div>
   </div>
-  <%= link_to 'Hide Comments', '#', class: 'hide-comments', remote: true %>
+  <%= link_to 'Hide Comments', '#', class: 'hide-church-comments', remote: true %>
 </div>

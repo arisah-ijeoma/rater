@@ -1,14 +1,14 @@
 $(document).ready(function() {
-  $('.comments').hide();
+  $('.church-comments').hide();
 
   $('.view-rater-comments').on('click', function() {
-    $('.comments').show();
+    $('.church-comments').show();
     $('.pastors').hide();
     $('.view-rater-comments').hide();
   });
 
-  $('.hide-comments').on('click', function() {
-    $('.comments').hide();
+  $('.hide-church-comments').on('click', function() {
+    $('.church-comments').hide();
     $('.view-pastors').show();
     $('.view-rater-comments').show();
   });
