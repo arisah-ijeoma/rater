@@ -22,6 +22,7 @@ class BrandsController < ApplicationController
   end
 
   def show
+    @ratings = BrandUser.all
   end
 
   def edit
@@ -43,12 +44,14 @@ class BrandsController < ApplicationController
     answer_2 = params[:brand][:answer_2].to_i
     answer_3 = params[:brand][:answer_3].to_i
 
+    extra_comment = params[:brand][:extra_comment]
+
     answer = answer_1 + answer_2 + answer_3
     rating = (answer.to_f/9) * 5
 
     @brand.raters += 1
 
-    BrandUser.create(brand: @brand, user: current_user, rating: rating)
+    BrandUser.create(brand: @brand, user: current_user, rating: rating, extra_comment: extra_comment)
     total_ratings = BrandUser.sum(:rating).to_f
     @brand.rating = (total_ratings / @brand.raters)
 

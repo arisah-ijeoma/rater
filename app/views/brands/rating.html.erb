@@ -58,6 +58,11 @@
             <label class="radio-labels">Awful</label>
           </div>
 
+          <p class="radio-text">
+            4. Extra Comment?
+          </p>
+          <%= f.text_area :extra_comment, cols: 30, rows: 10 %>
+
           <br>
           <%= f.submit 'Rate School', class: 'mc-main-action mc-rate-action' %>
           <%= link_to 'Back', brand_path(@brand), class: 'mc-main-back pull-right' %>

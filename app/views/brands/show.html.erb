@@ -44,4 +44,7 @@
     </div>
   </div>
 
+  <%= link_to 'View Brand Comments', '#', class: 'view-brand-comments pull-right', remote: true %>
+  <%= render partial: 'comments', locals: { ratings: @ratings } %>
+
 </div>

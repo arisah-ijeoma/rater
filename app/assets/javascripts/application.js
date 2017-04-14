@@ -32,6 +32,7 @@
 //= require pastor
 //= require school
 //= require lecturer
+//= require brand
 //= require_self
 
 $(function(){
