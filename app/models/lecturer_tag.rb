@@ -1,0 +1,2 @@
+class LecturerTag < Tag
+end

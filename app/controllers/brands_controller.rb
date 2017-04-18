@@ -64,7 +64,7 @@ class BrandsController < ApplicationController
 
   def destroy
     @brand.destroy
-    redirect_to brands_path, notice: "You have deleted #{@brand.name}"
+    redirect_to brands_path, notice: 'Successfully deleted'
   end
 
   private

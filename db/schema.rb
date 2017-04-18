@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170413153819) do
+ActiveRecord::Schema.define(version: 20170416134212) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -92,6 +92,7 @@ ActiveRecord::Schema.define(version: 20170413153819) do
     t.integer  "answer_9",                               default: 0,   null: false
     t.integer  "answer_10",                              default: 0,   null: false
     t.text     "extra_comment"
+    t.string   "tag"
   end
 
   create_table "church_users", force: :cascade do |t|
@@ -126,6 +127,7 @@ ActiveRecord::Schema.define(version: 20170413153819) do
     t.integer  "answer_9",                               default: 0,   null: false
     t.integer  "answer_10",                              default: 0,   null: false
     t.text     "extra_comment"
+    t.string   "tag"
   end
 
   create_table "hearts", force: :cascade do |t|
@@ -168,6 +170,7 @@ ActiveRecord::Schema.define(version: 20170413153819) do
     t.integer  "answer_9",                               default: 0,   null: false
     t.integer  "answer_10",                              default: 0,   null: false
     t.text     "extra_comment"
+    t.string   "tag"
   end
 
   create_table "pastor_users", force: :cascade do |t|
@@ -199,6 +202,7 @@ ActiveRecord::Schema.define(version: 20170413153819) do
     t.integer  "answer_9",                               default: 0,   null: false
     t.integer  "answer_10",                              default: 0,   null: false
     t.text     "extra_comment"
+    t.string   "tag"
   end
 
   create_table "politician_users", force: :cascade do |t|
@@ -233,6 +237,7 @@ ActiveRecord::Schema.define(version: 20170413153819) do
     t.integer  "answer_9",                                 default: 0,   null: false
     t.integer  "answer_10",                                default: 0,   null: false
     t.text     "extra_comment"
+    t.string   "tag"
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -285,6 +290,14 @@ ActiveRecord::Schema.define(version: 20170413153819) do
     t.integer  "answer_9",                               default: 0,   null: false
     t.integer  "answer_10",                              default: 0,   null: false
     t.text     "extra_comment"
+    t.string   "tag"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "description"
+    t.string   "type"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "users", force: :cascade do |t|

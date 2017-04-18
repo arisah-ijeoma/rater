@@ -1,0 +1,21 @@
+.tag-item {
+  margin-right: 8px !important;
+}
+
+.tag-list {
+  display: inline-flex;
+  justify-content: space-between;
+  padding-right: 20px;
+  color: white;
+
+  input {
+    margin-right: 8px;
+  }
+}
+
+.show-tags {
+  color: #a30001;
+  border: 1px solid #a30001;
+  padding: 5px 10px;
+  display: inline-block;
+}

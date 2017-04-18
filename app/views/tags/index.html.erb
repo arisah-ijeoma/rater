@@ -1,0 +1,35 @@
+<div class="m-pricing">
+  <h2 class="text-center">TAGS</h2>
+  <% if @tags.empty? %>
+      <i>There are no available tags</i>
+  <% else %>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+              <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th></th>
+                <th></th>
+              </tr>
+              </thead>
+              <tbody>
+                <% @tags.each do |tag| %>
+
+                <% type = get_type(tag) %>
+                    <tr>
+                      <td><%= tag.description %></td>
+                      <td><%= tag.type %></td>
+                      <td><%= link_to 'Edit', send("edit_tag_#{type}_path", tag) %></td>
+                      <td><%= link_to 'Delete', tag_path(tag), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                    </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+  <% end %>
+</div>

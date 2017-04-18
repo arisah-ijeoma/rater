@@ -56,7 +56,7 @@ class LecturersController < ApplicationController
 
   def destroy
     @lecturer.destroy
-    redirect_to school_path(@school), notice: "You have deleted #{@lecturer.name}"
+    redirect_to school_path(@school), notice: 'Successfully deleted'
   end
 
   private

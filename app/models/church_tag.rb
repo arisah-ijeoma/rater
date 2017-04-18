@@ -1,0 +1,2 @@
+class ChurchTag < Tag
+end

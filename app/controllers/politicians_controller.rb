@@ -64,7 +64,7 @@ class PoliticiansController < ApplicationController
 
   def destroy
     @politician.destroy
-    redirect_to politicians_path, notice: "You have deleted #{@politician.name}"
+    redirect_to politicians_path, notice: 'Successfuly deleted'
   end
 
   private

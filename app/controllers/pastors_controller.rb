@@ -56,7 +56,7 @@ class PastorsController < ApplicationController
 
   def destroy
     @pastor.destroy
-    redirect_to church_path(@church), notice: "You have deleted #{@pastor.name}"
+    redirect_to church_path(@church), notice: 'Successfully deleted'
   end
 
   private

@@ -26,6 +26,7 @@
  *= require church
  *= require pastor
  *= require politician
+ *= require tag
  *= require prettyphoto-rails
  */
 
@@ -319,7 +320,17 @@ label {
 
 /* MEDIA QUERIES */
 
+@media screen and (max-width: 1230px) {
+  .rate-action {
+    font-size: 1.7em;
+  }
+}
+
 @media screen and (max-width: 1150px) {
+  .rate-action {
+    font-size: 1.3em;
+  }
+
   .mc input {
     width: 60% !important;
     float: right;
@@ -342,6 +353,10 @@ label {
 }
 
 @media screen and (max-width: 960px) {
+  .taggings {
+    padding-top: 20px;
+  }
+
   .mc input {
     width: 100% !important;
   }
@@ -372,5 +387,11 @@ label {
 
   .rate-action {
     font-size: 1.7em;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .tag {
+    font-size: 1em;
   }
 }

@@ -3,7 +3,7 @@
     <div class="col-md-12 m-pricing" data-animated="0">
       <% if can? :manage, :all %>
           <%= link_to 'Write a blog post', blogo_admin_path %>
-          <br><br>
+          <%= link_to 'View Tags', tags_path, class: 'pull-right' %>
       <% end %>
       <div class="search">
         <h1 class="text-center">I want to rate things relating to</h1>

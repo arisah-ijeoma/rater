@@ -27,6 +27,7 @@ class ChurchesController < ApplicationController
   end
 
   def rating
+    @tags = ChurchTag.all
   end
 
   def ratings
@@ -40,6 +41,12 @@ class ChurchesController < ApplicationController
     rating = (answer.to_f/9) * 5
 
     @church.raters += 1
+
+    @church.tag = if @church.tag.nil?
+                    params[:church][:tag]
+                  else
+                    @church.tag.gsub(/[^A-Za-z|,|]/, ' ').split(',').concat(params[:church][:tag])
+                  end
 
     ChurchUser.create(church: @church, user: current_user, rating: rating, extra_comment: extra_comment)
     total_ratings = ChurchUser.sum(:rating).to_f
@@ -65,13 +72,13 @@ class ChurchesController < ApplicationController
 
   def destroy
     @church.destroy
-    redirect_to churches_path, notice: "You have deleted #{@church.name}"
+    redirect_to churches_path, notice: 'Successfully deleted'
   end
 
   private
 
   def church_params
-    params.require(:church).permit(:name, :aka, :date_founded, :founder, :website, :avatar)
+    params.require(:church).permit(:name, :aka, :date_founded, :founder, :website, :avatar, tag: [])
   end
 
   def rate_church

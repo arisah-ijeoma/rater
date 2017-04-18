@@ -1,0 +1,2 @@
+class PastorTag < Tag
+end

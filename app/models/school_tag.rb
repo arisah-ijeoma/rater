@@ -1,0 +1,2 @@
+class SchoolTag < Tag
+end

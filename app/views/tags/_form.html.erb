@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="col-md-12 m-contact" data-animated="0">
+      <h3 class="text-center">
+        <% if @tag.new_record? %>
+            Add new Tag
+            <% html_method = 'post' %>
+        <% else %>
+            Edit Tag
+            <% html_method = 'put' %>
+        <% end %>
+      </h3>
+
+      <%= semantic_form_for :tag, url: get_organization_url(@tag), method: html_method do |c| %>
+          <%= c.inputs do %>
+              <div class="mc">
+                <%= c.input :description %>
+              </div>
+              <%= c.action :submit, label: 'Save Tag', button_html: {class: 'mc-main-action', data: {disable_with: 'Please wait...'}} %>
+              <%= link_to 'Back Home', root_path, class: 'mc-main-back pull-right' %>
+          <% end %>
+      <% end %>
+      <br>
+    </div>
+  </div>
+</div>
