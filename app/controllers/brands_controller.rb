@@ -37,6 +37,7 @@ class BrandsController < ApplicationController
   end
 
   def rating
+    @tags = BrandTag.all
   end
 
   def ratings
@@ -45,11 +46,20 @@ class BrandsController < ApplicationController
     answer_3 = params[:brand][:answer_3].to_i
 
     extra_comment = params[:brand][:extra_comment]
+    tags = params[:brand][:tag]
 
     answer = answer_1 + answer_2 + answer_3
     rating = (answer.to_f/9) * 5
 
     @brand.raters += 1
+
+    @brand.tag =  if @brand.tag.nil?
+                    tags
+                  elsif tags.present?
+                    @brand.tag.gsub(/[^A-Za-z|,|]/, ' ').split(',').concat(tags)
+                  else
+                    @brand.tag.gsub(/[^A-Za-z|,|]/, ' ').split(',')
+                  end
 
     BrandUser.create(brand: @brand, user: current_user, rating: rating, extra_comment: extra_comment)
     total_ratings = BrandUser.sum(:rating).to_f
@@ -70,7 +80,7 @@ class BrandsController < ApplicationController
   private
 
   def brand_params
-    params.require(:brand).permit(:name, :managed_by, :industry, :avatar)
+    params.require(:brand).permit(:name, :managed_by, :industry, :avatar, tag: [])
   end
 
   def rate_brand

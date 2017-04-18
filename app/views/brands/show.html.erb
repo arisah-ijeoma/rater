@@ -1,7 +1,7 @@
 <%# hearts = @church.hearts.count %>
 <% rating = @brand.rating.to_f %>
 
-<div class="m-pricing">
+<div class="row m-pricing">
   <%= select_tag :name,
                  options_for_select(Brand.all.collect {|p| [ p.name, p.id ] }),
                  include_blank: 'All Brands',
@@ -11,7 +11,7 @@
   <% end %>
   <h1 class="text-center"><%= @brand.name %></h1>
   <div class="flexer">
-    <div class="show-avatar">
+    <div class="col-md-4 show-avatar">
       <%= avatar_tag(@brand, :lil_big) %>
 
       <div class="extra-info">
@@ -28,6 +28,20 @@
       <%# end %>
 
     </div>
+
+    <div class="col-md-4 taggings">
+      <h1 style="margin-top: -10px;">Tags</h1>
+      <% if BrandTag.all.empty? || @brand.tag.nil? %>
+          <em>No tags available</em>
+      <% else %>
+          <% sorted_tags(@brand).each do |tag| %>
+            <span class="show-tags">
+              <%= tag %>
+            </span>
+          <% end %>
+      <% end %>
+    </div>
+
     <div class="rate-stuff">
       <%= link_to 'Rate This Brand', brand_rating_path(@brand), class: 'rate-action' %>
       <div class="rate-summary">

@@ -63,8 +63,22 @@
           </p>
           <%= f.text_area :extra_comment, cols: 30, rows: 10 %>
 
-          <br>
-          <%= f.submit 'Rate School', class: 'mc-main-action mc-rate-action' %>
+          <% if @tags.present? %>
+              <p class="radio-text">
+                5. Select tags that best describe this brand
+              </p>
+              <% @tags.each do |tag| %>
+                  <div style="display: inline-block">
+                    <div class="tag-list">
+                      <%= check_box_tag 'brand[tag][]', tag.description.titleize, false, class: 'tag-item' %>
+                      <%= label_tag tag.description.titleize %>
+                    </div>
+                  </div>
+              <% end %>
+          <% end %>
+
+          <br><br>
+          <%= f.submit 'Rate Brand', class: 'mc-main-action mc-rate-action' %>
           <%= link_to 'Back', brand_path(@brand), class: 'mc-main-back pull-right' %>
       <% end %>
     </div>
