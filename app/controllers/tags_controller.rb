@@ -3,7 +3,11 @@ class TagsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @tags = Tag.all
+    @tags = if params[:filter_by].present?
+              Tag.filter(params[:filter_by]).paginate(page: params[:page], per_page: 7)
+            else
+              Tag.all.paginate(page: params[:page], per_page: 7)
+            end
   end
 
   def new

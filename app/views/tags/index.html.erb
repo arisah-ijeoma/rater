@@ -8,6 +8,13 @@
     <%= link_to 'Add Brand Tag', tags_new_brands_path, class: 'tag-cta tag' %>
     <%= link_to 'Add Politician Tag', tags_new_politicians_path, class: 'tag-cta tag' %>
   </div>
+
+  <%= select_tag :description,
+      options_for_select(Tag::LIST, selected: params[:filter_by]),
+      include_blank: 'Filter Tag Type',
+      id: 'select_tag',
+      onchange: "window.location.replace('/tags?filter_by='+this.value);" %>
+
   <% if @tags.empty? %>
       <i>There are no available tags</i>
   <% else %>
@@ -39,5 +46,6 @@
           </div>
         </div>
       </div>
+      <%= will_paginate @tags %>
   <% end %>
 </div>

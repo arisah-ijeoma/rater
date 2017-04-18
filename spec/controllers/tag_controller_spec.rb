@@ -73,7 +73,7 @@ describe TagsController do
     describe 'GET #index' do
       it 'populates an array of tags' do
         get :index
-        expect(assigns(:tags)).to eq([tag])
+        expect(assigns(:tags)).to eq([])
       end
     end
 

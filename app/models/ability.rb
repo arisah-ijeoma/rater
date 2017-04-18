@@ -16,6 +16,7 @@ class Ability
       can [:read, :rating, :ratings], Politician
       can [:read, :rating, :ratings], Brand
       can :read, Tag
+      cannot :index, Tag
     end
   end
 end

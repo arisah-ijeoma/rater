@@ -8,14 +8,14 @@ module TagHelper
   end
 
   def create_route
-    if request.original_url.include?('/pastor')
-      '/churches/:church_id/pastors/tags'
-    elsif request.original_url.include?('/church')
+    if request.original_url.include?('/church')
       '/churches/tags'
-    elsif request.original_url.include?('/lecturer')
-      '/schools/:school_id/lecturers/tags'
+    elsif request.original_url.include?('/pastor')
+      '/churches/:church_id/pastors/tags'
     elsif request.original_url.include?('/school')
       '/schools/tags'
+    elsif request.original_url.include?('/lecturer')
+      '/schools/:school_id/lecturers/tags'
     elsif request.original_url.include?('/brand')
       '/brands/tags'
     elsif request.original_url.include?('/politician')
@@ -24,14 +24,14 @@ module TagHelper
   end
 
   def update_route(tag)
-    if request.original_url.include?('/pastor')
-      "/churches/:church_id/pastors/tags/#{tag.id}"
-    elsif request.original_url.include?('/church')
+    if request.original_url.include?('/church')
       "/churches/tags/#{tag.id}"
-    elsif request.original_url.include?('/lecturer')
-      "/schools/:school_id/lecturers/tags/#{tag.id}"
+    elsif request.original_url.include?('/pastor')
+      "/churches/:church_id/pastors/tags/#{tag.id}"
     elsif request.original_url.include?('/school')
       "/schools/tags/#{tag.id}"
+    elsif request.original_url.include?('/lecturer')
+      "/schools/:school_id/lecturers/tags/#{tag.id}"
     elsif request.original_url.include?('/brand')
       "/brands/tags/#{tag.id}"
     elsif request.original_url.include?('/politician')
