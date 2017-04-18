@@ -5,6 +5,13 @@ Rails.application.routes.draw do
   resources :home, only: :index
   resources :profiles, except: [:index, :new, :create]
   resources :tags, only: [:index, :destroy]
+
+  get '/pastors/tags/new' => 'tags#new'
+  get '/pastors/tags/:id/edit' => 'tags#edit', as: 'edit_tag_pastors'
+
+  get '/lecturers/tags/new' => 'tags#new'
+  get '/lecturers/tags/:id/edit' => 'tags#edit', as: 'edit_tag_lecturers'
+
   resources :politicians do
     get '/tags/new' => 'tags#new', on: :collection
     post '/tags' => 'tags#create', on: :collection
@@ -29,7 +36,6 @@ Rails.application.routes.draw do
     get :rating
     post :ratings
     resources :pastors, except: [:index, :show] do
-      get '/tags/new' => 'tags#new', on: :collection
       post '/tags' => 'tags#create', on: :collection
       get '/tags/:id/edit' => 'tags#edit', on: :collection, as: 'edit_tag'
       put '/tags/:id' => 'tags#update', on: :collection
@@ -45,7 +51,6 @@ Rails.application.routes.draw do
     get :rating
     post :ratings
     resources :lecturers, except: [:index, :show] do
-      get '/tags/new' => 'tags#new', on: :collection
       post '/tags' => 'tags#create', on: :collection
       get '/tags/:id/edit' => 'tags#edit', on: :collection, as: 'edit_tag'
       put '/tags/:id' => 'tags#update', on: :collection

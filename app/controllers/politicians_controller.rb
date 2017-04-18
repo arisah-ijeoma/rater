@@ -22,7 +22,7 @@ class PoliticiansController < ApplicationController
   end
 
   def show
-    @ratings = PoliticianUser.all
+    @ratings = PoliticianUser.rating(@politician)
   end
 
   def edit

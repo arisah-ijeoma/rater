@@ -1,9 +1,6 @@
 <div class="m-pricing">
   <% if can? :manage, :all %>
-    <div class="share">
-      <%= link_to 'Create a church', new_church_path, class: 'creation-cta tag' %>
-      <%= link_to 'Add Tags', tags_new_churches_path, class: 'creation-cta tag' %>
-    </div>
+    <%= link_to 'Create a church', new_church_path, class: 'creation-cta tag' %>
   <% end %>
 
   <h2 class="text-center">CHURCHES</h2>

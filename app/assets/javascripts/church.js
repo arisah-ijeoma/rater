@@ -5,6 +5,7 @@ $(document).ready(function() {
     $('.church-comments').show();
     $('.pastors').hide();
     $('.view-church-comments').hide();
+    $('.pastor-comments').hide();
   });
 
   $('.hide-church-comments').on('click', function() {

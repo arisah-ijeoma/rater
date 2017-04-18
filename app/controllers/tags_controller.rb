@@ -7,40 +7,20 @@ class TagsController < ApplicationController
   end
 
   def new
-    @tag = if request.original_url.include?('/pastor')
-             PastorTag.new
-           elsif request.original_url.include?('/church')
-             ChurchTag.new
-           elsif request.original_url.include?('/lecturer')
-             LecturerTag.new
-           elsif request.original_url.include?('/school')
-             SchoolTag.new
-           elsif request.original_url.include?('/brand')
-             BrandTag.new
-           elsif request.original_url.include?('/politician')
-             PoliticianTag.new
-           end
+    url = request.original_url
+    decorator = TagDecorator.new(url)
+    @tag = decorator.new_tag
   end
 
   def create
-    @tag = if request.original_url.include?('/pastor')
-             PastorTag.new(tag_params)
-           elsif request.original_url.include?('/church')
-             ChurchTag.new(tag_params)
-           elsif request.original_url.include?('/lecturer')
-             LecturerTag.new(tag_params)
-           elsif request.original_url.include?('/school')
-             SchoolTag.new(tag_params)
-           elsif request.original_url.include?('/brand')
-             BrandTag.new(tag_params)
-           elsif request.original_url.include?('/politician')
-             PoliticianTag.new(tag_params)
-           end
+    url = request.original_url
+    decorator = TagDecorator.new(url)
+    @tag = decorator.create_tag(tag_params)
 
     @tag.description = params[:tag][:description]
 
     if @tag.save
-      redirect_to home_index_path, notice: "Successfully added tag, #{@tag.description}"
+      redirect_to tags_path, notice: "Successfully added tag, #{@tag.description}"
     else
       render :new
     end
@@ -52,7 +32,7 @@ class TagsController < ApplicationController
   def update
     @tag.description = params[:tag][:description]
     if @tag.update_attributes(tag_params)
-      redirect_to tags_path, notice: "You have successfully updated #{@tag.description} tag"
+      redirect_to tags_path, notice: "You have successfully updated #{@tag.description}"
     else
       render :edit
     end

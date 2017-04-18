@@ -22,7 +22,7 @@ class BrandsController < ApplicationController
   end
 
   def show
-    @ratings = BrandUser.all
+    @ratings = BrandUser.rating(@brand)
   end
 
   def edit

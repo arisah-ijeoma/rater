@@ -23,7 +23,7 @@ class SchoolsController < ApplicationController
 
   def show
     @lecturers = @school.lecturers
-    @ratings = SchoolUser.all
+    @ratings = SchoolUser.rating(@school)
   end
 
   def edit

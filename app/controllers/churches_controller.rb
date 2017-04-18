@@ -23,7 +23,7 @@ class ChurchesController < ApplicationController
 
   def show
     @pastors = @church.pastors
-    @ratings = ChurchUser.all
+    @ratings = ChurchUser.rating(@church)
   end
 
   def rating

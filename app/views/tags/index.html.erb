@@ -1,5 +1,13 @@
 <div class="m-pricing">
   <h2 class="text-center">TAGS</h2>
+  <div class="wrapped-share">
+    <%= link_to 'Add Church Tag', tags_new_churches_path, class: 'tag-cta tag' %>
+    <%= link_to 'Add Pastor Tag', pastors_tags_new_path, class: 'tag-cta tag' %>
+    <%= link_to 'Add School Tag', tags_new_schools_path, class: 'tag-cta tag' %>
+    <%= link_to 'Add Lecturer Tag', lecturers_tags_new_path, class: 'tag-cta tag' %>
+    <%= link_to 'Add Brand Tag', tags_new_brands_path, class: 'tag-cta tag' %>
+    <%= link_to 'Add Politician Tag', tags_new_politicians_path, class: 'tag-cta tag' %>
+  </div>
   <% if @tags.empty? %>
       <i>There are no available tags</i>
   <% else %>

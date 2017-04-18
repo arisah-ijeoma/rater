@@ -5,6 +5,17 @@
       <%= avatar_tag(pastor, :headshot) %>
     </td>
     <td>
+      <% if PastorTag.all.empty? || pastor.tag.nil? %>
+          <em>None</em>
+      <% else %>
+          <% sorted_tags(pastor).each do |tag| %>
+            <span class="show-tags">
+              <%= tag %>
+            </span>
+          <% end %>
+      <% end %>
+    </td>
+    <td>
       <%= rating %>
       <br>
       <em><%= rating_comment(rating) %></em>

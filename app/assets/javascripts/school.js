@@ -5,6 +5,7 @@ $(document).ready(function() {
     $('.school-comments').show();
     $('.lecturers').hide();
     $('.view-school-comments').hide();
+    $('.lecturer-comments').hide();
   });
 
   $('.hide-school-comments').on('click', function() {

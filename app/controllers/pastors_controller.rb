@@ -29,6 +29,7 @@ class PastorsController < ApplicationController
   end
 
   def rating
+    @tags = PastorTag.all
   end
 
   def ratings
@@ -42,6 +43,12 @@ class PastorsController < ApplicationController
     rating = (answer.to_f/9) * 5
 
     @pastor.raters += 1
+
+    @pastor.tag = if @pastor.tag.nil?
+                    params[:pastor][:tag]
+                  else
+                    @pastor.tag.gsub(/[^A-Za-z|,|]/, ' ').split(',').concat(params[:pastor][:tag])
+                  end
 
     PastorUser.create(pastor: @pastor, user: current_user, rating: rating, extra_comment: extra_comment)
     total_ratings = PastorUser.sum(:rating).to_f
@@ -62,7 +69,7 @@ class PastorsController < ApplicationController
   private
 
   def pastor_params
-    params.require(:pastor).permit(:name, :avatar)
+    params.require(:pastor).permit(:name, :avatar, tag: [])
   end
 
   def find_church

@@ -5,6 +5,7 @@ $(document).ready(function() {
   $('.view-lecturers').on('click', function() {
     $('.lecturers').show();
     $('.view-lecturers').hide();
+    $('.school-comments').hide();
   });
 
   $('.hide-lecturers').on('click', function() {

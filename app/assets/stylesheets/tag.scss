@@ -19,3 +19,19 @@
   padding: 5px 10px;
   display: inline-block;
 }
+
+.tag-cta {
+  padding: 5px;
+  background-color: #fff;
+  color: #a30001;
+  font-size: 1em;
+  border: 1px solid #a30001;
+}
+
+.wrapped-share {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}

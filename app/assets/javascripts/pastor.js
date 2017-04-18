@@ -19,6 +19,7 @@ $(document).ready(function() {
     $('.pastors').hide();
     $('.pastor-comments').show();
     $('.hide-pastors').hide();
+    $('.church-comments').hide();
   });
 
   $('.hide-pastor-comments').on('click', function() {
