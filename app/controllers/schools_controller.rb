@@ -15,6 +15,7 @@ class SchoolsController < ApplicationController
     @school = School.new(school_params)
 
     if @school.save
+      UserMailer.new_addition(@school).deliver_now
       redirect_to schools_path, notice: "You have successfully added #{@school.name}"
     else
       render :new

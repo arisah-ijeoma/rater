@@ -15,7 +15,7 @@
       id: 'select_tag',
       onchange: "window.location.replace('/tags?filter_by='+this.value);" %>
 
-  <% if @tags.empty? %>
+  <% if @tags.nil? %>
       <i>There are no available tags</i>
   <% else %>
       <div class="row">

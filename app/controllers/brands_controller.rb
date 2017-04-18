@@ -15,6 +15,7 @@ class BrandsController < ApplicationController
     @brand = Brand.new(brand_params)
 
     if @brand.save
+      UserMailer.new_addition(@brand).deliver_now
       redirect_to brands_path, notice: "You have successfully added #{@brand.name}"
     else
       render :new

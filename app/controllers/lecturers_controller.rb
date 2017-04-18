@@ -11,6 +11,7 @@ class LecturersController < ApplicationController
     @lecturer = @school.lecturers.new(lecturer_params)
 
     if @lecturer.save
+      UserMailer.new_addition(@lecturer).deliver_now
       redirect_to school_path(@school), notice: "You have successfully added #{@lecturer.name}"
     else
       render :new

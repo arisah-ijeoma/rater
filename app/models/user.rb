@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   attr_accessor :login
-  after_create :add_profile
+  after_create :add_profile, :send_welcome_mail
 
   has_one :profile
   # has_many :hearts, dependent: :destroy
@@ -18,6 +18,11 @@ class User < ActiveRecord::Base
   validates :phone_number, presence: true
   validates :email, format: { with: Devise.email_regexp }
   validates :phone_number, format: { with: /[[:digit:]]{10}/ }, length: {minimum: 11, maximum: 14}
+
+  def send_welcome_mail
+    UserMailer.welcome(self).deliver_now
+  end
+
 
   def heart!(church)
     self.hearts.create!(church_id: church.id)

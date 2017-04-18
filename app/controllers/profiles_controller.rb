@@ -1,17 +1,15 @@
 class ProfilesController < ApplicationController
   load_and_authorize_resource class: 'Profile'
 
+  before_action :find_profile
+
   def show
-    @profile = Profile.find_by(id: params[:id])
   end
 
   def edit
-    @profile = current_user.profile
   end
 
   def update
-    @profile = current_user.profile
-
     if params[:profile][:user_attributes][:password].blank?
       params[:profile][:user_attributes].delete(:password)
     end
@@ -45,5 +43,9 @@ class ProfilesController < ApplicationController
                                       :phone_number,
                                       :account_type
                                     ])
+  end
+
+  def find_profile
+    @profile = current_user.profile
   end
 end
