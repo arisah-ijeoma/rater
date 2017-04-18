@@ -63,7 +63,21 @@
           </p>
           <%= f.text_area :extra_comment, cols: 30, rows: 10 %>
 
-          <br>
+          <% if @tags.present? %>
+              <p class="radio-text">
+                5. Select tags that best describe this lecturer
+              </p>
+              <% @tags.each do |tag| %>
+                  <div style="display: inline-block">
+                    <div class="tag-list">
+                      <%= check_box_tag 'lecturer[tag][]', tag.description.titleize, false, class: 'tag-item' %>
+                      <%= label_tag tag.description.titleize %>
+                    </div>
+                  </div>
+              <% end %>
+          <% end %>
+
+          <br><br>
           <%= f.submit 'Rate Lecturer', class: 'mc-main-action mc-rate-action' %>
           <%= link_to 'Back', school_path(@school), class: 'mc-main-back pull-right' %>
       <% end %>

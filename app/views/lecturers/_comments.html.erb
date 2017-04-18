@@ -1,4 +1,4 @@
-<% ratings = LecturerUser.where(lecturer: @lecturer) %>
+<% ratings = LecturerUser.rating(@lecturer) %>
 
 <div class="row lecturer-comments">
   <div class="col-xs-12">

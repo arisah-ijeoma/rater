@@ -36,6 +36,7 @@ class ChurchesController < ApplicationController
     answer_3 = params[:church][:answer_3].to_i
 
     extra_comment = params[:church][:extra_comment]
+    tags = params[:church][:tag]
 
     answer = answer_1 + answer_2 + answer_3
     rating = (answer.to_f/9) * 5
@@ -43,9 +44,11 @@ class ChurchesController < ApplicationController
     @church.raters += 1
 
     @church.tag = if @church.tag.nil?
-                    params[:church][:tag]
+                    tags
+                  elsif tags.present?
+                    @church.tag.gsub(/[^A-Za-z|,|]/, ' ').split(',').concat(tags)
                   else
-                    @church.tag.gsub(/[^A-Za-z|,|]/, ' ').split(',').concat(params[:church][:tag])
+                    @church.tag.gsub(/[^A-Za-z|,|]/, ' ').split(',')
                   end
 
     ChurchUser.create(church: @church, user: current_user, rating: rating, extra_comment: extra_comment)

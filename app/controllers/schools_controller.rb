@@ -47,6 +47,7 @@ class SchoolsController < ApplicationController
     answer_3 = params[:school][:answer_3].to_i
 
     extra_comment = params[:school][:extra_comment]
+    tags = params[:school][:tag]
 
     answer = answer_1 + answer_2 + answer_3
     rating = (answer.to_f/9) * 5
@@ -54,9 +55,11 @@ class SchoolsController < ApplicationController
     @school.raters += 1
 
     @school.tag = if @school.tag.nil?
-                    params[:school][:tag]
+                    tags
+                  elsif tags.present?
+                    @school.tag.gsub(/[^A-Za-z|,|]/, ' ').split(',').concat(tags)
                   else
-                    @school.tag.gsub(/[^A-Za-z|,|]/, ' ').split(',').concat(params[:school][:tag])
+                    @school.tag.gsub(/[^A-Za-z|,|]/, ' ').split(',')
                   end
 
     SchoolUser.create(school: @school, user: current_user, rating: rating, extra_comment: extra_comment)

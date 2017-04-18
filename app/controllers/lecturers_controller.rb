@@ -29,6 +29,7 @@ class LecturersController < ApplicationController
   end
 
   def rating
+    @tags = LecturerTag.all
   end
 
   def ratings
@@ -37,11 +38,20 @@ class LecturersController < ApplicationController
     answer_3 = params[:lecturer][:answer_3].to_i
 
     extra_comment = params[:lecturer][:extra_comment]
+    tags = params[:lecturer][:tag]
 
     answer = answer_1 + answer_2 + answer_3
     rating = (answer.to_f/9) * 5
 
     @lecturer.raters += 1
+
+    @lecturer.tag = if @lecturer.tag.nil?
+                      tags
+                    elsif tags.present?
+                      @lecturer.tag.gsub(/[^A-Za-z|,|]/, ' ').split(',').concat(tags)
+                    else
+                      @lecturer.tag.gsub(/[^A-Za-z|,|]/, ' ').split(',')
+                    end
 
     LecturerUser.create(lecturer: @lecturer, user: current_user, rating: rating, extra_comment: extra_comment)
     total_ratings = LecturerUser.sum(:rating).to_f
@@ -62,7 +72,7 @@ class LecturersController < ApplicationController
   private
 
   def lecturer_params
-    params.require(:lecturer).permit(:name, :course, :avatar)
+    params.require(:lecturer).permit(:name, :course, :avatar, tag: [])
   end
 
   def find_school

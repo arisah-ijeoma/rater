@@ -12,27 +12,34 @@
   <% if @lecturers.empty? %>
       <i>There are no available lecturers</i>
   <% else %>
-      <table class="table table-striped">
-        <thead>
-        <tr>
-          <th>Name</th>
-          <th>Course</th>
-          <th>Image</th>
-          <th>Rating</th>
-          <th></th>
-          <th></th>
-          <% if can? :manage, Lecturer %>
-              <th></th>
-              <th></th>
-          <% end %>
-        </tr>
-        </thead>
-        <tbody>
-        <% @lecturers.each do |lecturer| %>
-            <%= render partial: 'lecturers/lecturer', locals: {lecturer: lecturer, school: @school} %>
-        <% end %>
-        </tbody>
-      </table>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+              <tr>
+                <th>Name</th>
+                <th>Course</th>
+                <th>Image</th>
+                <th>Tags</th>
+                <th>Rating</th>
+                <th></th>
+                <th></th>
+                <% if can? :manage, Lecturer %>
+                    <th></th>
+                    <th></th>
+                <% end %>
+              </tr>
+              </thead>
+              <tbody>
+              <% @lecturers.each do |lecturer| %>
+                  <%= render partial: 'lecturers/lecturer', locals: {lecturer: lecturer, school: @school} %>
+              <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
 
       <%= link_to 'Hide Lecturers', '#', class: 'hide-lecturers', remote: true %>
   <% end %>

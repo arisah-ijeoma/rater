@@ -38,6 +38,7 @@ class PastorsController < ApplicationController
     answer_3 = params[:pastor][:answer_3].to_i
 
     extra_comment = params[:pastor][:extra_comment]
+    tags = params[:pastor][:tag]
 
     answer = answer_1 + answer_2 + answer_3
     rating = (answer.to_f/9) * 5
@@ -45,9 +46,11 @@ class PastorsController < ApplicationController
     @pastor.raters += 1
 
     @pastor.tag = if @pastor.tag.nil?
-                    params[:pastor][:tag]
+                    tags
+                  elsif tags.present?
+                    @pastor.tag.gsub(/[^A-Za-z|,|]/, ' ').split(',').concat(tags)
                   else
-                    @pastor.tag.gsub(/[^A-Za-z|,|]/, ' ').split(',').concat(params[:pastor][:tag])
+                    @pastor.tag.gsub(/[^A-Za-z|,|]/, ' ').split(',')
                   end
 
     PastorUser.create(pastor: @pastor, user: current_user, rating: rating, extra_comment: extra_comment)

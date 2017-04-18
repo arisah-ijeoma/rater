@@ -6,6 +6,17 @@
       <%= avatar_tag(lecturer, :headshot) %>
     </td>
     <td>
+      <% if LecturerTag.all.empty? || lecturer.tag.nil? %>
+          <em>None</em>
+      <% else %>
+          <% sorted_tags(lecturer).each do |tag| %>
+            <span class="show-tags">
+              <%= tag %>
+            </span>
+          <% end %>
+      <% end %>
+    </td>
+    <td>
       <%= rating %>
       <br>
       <em><%= rating_comment(rating) %></em>
