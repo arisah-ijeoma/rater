@@ -53,13 +53,13 @@ class BrandsController < ApplicationController
 
     @brand.raters += 1
 
-    @brand.tag =  if @brand.tag.nil?
-                    tags
-                  elsif tags.present?
-                    @brand.tag.gsub(/[^A-Za-z|,|]/, ' ').split(',').concat(tags)
-                  else
-                    @brand.tag.gsub(/[^A-Za-z|,|]/, ' ').split(',')
-                  end
+    @brand.tag = if @brand.tag.nil?
+                   tags
+                 elsif tags.present?
+                   @brand.tag.gsub(/[^A-Za-z|,|]/, ' ').split(',').concat(tags)
+                 else
+                   @brand.tag.gsub(/[^A-Za-z|,|]/, ' ').split(',')
+                 end
 
     BrandUser.create(brand: @brand, user: current_user, rating: rating, extra_comment: extra_comment)
     total_ratings = BrandUser.sum(:rating).to_f

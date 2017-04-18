@@ -1,7 +1,7 @@
 <%# hearts = @church.hearts.count %>
 <% rating = @politician.rating.to_f %>
 
-<div class="m-pricing">
+<div class="row m-pricing">
   <%= select_tag :name,
                  options_for_select(Politician.all.collect {|p| [ p.name, p.id ] }),
                  include_blank: 'All Politicians',
@@ -11,12 +11,12 @@
   <% end %>
   <h1 class="text-center"><%= @politician.name %></h1>
   <div class="flexer">
-    <div class="show-avatar">
+    <div class="col-md-4 show-avatar">
       <%= avatar_tag(@politician, :lil_big) %>
       <div class="extra-info">
         <strong>Current Office:</strong> <%= @politician.current_office %>
         <br>
-        <strong>Date Assumed:</strong> <%= @politician.date_assumed %>
+        <strong>Date Assumed:</strong> <%= @politician.date_assumed.strftime("%d-%m-%Y") %>
         <br>
         <strong>Present Party:</strong> <%= @politician.present_party %>
         <br>
@@ -31,8 +31,21 @@
       <%# end %>
 
     </div>
-    <div class="rate-stuff">
-      <%= link_to 'Rate This Politician', politician_rating_path(@politician), class: 'rate-action' %>
+
+    <div class="col-md-4 taggings">
+      <h1 style="margin-top: -10px;">Tags</h1>
+      <% if PoliticianTag.all.empty? || @politician.tag.nil? %>
+          <em>No tags available</em>
+      <% else %>
+          <% sorted_tags(@politician).each do |tag| %>
+            <span class="show-tags">
+              <%= tag %>
+            </span>
+          <% end %>
+      <% end %>
+    </div>
+    <div class="rate-stuff col-md-4">
+      <%= link_to 'Rate Politician', politician_rating_path(@politician), class: 'rate-action' %>
       <div class="rate-summary">
         <p class="rate-text">Overall Rating</p>
         <div class="share">

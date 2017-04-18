@@ -37,6 +37,7 @@ class PoliticiansController < ApplicationController
   end
 
   def rating
+    @tags = PoliticianTag.all
   end
 
   def ratings
@@ -45,11 +46,20 @@ class PoliticiansController < ApplicationController
     answer_3 = params[:politician][:answer_3].to_i
 
     extra_comment = params[:politician][:extra_comment]
+    tags = params[:politician][:tag]
 
     answer = answer_1 + answer_2 + answer_3
     rating = (answer.to_f/9) * 5
 
     @politician.raters += 1
+
+    @politician.tag = if @politician.tag.nil?
+                        tags
+                      elsif tags.present?
+                        @politician.tag.gsub(/[^A-Za-z|,|]/, ' ').split(',').concat(tags)
+                      else
+                        @politician.tag.gsub(/[^A-Za-z|,|]/, ' ').split(',')
+                      end
 
     PoliticianUser.create(politician: @politician, user: current_user, rating: rating, extra_comment: extra_comment)
     total_ratings = PoliticianUser.sum(:rating).to_f
@@ -70,7 +80,13 @@ class PoliticiansController < ApplicationController
   private
 
   def politician_params
-    params.require(:politician).permit(:name, :current_office, :date_assumed, :present_party, :former_position, :avatar)
+    params.require(:politician).permit(:name,
+                                       :current_office,
+                                       :date_assumed,
+                                       :present_party,
+                                       :former_position,
+                                       :avatar,
+                                       tag: [])
   end
 
   def rate_politician
