@@ -38,6 +38,7 @@ class SchoolsController < ApplicationController
   end
 
   def rating
+    @tags = SchoolTag.all
   end
 
   def ratings
@@ -51,6 +52,12 @@ class SchoolsController < ApplicationController
     rating = (answer.to_f/9) * 5
 
     @school.raters += 1
+
+    @school.tag = if @school.tag.nil?
+                    params[:school][:tag]
+                  else
+                    @school.tag.gsub(/[^A-Za-z|,|]/, ' ').split(',').concat(params[:school][:tag])
+                  end
 
     SchoolUser.create(school: @school, user: current_user, rating: rating, extra_comment: extra_comment)
         total_ratings = SchoolUser.sum(:rating).to_f
@@ -71,7 +78,16 @@ class SchoolsController < ApplicationController
   private
 
   def school_params
-    params.require(:school).permit(:name, :aka, :date_founded, :location, :ownership, :category, :head, :website, :avatar)
+    params.require(:school).permit(:name,
+                                   :aka,
+                                   :date_founded,
+                                   :location,
+                                   :ownership,
+                                   :category,
+                                   :head,
+                                   :website,
+                                   :avatar,
+                                   tag: [])
   end
 
   def rate_school
