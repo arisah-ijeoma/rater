@@ -1,7 +1,7 @@
 class BrandsController < ApplicationController
   load_and_authorize_resource class: 'Brand'
   skip_before_action :authenticate_user!, only: [:index, :show]
-  before_action :rate_brand, only: [:rating, :ratings]
+  before_action :rate_brand, only: [:rate, :rating]
 
   def index
     @brands = Brand.all
@@ -36,11 +36,11 @@ class BrandsController < ApplicationController
     end
   end
 
-  def rating
+  def rate
     @tags = BrandTag.all
   end
 
-  def ratings
+  def rating
     answer_1 = params[:brand][:answer_1].to_i
     answer_2 = params[:brand][:answer_2].to_i
     answer_3 = params[:brand][:answer_3].to_i

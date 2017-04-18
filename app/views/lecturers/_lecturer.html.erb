@@ -21,7 +21,7 @@
       <br>
       <em><%= rating_comment(rating) %></em>
     </td>
-    <td><%= link_to 'Rate', school_lecturer_rating_path(school, lecturer) %></td>
+    <td><%= link_to 'Rate', school_lecturer_rate_path(school, lecturer) %></td>
     <td><%= link_to 'View Comments', '#', id: 'lecturer_comments' %></td>
     <% if can? :manage, Lecturer %>
         <td><%= link_to 'Edit', edit_school_lecturer_path(school, lecturer) %></td>

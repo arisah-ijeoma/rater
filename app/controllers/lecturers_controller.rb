@@ -1,7 +1,7 @@
 class LecturersController < ApplicationController
   load_and_authorize_resource class: 'Lecturer'
   before_action :find_school
-  before_action :rate_lecturer, only: [:rating, :ratings]
+  before_action :rate_lecturer, only: [:rate, :rating]
 
   def new
     @lecturer = @school.lecturers.new
@@ -28,11 +28,11 @@ class LecturersController < ApplicationController
     end
   end
 
-  def rating
+  def rate
     @tags = LecturerTag.all
   end
 
-  def ratings
+  def rating
     answer_1 = params[:lecturer][:answer_1].to_i
     answer_2 = params[:lecturer][:answer_2].to_i
     answer_3 = params[:lecturer][:answer_3].to_i

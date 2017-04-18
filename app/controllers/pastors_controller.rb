@@ -1,7 +1,7 @@
 class PastorsController < ApplicationController
   load_and_authorize_resource class: 'Pastor'
   before_action :find_church
-  before_action :rate_pastor, only: [:rating, :ratings]
+  before_action :rate_pastor, only: [:rate, :rating]
 
   def new
     @pastor = @church.pastors.new
@@ -28,11 +28,11 @@ class PastorsController < ApplicationController
     end
   end
 
-  def rating
+  def rate
     @tags = PastorTag.all
   end
 
-  def ratings
+  def rating
     answer_1 = params[:pastor][:answer_1].to_i
     answer_2 = params[:pastor][:answer_2].to_i
     answer_3 = params[:pastor][:answer_3].to_i

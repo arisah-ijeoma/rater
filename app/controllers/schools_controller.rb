@@ -1,7 +1,7 @@
 class SchoolsController < ApplicationController
   load_and_authorize_resource class: 'School'
   skip_before_action :authenticate_user!, only: [:index, :show]
-  before_action :rate_school, only: [:rating, :ratings]
+  before_action :rate_school, only: [:rate, :rating]
 
   def index
     @schools = School.all
@@ -37,11 +37,11 @@ class SchoolsController < ApplicationController
     end
   end
 
-  def rating
+  def rate
     @tags = SchoolTag.all
   end
 
-  def ratings
+  def rating
     answer_1 = params[:school][:answer_1].to_i
     answer_2 = params[:school][:answer_2].to_i
     answer_3 = params[:school][:answer_3].to_i

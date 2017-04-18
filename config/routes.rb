@@ -17,30 +17,30 @@ Rails.application.routes.draw do
     post '/tags' => 'tags#create', on: :collection
     get '/tags/:id/edit' => 'tags#edit', on: :collection, as: 'edit_tag'
     put '/tags/:id' => 'tags#update', on: :collection
-    get :rating
-    post :ratings
+    get :rate
+    post :rating
   end
   resources :brands do
     get '/tags/new' => 'tags#new', on: :collection
     post '/tags' => 'tags#create', on: :collection
     get '/tags/:id/edit' => 'tags#edit', on: :collection, as: 'edit_tag'
     put '/tags/:id' => 'tags#update', on: :collection
-    get :rating
-    post :ratings
+    get :rate
+    post :rating
   end
   resources :churches do
     get '/tags/new' => 'tags#new', on: :collection
     post '/tags' => 'tags#create', on: :collection
     get '/tags/:id/edit' => 'tags#edit', on: :collection, as: 'edit_tag'
     put '/tags/:id' => 'tags#update', on: :collection
-    get :rating
-    post :ratings
+    get :rate
+    post :rating
     resources :pastors, except: [:index, :show] do
       post '/tags' => 'tags#create', on: :collection
       get '/tags/:id/edit' => 'tags#edit', on: :collection, as: 'edit_tag'
       put '/tags/:id' => 'tags#update', on: :collection
-      get :rating
-      post :ratings
+      get :rate
+      post :rating
     end
   end
   resources :schools do
@@ -48,14 +48,14 @@ Rails.application.routes.draw do
     post '/tags' => 'tags#create', on: :collection
     get '/tags/:id/edit' => 'tags#edit', on: :collection, as: 'edit_tag'
     put '/tags/:id' => 'tags#update', on: :collection
-    get :rating
-    post :ratings
+    get :rate
+    post :rating
     resources :lecturers, except: [:index, :show] do
       post '/tags' => 'tags#create', on: :collection
       get '/tags/:id/edit' => 'tags#edit', on: :collection, as: 'edit_tag'
       put '/tags/:id' => 'tags#update', on: :collection
-      get :rating
-      post :ratings
+      get :rate
+      post :rating
     end
   end
 

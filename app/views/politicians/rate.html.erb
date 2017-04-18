@@ -2,12 +2,12 @@
   <div class="col-md-12">
     <div class="col-md-12 m-contact" data-animated="0">
       <h3 class="text-center">
-        Rate <%= @school.name %>
+        Rate <%= @politician.name %>
       </h3>
 
-      <%= form_for :school, url: school_ratings_path do |f| %>
+      <%= form_for :politician, url: politician_rating_path do |f| %>
           <p class="radio-text">
-            1. Is this school fair?
+            1. Is <%= @politician.name %> approachable?
           </p>
           <div class="radio-options">
             <%= f.radio_button :answer_1, 2, checked: true %>
@@ -21,7 +21,7 @@
           <br>
 
           <p class="radio-text">
-            2. Is the school environment cool?
+            2. Does <%= @politician.name %> solicit money?
           </p>
           <div class="radio-options">
             <%= f.radio_button :answer_2, 2, checked: true %>
@@ -35,7 +35,7 @@
           <br>
 
           <p class="radio-text">
-            3. How are the exams?
+            3. How well is he doing his job?
           </p>
           <div class="radio-options">
             <%= f.radio_button :answer_3, 5, checked: true %>
@@ -65,12 +65,12 @@
 
           <% if @tags.present? %>
               <p class="radio-text">
-                5. Select tags that best describe this school
+                5. Select tags that best describe this politician
               </p>
               <% @tags.each do |tag| %>
                   <div style="display: inline-block">
                     <div class="tag-list">
-                      <%= check_box_tag 'school[tag][]', tag.description.titleize, false, class: 'tag-item' %>
+                      <%= check_box_tag 'politician[tag][]', tag.description.titleize, false, class: 'tag-item' %>
                       <%= label_tag tag.description.titleize %>
                     </div>
                   </div>
@@ -78,8 +78,8 @@
           <% end %>
 
           <br><br>
-          <%= f.submit 'Rate School', class: 'mc-main-action mc-rate-action' %>
-          <%= link_to 'Back', school_path(@school), class: 'mc-main-back pull-right' %>
+          <%= f.submit 'Rate Politician', class: 'mc-main-action mc-rate-action' %>
+          <%= link_to 'Back', politician_path(@politician), class: 'mc-main-back pull-right' %>
       <% end %>
     </div>
   </div>

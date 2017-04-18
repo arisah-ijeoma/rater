@@ -1,7 +1,7 @@
 class PoliticiansController < ApplicationController
   load_and_authorize_resource class: 'Politician'
   skip_before_action :authenticate_user!, only: [:index, :show]
-  before_action :rate_politician, only: [:rating, :ratings]
+  before_action :rate_politician, only: [:rate, :rating]
 
   def index
     @politicians = Politician.all
@@ -36,11 +36,11 @@ class PoliticiansController < ApplicationController
     end
   end
 
-  def rating
+  def rate
     @tags = PoliticianTag.all
   end
 
-  def ratings
+  def rating
     answer_1 = params[:politician][:answer_1].to_i
     answer_2 = params[:politician][:answer_2].to_i
     answer_3 = params[:politician][:answer_3].to_i

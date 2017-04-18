@@ -1,7 +1,7 @@
 class ChurchesController < ApplicationController
   load_and_authorize_resource class: 'Church'
   skip_before_action :authenticate_user!, only: [:index, :show]
-  before_action :rate_church, only: [:rating, :ratings]
+  before_action :rate_church, only: [:rate, :rating]
 
   def index
     @churches = Church.all
@@ -26,11 +26,11 @@ class ChurchesController < ApplicationController
     @ratings = ChurchUser.rating(@church)
   end
 
-  def rating
+  def rate
     @tags = ChurchTag.all
   end
 
-  def ratings
+  def rating
     answer_1 = params[:church][:answer_1].to_i
     answer_2 = params[:church][:answer_2].to_i
     answer_3 = params[:church][:answer_3].to_i
