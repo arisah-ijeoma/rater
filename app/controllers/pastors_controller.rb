@@ -11,7 +11,9 @@ class PastorsController < ApplicationController
     @pastor = @church.pastors.new(pastor_params)
 
     if @pastor.save
-      UserMailer.new_addition(@pastor).deliver_now
+      User.all.each do |user|
+        UserMailer.new_addition(user, @pastor).deliver_now
+      end
       redirect_to church_path(@church), notice: "You have successfully added #{@pastor.name}"
     else
       render :new

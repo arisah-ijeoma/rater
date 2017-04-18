@@ -15,7 +15,9 @@ class SchoolsController < ApplicationController
     @school = School.new(school_params)
 
     if @school.save
-      UserMailer.new_addition(@school).deliver_now
+      User.all.each do |user|
+        UserMailer.new_addition(user, @school).deliver_now
+      end
       redirect_to schools_path, notice: "You have successfully added #{@school.name}"
     else
       render :new

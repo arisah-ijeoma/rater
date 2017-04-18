@@ -15,7 +15,9 @@ class PoliticiansController < ApplicationController
     @politician = Politician.new(politician_params)
 
     if @politician.save
-      UserMailer.new_addition(@politician).deliver_now
+      User.all.each do |user|
+        UserMailer.new_addition(user, @politician).deliver_now
+      end
       redirect_to politicians_path, notice: "You have successfully added #{@politician.name}"
     else
       render :new

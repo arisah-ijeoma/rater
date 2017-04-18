@@ -15,7 +15,9 @@ class ChurchesController < ApplicationController
     @church = Church.new(church_params)
 
     if @church.save
-      UserMailer.new_addition(@church).deliver_now
+      User.all.each do |user|
+        UserMailer.new_addition(user, @church).deliver_now
+      end
       redirect_to churches_path, notice: "You have successfully added #{@church.name}"
     else
       render :new

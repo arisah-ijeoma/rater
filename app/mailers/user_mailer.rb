@@ -4,8 +4,9 @@ class UserMailer < ApplicationMailer
     mail(to: @user.email, subject: 'Welcome to Rater')
   end
 
-  def new_addition(stuff)
+  def new_addition(user, stuff)
+    @user = user
     @stuff = stuff
-    mail(to: @user.email, subject: 'New Item Added for Rating')
+    mail(to: @user.email, subject: 'New Stuff Added for Rating')
   end
 end
