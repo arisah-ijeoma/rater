@@ -7,7 +7,7 @@
     <% if current_user %>
         <%= link_to 'LOG OUT', destroy_user_session_path, class: 'pull-right nav-item', method: :delete %>
     <% else %>
-        <%= link_to 'SIGN IN', new_user_registration_path, class: 'pull-right nav-item' %>
+        <%= link_to 'SIGN IN', new_user_session_path, class: 'pull-right nav-item' %>
     <% end %>
     <%= link_to 'BLOG', blogo_root_path, class: 'pull-right nav-item' %>
 
