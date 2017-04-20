@@ -1,0 +1,15 @@
+<% likes = UserChurchHeart.likes(@church) %>
+
+<% likers = likes.collect(&:user_id).uniq %>
+<% user_likes = User.where('id in (?)', likers) %>
+
+$('.hearted').replaceWith("<%=j link_to '<i class="fa fa-heart" aria-hidden="true"></i>'.html_safe, church_unlike_path(@church), class: 'hearted', remote: true, method: :put %>");
+
+<% if user_likes.include?(current_user) && likes.count == 1 %>
+    $('#like').text('You like this church');
+<% elsif user_likes.include?(current_user) && likes.count > 1 %>
+    $('#like').text("You and <%= likes.count - 1 %> more like this church");
+<% elsif !user_likes.include?(current_user) && likes.present? %>
+    $('#like').text("<%= likes.count %> like(s) for this church");
+<% end %>
+

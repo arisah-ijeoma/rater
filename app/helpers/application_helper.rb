@@ -59,4 +59,16 @@ module ApplicationHelper
       'default_avatar.png'
     end
   end
+
+  def like_message(likes, user, count, type)
+    if likes.include?(user) && count == 1
+      "<p id='like'>You like this #{type}</p>".html_safe
+    elsif likes.include?(user) && count > 1
+      "<p id='like'>You and #{likes.count - 1} more like this #{type}</p>".html_safe
+    elsif !likes.include?(user) && count.present?
+      "<p id='like'>#{likes.count} like(s) for this #{type}</p>".html_safe
+    else
+      '<p id="like"></p>'.html_safe
+    end
+  end
 end

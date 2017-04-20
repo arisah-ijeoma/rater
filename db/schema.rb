@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170416134212) do
+ActiveRecord::Schema.define(version: 20170419122920) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -129,16 +129,6 @@ ActiveRecord::Schema.define(version: 20170416134212) do
     t.text     "extra_comment"
     t.string   "tag"
   end
-
-  create_table "hearts", force: :cascade do |t|
-    t.integer  "church_id"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "hearts", ["church_id"], name: "index_hearts_on_church_id", using: :btree
-  add_index "hearts", ["user_id"], name: "index_hearts_on_user_id", using: :btree
 
   create_table "lecturer_users", force: :cascade do |t|
     t.integer "lecturer_id"
@@ -300,6 +290,17 @@ ActiveRecord::Schema.define(version: 20170416134212) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "user_church_hearts", force: :cascade do |t|
+    t.integer  "church_id"
+    t.integer  "user_id"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "like",       default: false, null: false
+  end
+
+  add_index "user_church_hearts", ["church_id"], name: "index_user_church_hearts_on_church_id", using: :btree
+  add_index "user_church_hearts", ["user_id"], name: "index_user_church_hearts_on_user_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",          null: false
     t.string   "encrypted_password",     default: "",          null: false
@@ -323,8 +324,6 @@ ActiveRecord::Schema.define(version: 20170416134212) do
   add_foreign_key "brand_users", "users"
   add_foreign_key "church_users", "churches"
   add_foreign_key "church_users", "users"
-  add_foreign_key "hearts", "churches"
-  add_foreign_key "hearts", "users"
   add_foreign_key "lecturer_users", "lecturers"
   add_foreign_key "lecturer_users", "users"
   add_foreign_key "pastor_users", "pastors"
@@ -334,4 +333,6 @@ ActiveRecord::Schema.define(version: 20170416134212) do
   add_foreign_key "profiles", "users"
   add_foreign_key "school_users", "schools"
   add_foreign_key "school_users", "users"
+  add_foreign_key "user_church_hearts", "churches"
+  add_foreign_key "user_church_hearts", "users"
 end

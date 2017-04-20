@@ -8,7 +8,6 @@ class Ability
       can :manage, Profile do |profile|
         user == profile.user
       end
-      can :manage, Heart
       can [:read, :rate, :rating], Church
       can [:read, :rate, :rating], Pastor
       can [:read, :rate, :rating], School

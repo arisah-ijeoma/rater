@@ -3,9 +3,6 @@ class User < ActiveRecord::Base
   after_create :add_profile, :send_welcome_mail
 
   has_one :profile
-  # has_many :hearts, dependent: :destroy
-  # has_many :churches, through: :hearts
-
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
@@ -21,20 +18,6 @@ class User < ActiveRecord::Base
 
   def send_welcome_mail
     UserMailer.welcome(self).deliver_now
-  end
-
-
-  def heart!(church)
-    self.hearts.create!(church_id: church.id)
-  end
-
-  def unheart!(church)
-    heart = self.hearts.find_by(church_id: church.id)
-    heart.destroy!
-  end
-
-  def heart?(church)
-    self.hearts.find_by(church_id: church.id)
   end
 
   def self.find_first_by_auth_conditions(warden_conditions)
