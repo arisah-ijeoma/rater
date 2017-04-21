@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170421124602) do
+ActiveRecord::Schema.define(version: 20170421130058) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -334,6 +334,17 @@ ActiveRecord::Schema.define(version: 20170421124602) do
   add_index "user_pastor_hearts", ["pastor_id"], name: "index_user_pastor_hearts_on_pastor_id", using: :btree
   add_index "user_pastor_hearts", ["user_id"], name: "index_user_pastor_hearts_on_user_id", using: :btree
 
+  create_table "user_politician_hearts", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "politician_id"
+    t.boolean  "like",          default: false, null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+  end
+
+  add_index "user_politician_hearts", ["politician_id"], name: "index_user_politician_hearts_on_politician_id", using: :btree
+  add_index "user_politician_hearts", ["user_id"], name: "index_user_politician_hearts_on_user_id", using: :btree
+
   create_table "user_school_hearts", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "school_id"
@@ -385,6 +396,8 @@ ActiveRecord::Schema.define(version: 20170421124602) do
   add_foreign_key "user_lecturer_hearts", "users"
   add_foreign_key "user_pastor_hearts", "pastors"
   add_foreign_key "user_pastor_hearts", "users"
+  add_foreign_key "user_politician_hearts", "politicians"
+  add_foreign_key "user_politician_hearts", "users"
   add_foreign_key "user_school_hearts", "schools"
   add_foreign_key "user_school_hearts", "users"
 end

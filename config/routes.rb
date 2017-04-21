@@ -17,6 +17,10 @@ Rails.application.routes.draw do
     post '/tags' => 'tags#create', on: :collection
     get '/tags/:id/edit' => 'tags#edit', on: :collection, as: 'edit_tag'
     put '/tags/:id' => 'tags#update', on: :collection
+
+    put 'like' => 'hearts#like'
+    put 'unlike' => 'hearts#unlike'
+
     get :rate
     post :rating
   end
