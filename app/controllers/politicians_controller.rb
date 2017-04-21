@@ -4,7 +4,7 @@ class PoliticiansController < ApplicationController
   before_action :rate_politician, only: [:rate, :rating]
 
   def index
-    @politicians = Politician.all
+    @politicians = Politician.all.paginate(page: params[:page], per_page: 7)
   end
 
   def new
