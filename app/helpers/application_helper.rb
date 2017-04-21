@@ -163,4 +163,8 @@ module ApplicationHelper
   def js_complex_unhearted(parent, type, _type, _type_2)
     link_to '<i class="fa fa-heart-o" aria-hidden="true"></i>'.html_safe, send("#{parent}_#{type}_like_path", _type, _type_2), class: 'mini-hearted', remote: true, method: :put
   end
+
+  def check_website(class_name)
+    class_name.website == 'http://' || class_name.website == 'https://'
+  end
 end

@@ -45,11 +45,13 @@
 
           <%= show_basic_heart(current_user, heart, 'school', @school) %>
         </div>
-        <p class="extra-info">
-          Visit <%= link_to @school.website, target: '_blank' do %>
-              <%= @school.website %>
-          <% end %>
-        </p>
+        <% unless check_website(@school) %>
+            <p class="extra-info">
+              Visit <%= link_to @school.website, target: '_blank' do %>
+                  <%= @school.website %>
+              <% end %>
+            </p>
+        <% end %>
       </div>
     </div>
   </div>

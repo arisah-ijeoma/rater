@@ -4,7 +4,7 @@ class ChurchesController < ApplicationController
   before_action :rate_church, only: [:rate, :rating]
 
   def index
-    @churches = Church.all
+    @churches = Church.all.paginate(page: params[:page], per_page: 7)
   end
 
   def new
