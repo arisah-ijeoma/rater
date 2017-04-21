@@ -4,7 +4,7 @@ class SchoolsController < ApplicationController
   before_action :rate_school, only: [:rate, :rating]
 
   def index
-    @schools = School.all
+    @schools = School.all.paginate(page: params[:page], per_page: 7)
   end
 
   def new
