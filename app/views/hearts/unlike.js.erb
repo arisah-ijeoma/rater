@@ -1,4 +1,4 @@
-<% likes = table(@church, @pastor, @school) %>
+<% likes = table(@church, @pastor, @school, @lecturer) %>
 <% likers = likes.collect(&:user_id).uniq %>
 <% user_likes = User.where('id in (?)', likers) %>
 <% url = request.original_url %>
@@ -6,9 +6,10 @@
 var paragraph = $('#like');
 var mini_paragraph = $('#mini_like');
 var hearted = $('.hearted');
+var mini_hearted = $('.mini-hearted');
 
 <% if url.include?('pastor') %>
-    $('.mini-hearted').replaceWith("<%=j js_complex_unhearted('church', 'pastor', @church, @pastor) %>");
+    mini_hearted.replaceWith("<%=j js_complex_unhearted('church', 'pastor', @church, @pastor) %>");
 
     <% if user_likes.include?(current_user) && likes.count == 1 %>
         mini_paragraph.text('You like this person');
@@ -20,7 +21,7 @@ var hearted = $('.hearted');
         mini_paragraph.text('');
     <% end %>
 <% elsif url.include?('church') %>
-    $('.hearted').replaceWith("<%=j js_basic_unhearted('church', @church) %>");
+    hearted.replaceWith("<%=j js_basic_unhearted('church', @church) %>");
 
     <% if user_likes.include?(current_user) && likes.count == 1 %>
         paragraph.text("You like this <%= like_pattern %>");
@@ -30,6 +31,18 @@ var hearted = $('.hearted');
         paragraph.text("<%= likes.count %> like(s) for this <%= like_pattern %>");
     <% else %>
         paragraph.text('');
+    <% end %>
+<% elsif url.include?('lecturer') %>
+    mini_hearted.replaceWith("<%=j js_complex_unhearted('school','lecturer', @school, @lecturer) %>");
+
+    <% if user_likes.include?(current_user) && likes.count == 1 %>
+        mini_paragraph.text('You like this person');
+    <% elsif user_likes.include?(current_user) && likes.count > 1 %>
+        mini_paragraph.text("You and <%= likes.count - 1 %> more like this person");
+    <% elsif !user_likes.include?(current_user) && likes.present? %>
+        mini_paragraph.text("<%= likes.count %> like(s) for this person");
+    <% else %>
+        mini_paragraph.text('');
     <% end %>
 <% elsif url.include?('school') %>
     hearted.replaceWith("<%=j js_basic_unhearted('school', @school) %>");

@@ -1,5 +1,5 @@
 class HeartsController < ApplicationController
-  before_action :find_church, :find_pastor, :find_school
+  before_action :find_church, :find_pastor, :find_school, :find_lecturer
 
   def like
     resource = select_like_table
@@ -22,8 +22,8 @@ class HeartsController < ApplicationController
       UserPastorHeart.find_or_create_by(user: current_user, pastor: @pastor)
     elsif url.include?('/church')
       UserChurchHeart.find_or_create_by(user: current_user, church: @church)
-    # elsif url.include?('/lecturer')
-    #   UserLecturerHeart.find_or_create_by(user: current_user, lecturer: @lecturer)
+    elsif url.include?('/lecturer')
+      UserLecturerHeart.find_or_create_by(user: current_user, lecturer: @lecturer)
     elsif url.include?('/school')
       UserSchoolHeart.find_or_create_by(user: current_user, school: @school)
     # elsif url.include?('/brand')
@@ -43,5 +43,9 @@ class HeartsController < ApplicationController
 
   def find_school
     @school = School.find_by(id: params[:school_id])
+  end
+
+  def find_lecturer
+    @lecturer = Lecturer.find_by(id: params[:lecturer_id])
   end
 end

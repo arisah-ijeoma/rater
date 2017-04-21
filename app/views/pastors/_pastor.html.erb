@@ -1,8 +1,8 @@
 <%= content_tag_for :tr, pastor do %>
     <% rating = pastor.rating %>
 
-    <% heart = UserPastorHeart.get_specific(current_user, @church) %>
-    <% likes = UserPastorHeart.likes(@church) %>
+    <% heart = UserPastorHeart.get_specific(current_user, pastor) %>
+    <% likes = UserPastorHeart.likes(pastor) %>
     <% likers = likes.collect(&:user_id).uniq %>
     <% user_likes = User.where('id in (?)', likers) %>
     <td>

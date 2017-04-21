@@ -1,6 +1,15 @@
 <%= content_tag_for :tr, lecturer do %>
     <% rating = lecturer.rating %>
-    <td><%= lecturer.name %></td>
+
+    <% heart = UserLecturerHeart.get_specific(current_user, lecturer) %>
+    <% likes = UserLecturerHeart.likes(lecturer) %>
+    <% likers = likes.collect(&:user_id).uniq %>
+    <% user_likes = User.where('id in (?)', likers) %>
+    <td>
+      <%= lecturer.name %>
+      <br>
+      <%= complex_like_message(user_likes, current_user, likes.count) %>
+    </td>
     <td><%= lecturer.course %></td>
     <td class="show-avatar">
       <%= avatar_tag(lecturer, :headshot) %>
@@ -20,6 +29,9 @@
       <%= rating %>
       <br>
       <em><%= rating_comment(rating) %></em>
+    </td>
+    <td>
+      <%= show_complex_heart(current_user, heart, 'school', 'lecturer', school, lecturer) %>
     </td>
     <td><%= link_to 'Rate', school_lecturer_rate_path(school, lecturer) %></td>
     <td><%= link_to 'View Comments', '#', id: 'lecturer_comments' %></td>
