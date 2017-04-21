@@ -60,15 +60,99 @@ module ApplicationHelper
     end
   end
 
-  def like_message(likes, user, count, type)
+  def like_pattern
+    url = request.original_url
+
+    if url.include?('pastor')
+      'pastor'
+    elsif url.include?('church')
+      'church'
+    end
+  end
+
+  def basic_like_message(likes, user, count, type)
     if likes.include?(user) && count == 1
       "<p id='like'>You like this #{type}</p>".html_safe
     elsif likes.include?(user) && count > 1
       "<p id='like'>You and #{likes.count - 1} more like this #{type}</p>".html_safe
-    elsif !likes.include?(user) && count.present?
+    elsif !likes.include?(user) && count > 0
       "<p id='like'>#{likes.count} like(s) for this #{type}</p>".html_safe
     else
       '<p id="like"></p>'.html_safe
     end
+  end
+
+  def complex_like_message(likes, user, count)
+    if likes.include?(user) && count == 1
+      '<p id="mini_like">You like this person</p>'.html_safe
+    elsif likes.include?(user) && count > 1
+      "<p id='mini_like'>You and #{likes.count - 1} more like this person</p>".html_safe
+    elsif !likes.include?(user) && count > 0
+      "<p id='mini_like'>#{likes.count} like(s) for this person</p>".html_safe
+    else
+      '<p id="mini_like"></p>'.html_safe
+    end
+  end
+
+  def show_basic_heart(user, heart, type, _type)
+    if user
+      if heart.present?
+         if heart.like?
+            link_to '<i class="fa fa-heart" aria-hidden="true"></i>'.html_safe, send("#{type}_unlike_path", _type), class: 'hearted', remote: true, method: :put
+          else
+            link_to '<i class="fa fa-heart-o" aria-hidden="true"></i>'.html_safe, send("#{type}_like_path", _type), class: 'hearted', remote: true, method: :put
+          end
+      else
+        link_to '<i class="fa fa-heart-o" aria-hidden="true"></i>'.html_safe, send("#{type}_like_path", _type), class: 'hearted', remote: true, method: :put
+      end
+    end
+  end
+
+  def show_complex_heart(user, heart, parent, type, _type, _type_2)
+    if user
+      if heart.present?
+        if heart.like?
+          link_to '<i class="fa fa-heart" aria-hidden="true"></i>'.html_safe, send("#{parent}_#{type}_unlike_path", _type, _type_2), class: 'mini-hearted', remote: true, method: :put
+        else
+          link_to '<i class="fa fa-heart-o" aria-hidden="true"></i>'.html_safe, send("#{parent}_#{type}_like_path", _type, _type_2), class: 'mini-hearted', remote: true, method: :put
+        end
+      else
+        link_to '<i class="fa fa-heart-o" aria-hidden="true"></i>'.html_safe, send("#{parent}_#{type}_like_path", _type, _type_2), class: 'mini-hearted', remote: true, method: :put
+      end
+    end
+  end
+
+  def table(t1, t2)
+    url = request.original_url
+
+    if url.include?('/pastor')
+      UserPastorHeart.likes(t2)
+    elsif url.include?('/church')
+      UserChurchHeart.likes(t1)
+      # elsif url.include?('/lecturer')
+      #   UserLecturerHeart.find_or_create_by(user: current_user, church: @lecturer)
+      # elsif url.include?('/school')
+      #   UserSchoolHeart.find_or_create_by(user: current_user, church: @school)
+      # elsif url.include?('/brand')
+      #   UserBrandHeart.find_or_create_by(user: current_user, church: @brand)
+      # elsif url.include?('/politician')
+      #   UserPoliticianHeart.find_or_create_by(user: current_user, church: @politician)
+    end
+  end
+
+  def js_basic_hearted(type, _type)
+    link_to '<i class="fa fa-heart" aria-hidden="true"></i>'.html_safe, send("#{type}_unlike_path", _type), class: 'hearted', remote: true, method: :put
+  end
+
+  def js_basic_unhearted(type, _type)
+    link_to '<i class="fa fa-heart-o" aria-hidden="true"></i>'.html_safe, send("#{type}_like_path", _type), class: 'hearted', remote: true, method: :put
+  end
+
+  def js_complex_hearted(parent, type, _type, _type_2)
+    link_to '<i class="fa fa-heart" aria-hidden="true"></i>'.html_safe, send("#{parent}_#{type}_unlike_path", _type, _type_2), class: 'mini-hearted', remote: true, method: :put
+  end
+
+  def js_complex_unhearted(parent, type, _type, _type_2)
+    link_to '<i class="fa fa-heart-o" aria-hidden="true"></i>'.html_safe, send("#{parent}_#{type}_like_path", _type, _type_2), class: 'mini-hearted', remote: true, method: :put
   end
 end

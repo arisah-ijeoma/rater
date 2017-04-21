@@ -18,7 +18,7 @@
     <div class="col-md-4 show-avatar">
       <%= avatar_tag(@church, :lil_big) %>
       <br>
-      <%= like_message(user_likes, current_user, likes.count, @church.class.name.downcase) %>
+      <%= basic_like_message(user_likes, current_user, likes.count, @church.class.name.downcase) %>
     </div>
 
     <div class="col-md-4 taggings">
@@ -43,18 +43,7 @@
             <%= rating %> <span class='rate-comment'><%= rating_comment(rating) %></span>
           </p>
 
-          <% if current_user %>
-              <% if heart.present? %>
-                  <%= if heart.like?
-                      link_to '<i class="fa fa-heart" aria-hidden="true"></i>'.html_safe, church_unlike_path(@church), class: 'hearted', remote: true, method: :put
-                    else
-                      link_to '<i class="fa fa-heart-o" aria-hidden="true"></i>'.html_safe, church_like_path(@church), class: 'hearted', remote: true, method: :put
-                    end %>
-              <% else %>
-                  <%= link_to '<i class="fa fa-heart-o" aria-hidden="true"></i>'.html_safe, church_like_path(@church), class: 'hearted', remote: true, method: :put %>
-              <% end %>
-          <% end %>
-
+          <%= show_basic_heart(current_user, heart, 'church', @church) %>
         </div>
       </div>
     </div>

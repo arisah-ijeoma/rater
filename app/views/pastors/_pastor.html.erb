@@ -1,6 +1,15 @@
 <%= content_tag_for :tr, pastor do %>
     <% rating = pastor.rating %>
-    <td><%= pastor.name %></td>
+
+    <% heart = UserPastorHeart.get_specific(current_user, @church) %>
+    <% likes = UserPastorHeart.likes(@church) %>
+    <% likers = likes.collect(&:user_id).uniq %>
+    <% user_likes = User.where('id in (?)', likers) %>
+    <td>
+      <%= pastor.name %>
+      <br>
+      <%= complex_like_message(user_likes, current_user, likes.count) %>
+    </td>
     <td class="show-avatar">
       <%= avatar_tag(pastor, :headshot) %>
     </td>
@@ -19,6 +28,9 @@
       <%= rating %>
       <br>
       <em><%= rating_comment(rating) %></em>
+    </td>
+    <td>
+      <%= show_complex_heart(current_user, heart, 'church', 'pastor', church, pastor) %>
     </td>
     <td><%= link_to 'Rate', church_pastor_rate_path(church, pastor) %></td>
     <td><%= link_to 'View Comments', '#', id: 'pastor_comments' %></td>

@@ -1,15 +1,33 @@
-<% likes = UserChurchHeart.likes(@church) %>
-
+<% likes = table(@church, @pastor) %>
 <% likers = likes.collect(&:user_id).uniq %>
 <% user_likes = User.where('id in (?)', likers) %>
+<% url = request.original_url %>
 
-$('.hearted').replaceWith("<%=j link_to '<i class="fa fa-heart" aria-hidden="true"></i>'.html_safe, church_unlike_path(@church), class: 'hearted', remote: true, method: :put %>");
+var paragraph = $('#like');
+var mini_paragraph = $('#mini_like');
 
-<% if user_likes.include?(current_user) && likes.count == 1 %>
-    $('#like').text('You like this church');
-<% elsif user_likes.include?(current_user) && likes.count > 1 %>
-    $('#like').text("You and <%= likes.count - 1 %> more like this church");
-<% elsif !user_likes.include?(current_user) && likes.present? %>
-    $('#like').text("<%= likes.count %> like(s) for this church");
+<% if url.include?('pastor') %>
+    $('.mini-hearted').replaceWith("<%=j js_complex_hearted('church', 'pastor', @church, @pastor) %>");
+
+    <% if user_likes.include?(current_user) && likes.count == 1 %>
+        mini_paragraph.text('You like this person');
+    <% elsif user_likes.include?(current_user) && likes.count > 1 %>
+        mini_paragraph.text("You and <%= likes.count - 1 %> more like this person");
+    <% elsif !user_likes.include?(current_user) && likes.present? %>
+        mini_paragraph.text("<%= likes.count %> like(s) for this person");
+    <% else %>
+        mini_paragraph.text('');
+    <% end %>
+<% elsif url.include?('church') %>
+    $('.hearted').replaceWith("<%=j js_basic_hearted('church', @church) %>");
+
+    <% if user_likes.include?(current_user) && likes.count == 1 %>
+        paragraph.text("You like this <%= like_pattern %>");
+    <% elsif user_likes.include?(current_user) && likes.count > 1 %>
+        paragraph.text("You and <%= likes.count - 1 %> more like this <%= like_pattern %>");
+    <% elsif !user_likes.include?(current_user) && likes.present? %>
+        paragraph.text("<%= likes.count %> like(s) for this <%= like_pattern %>");
+    <% else %>
+        paragraph.text('');
+    <% end %>
 <% end %>
-

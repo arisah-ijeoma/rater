@@ -90,7 +90,7 @@ div.awesomplete {
   font-size: 1.2em;
 }
 
-#like {
+#like, #mini_like {
   color: #a30001;
   font-style: italic;
 }
@@ -181,6 +181,12 @@ div.awesomplete {
 
 .fa-heart, .fa-heart-o {
   font-size: 5em;
+  color: #a30001;
+}
+
+.mini-hearted .fa-heart,
+.mini-hearted .fa-heart-o {
+  font-size: 1.5em;
   color: #a30001;
 }
 
