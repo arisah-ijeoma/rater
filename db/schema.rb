@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170421122533) do
+ActiveRecord::Schema.define(version: 20170421124602) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -290,6 +290,17 @@ ActiveRecord::Schema.define(version: 20170421122533) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "user_brand_hearts", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "brand_id"
+    t.boolean  "like",       default: false, null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  add_index "user_brand_hearts", ["brand_id"], name: "index_user_brand_hearts_on_brand_id", using: :btree
+  add_index "user_brand_hearts", ["user_id"], name: "index_user_brand_hearts_on_user_id", using: :btree
+
   create_table "user_church_hearts", force: :cascade do |t|
     t.integer  "church_id"
     t.integer  "user_id"
@@ -366,6 +377,8 @@ ActiveRecord::Schema.define(version: 20170421122533) do
   add_foreign_key "profiles", "users"
   add_foreign_key "school_users", "schools"
   add_foreign_key "school_users", "users"
+  add_foreign_key "user_brand_hearts", "brands"
+  add_foreign_key "user_brand_hearts", "users"
   add_foreign_key "user_church_hearts", "churches"
   add_foreign_key "user_church_hearts", "users"
   add_foreign_key "user_lecturer_hearts", "lecturers"
