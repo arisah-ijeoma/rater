@@ -1,5 +1,9 @@
-<%# hearts = @church.hearts.count %>
 <% rating = @school.rating.to_f %>
+
+<% heart = UserSchoolHeart.get_specific(current_user, @school) %>
+<% likes = UserSchoolHeart.likes(@school) %>
+<% likers = likes.collect(&:user_id).uniq %>
+<% user_likes = User.where('id in (?)', likers) %>
 
 <div class="row m-pricing">
   <%= select_tag :name,
@@ -13,14 +17,8 @@
   <div class="flexer">
     <div class="col-md-4 show-avatar">
       <%= avatar_tag(@school, :lil_big) %>
-      <%# if current_user.heart?(@church) && hearts > 1 %>
-      <!--<p>You and <%#= hearts - 1 %> others like this church<</p>-->
-      <%# elsif current_user.heart?(@church) %>
-      <!--<p>You like this church</p>-->
-      <%# else %>
-      <!--<p></p>-->
-      <%# end %>
-
+      <br>
+      <%= basic_like_message(user_likes, current_user, likes.count, @school.class.name.downcase) %>
     </div>
 
     <div class="col-md-4 taggings">
@@ -44,9 +42,8 @@
           <p class="rate-figure">
             <%= rating %> <span class='rate-comment'><%= rating_comment(rating) %></span>
           </p>
-          <%#= div_for @school do %>
-              <%#= render partial: 'hearts/button', locals: { school: @school } %>
-          <%# end %>
+
+          <%= show_basic_heart(current_user, heart, 'school', @school) %>
         </div>
       </div>
     </div>

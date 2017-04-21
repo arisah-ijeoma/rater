@@ -67,6 +67,14 @@ module ApplicationHelper
       'pastor'
     elsif url.include?('church')
       'church'
+    # elsif url.include?('lecturer')
+    #   'lecturer'
+    elsif url.include?('school')
+      'school'
+    # elsif url.include?('brand')
+    #   'brand'
+    # elsif url.include?('politician')
+    #   'politician'
     end
   end
 
@@ -122,7 +130,7 @@ module ApplicationHelper
     end
   end
 
-  def table(t1, t2)
+  def table(t1, t2, t3)
     url = request.original_url
 
     if url.include?('/pastor')
@@ -130,13 +138,13 @@ module ApplicationHelper
     elsif url.include?('/church')
       UserChurchHeart.likes(t1)
       # elsif url.include?('/lecturer')
-      #   UserLecturerHeart.find_or_create_by(user: current_user, church: @lecturer)
-      # elsif url.include?('/school')
-      #   UserSchoolHeart.find_or_create_by(user: current_user, church: @school)
+      #   UserLecturerHeart.likes(t4)
+      elsif url.include?('/school')
+        UserSchoolHeart.likes(t3)
       # elsif url.include?('/brand')
-      #   UserBrandHeart.find_or_create_by(user: current_user, church: @brand)
+      #   UserBrandHeart.likes(t5)
       # elsif url.include?('/politician')
-      #   UserPoliticianHeart.find_or_create_by(user: current_user, church: @politician)
+      #   UserPoliticianHeart.likes(t6)
     end
   end
 

@@ -1,10 +1,11 @@
-<% likes = table(@church, @pastor) %>
+<% likes = table(@church, @pastor, @school) %>
 <% likers = likes.collect(&:user_id).uniq %>
 <% user_likes = User.where('id in (?)', likers) %>
 <% url = request.original_url %>
 
 var paragraph = $('#like');
 var mini_paragraph = $('#mini_like');
+var hearted = $('.hearted');
 
 <% if url.include?('pastor') %>
     $('.mini-hearted').replaceWith("<%=j js_complex_hearted('church', 'pastor', @church, @pastor) %>");
@@ -19,7 +20,19 @@ var mini_paragraph = $('#mini_like');
         mini_paragraph.text('');
     <% end %>
 <% elsif url.include?('church') %>
-    $('.hearted').replaceWith("<%=j js_basic_hearted('church', @church) %>");
+    hearted.replaceWith("<%=j js_basic_hearted('church', @church) %>");
+
+    <% if user_likes.include?(current_user) && likes.count == 1 %>
+        paragraph.text("You like this <%= like_pattern %>");
+    <% elsif user_likes.include?(current_user) && likes.count > 1 %>
+        paragraph.text("You and <%= likes.count - 1 %> more like this <%= like_pattern %>");
+    <% elsif !user_likes.include?(current_user) && likes.present? %>
+        paragraph.text("<%= likes.count %> like(s) for this <%= like_pattern %>");
+    <% else %>
+        paragraph.text('');
+    <% end %>
+<% elsif url.include?('school') %>
+    hearted.replaceWith("<%=j js_basic_hearted('school', @school) %>");
 
     <% if user_likes.include?(current_user) && likes.count == 1 %>
         paragraph.text("You like this <%= like_pattern %>");
