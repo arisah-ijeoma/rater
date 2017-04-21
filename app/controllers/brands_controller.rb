@@ -4,7 +4,7 @@ class BrandsController < ApplicationController
   before_action :rate_brand, only: [:rate, :rating]
 
   def index
-    @brands = Brand.all
+    @brands = Brand.all.paginate(page: params[:page], per_page: 7)
   end
 
   def new
