@@ -4,21 +4,20 @@
 <% url = request.original_url %>
 
 var paragraph = $('#like');
-var mini_paragraph = $('#mini_like');
 var hearted = $('.hearted');
-var mini_hearted = $('.mini-hearted');
 
 <% if url.include?('pastor') %>
-    mini_hearted.replaceWith("<%=j js_complex_hearted('church', 'pastor', @church, @pastor) %>");
+    var mini_like = $("#mini_like_pastor_<%= @pastor.id %>");
+    $(".mini-hearted-pastor-<%= @pastor.id %>").replaceWith("<%=j js_complex_hearted('church', 'pastor', @church, @pastor) %>");
 
     <% if user_likes.include?(current_user) && likes.count == 1 %>
-        mini_paragraph.text('You like this person');
+        mini_like.text('You like this person');
     <% elsif user_likes.include?(current_user) && likes.count > 1 %>
-        mini_paragraph.text("You and <%= likes.count - 1 %> more like this person");
+        mini_like.text("You and <%= likes.count - 1 %> more like this person");
     <% elsif !user_likes.include?(current_user) && likes.present? %>
-        mini_paragraph.text("<%= likes.count %> like(s) for this person");
+        mini_like.text("<%= likes.count %> like(s) for this person");
     <% else %>
-        mini_paragraph.text('');
+        mini_like.text('');
     <% end %>
 <% elsif url.include?('church') %>
     hearted.replaceWith("<%=j js_basic_hearted('church', @church) %>");
@@ -33,16 +32,17 @@ var mini_hearted = $('.mini-hearted');
         paragraph.text('');
     <% end %>
 <% elsif url.include?('lecturer') %>
-    mini_hearted.replaceWith("<%=j js_complex_hearted('school','lecturer', @school, @lecturer) %>");
+    var mini_like = $("#mini_like_pastor_<%= @lecturer.id %>");
+    $(".mini-hearted-lecturer-<%= @lecturer.id %>").replaceWith("<%=j js_complex_hearted('school','lecturer', @school, @lecturer) %>");
 
     <% if user_likes.include?(current_user) && likes.count == 1 %>
-        mini_paragraph.text('You like this person');
+        mini_like.text('You like this person');
     <% elsif user_likes.include?(current_user) && likes.count > 1 %>
-        mini_paragraph.text("You and <%= likes.count - 1 %> more like this person");
+        mini_like.text("You and <%= likes.count - 1 %> more like this person");
     <% elsif !user_likes.include?(current_user) && likes.present? %>
-        mini_paragraph.text("<%= likes.count %> like(s) for this person");
+        mini_like.text("<%= likes.count %> like(s) for this person");
     <% else %>
-        mini_paragraph.text('');
+        mini_like.text('');
     <% end %>
 <% elsif url.include?('school') %>
     hearted.replaceWith("<%=j js_basic_hearted('school', @school) %>");

@@ -8,7 +8,7 @@
     <td>
       <%= pastor.name %>
       <br>
-      <%= complex_like_message(user_likes, current_user, likes.count) %>
+      <%= complex_like_message(user_likes, current_user, likes.count, pastor) %>
     </td>
     <td class="show-avatar">
       <%= avatar_tag(pastor, :headshot) %>

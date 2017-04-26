@@ -90,15 +90,15 @@ module ApplicationHelper
     end
   end
 
-  def complex_like_message(likes, user, count)
+  def complex_like_message(likes, user, count, type)
     if likes.include?(user) && count == 1
-      '<p id="mini_like">You like this person</p>'.html_safe
+      "<p class='mini-like' id='mini_like_#{type.class.name.downcase}_#{type.id}'>You like this person</p>".html_safe
     elsif likes.include?(user) && count > 1
-      "<p id='mini_like'>You and #{likes.count - 1} more like this person</p>".html_safe
+      "<p class='mini-like' id='mini_like_#{type.class.name.downcase}_#{type.id}'>You and #{likes.count - 1} more like this person</p>".html_safe
     elsif !likes.include?(user) && count > 0
-      "<p id='mini_like'>#{likes.count} like(s) for this person</p>".html_safe
+      "<p class='mini-like' id='mini_like_#{type.class.name.downcase}_#{type.id}'>#{likes.count} like(s) for this person</p>".html_safe
     else
-      '<p id="mini_like"></p>'.html_safe
+      "<p class='mini-like' id='mini_like_#{type.class.name.downcase}_#{type.id}'></p>".html_safe
     end
   end
 
@@ -120,12 +120,12 @@ module ApplicationHelper
     if user
       if heart.present?
         if heart.like?
-          link_to '<i class="fa fa-heart" aria-hidden="true"></i>'.html_safe, send("#{parent}_#{type}_unlike_path", _type, _type_2), class: 'mini-hearted', remote: true, method: :put
+          link_to '<i class="fa fa-heart" aria-hidden="true"></i>'.html_safe, send("#{parent}_#{type}_unlike_path", _type, _type_2), class: "mini-hearted-#{_type_2.class.name.downcase}-#{_type_2.id} mini-hearted", remote: true, method: :put
         else
-          link_to '<i class="fa fa-heart-o" aria-hidden="true"></i>'.html_safe, send("#{parent}_#{type}_like_path", _type, _type_2), class: 'mini-hearted', remote: true, method: :put
+          link_to '<i class="fa fa-heart-o" aria-hidden="true"></i>'.html_safe, send("#{parent}_#{type}_like_path", _type, _type_2), class: "mini-hearted-#{_type_2.class.name.downcase}-#{_type_2.id} mini-hearted", remote: true, method: :put
         end
       else
-        link_to '<i class="fa fa-heart-o" aria-hidden="true"></i>'.html_safe, send("#{parent}_#{type}_like_path", _type, _type_2), class: 'mini-hearted', remote: true, method: :put
+        link_to '<i class="fa fa-heart-o" aria-hidden="true"></i>'.html_safe, send("#{parent}_#{type}_like_path", _type, _type_2), class: "mini-hearted-#{_type_2.class.name.downcase}-#{_type_2.id} mini-hearted", remote: true, method: :put
       end
     end
   end
@@ -157,11 +157,11 @@ module ApplicationHelper
   end
 
   def js_complex_hearted(parent, type, _type, _type_2)
-    link_to '<i class="fa fa-heart" aria-hidden="true"></i>'.html_safe, send("#{parent}_#{type}_unlike_path", _type, _type_2), class: 'mini-hearted', remote: true, method: :put
+    link_to '<i class="fa fa-heart" aria-hidden="true"></i>'.html_safe, send("#{parent}_#{type}_unlike_path", _type, _type_2), class: "mini-hearted-#{_type_2.class.name.downcase}-#{_type_2.id} mini-hearted", remote: true, method: :put
   end
 
   def js_complex_unhearted(parent, type, _type, _type_2)
-    link_to '<i class="fa fa-heart-o" aria-hidden="true"></i>'.html_safe, send("#{parent}_#{type}_like_path", _type, _type_2), class: 'mini-hearted', remote: true, method: :put
+    link_to '<i class="fa fa-heart-o" aria-hidden="true"></i>'.html_safe, send("#{parent}_#{type}_like_path", _type, _type_2), class: "mini-hearted-#{_type_2.class.name.downcase}-#{_type_2.id} mini-hearted", remote: true, method: :put
   end
 
   def check_website(class_name)
